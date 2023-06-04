@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGLO_Colombia</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
+</head>
+
+<body>
+
+    <div>
+        <header class="header">
+            <figure>
+                <img src="../static/images/logo.png" th:src="@{/images/logo.png}">
+            </figure>
+        </header>
+        <nav  class="menu">
+            <ul>
+                <li><a href="#" th:href="@{/login}">Login</a></li>
+                <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
+                <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
+                <li><a href="#" th:href="@{/help}">Ayuda</a></li>
+            </ul>
+        </nav>
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <th>CODIGO</th>
+                    <th>REFERENCIA</th>
+                    <th>NOMBRE</th>
+                    <th>MARCA</th>
+                    <th>PRECIO</th>
+                    <th>DESCRIPCION</th>
+                </tr>
+                </thead>
+                <tbody  th:each="producto: ${productos}">
+                <tr>
+                    <td th:text="${producto.codigo}"></td>
+                    <td th:text="${producto.referencia}"></td>
+                    <td th:text="${producto.nombre}"></td>
+                    <td th:text="${producto.marca}"></td>
+                    <td th:text="${producto.precio}"></td>
+                    <td th:text="${producto.descripcion}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+       
+
+        <footer class="pie">
+            <ul>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="../static/css/estilos.css"  th:href="@{/css/estilos.css}" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+
+</body>
+
+</html>

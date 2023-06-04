@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGLO_Colombia</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
+</head>
+
+<body>
+
+    <div>
+        <header class="header">
+            <figure>
+                <img src="../static/images/logo.png" th:src="@{/images/logo.png}" >
+            </figure>
+        </header>
+        <nav  class="menu">
+            <ul>
+                <li><a href="#" th:href="@{/login}">Login</a></li>
+                <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
+                <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
+                <li><a href="#" th:href="@{/help}">Ayuda</a></li>
+            </ul>
+        </nav>
+        <section class="seccion">
+            <article>
+                <div class="contenedor">
+                    <div class="tarjeta">
+                        <figure>
+                            <img src="../static/images/ILUMINACI_N_INT.jpg" th:src="@{/images/ILUMINACI_N_INT.jpg}">
+                        </figure>
+                        <div class="contenido">
+                            <h3>Iliminación Interior</h3>
+                            <p>La mejor iluminación interior que puedes encontrar para tu hogar en Colombia. Cada habitación es única, un lugar de descanso o espacio de trabajo, decora con lámparas de mesa y encuentra tu estilo persona</p>
+                            <a href="#">Leer más</a>
+                        </div>
+                     </div>
+                     <div class="tarjeta">
+                        <figure>
+                            <img src="../static/images/ILUMINACION_EXT.jpg" th:src="@{images/ILUMINACION_EXT.jpg}">
+                        </figure>
+                        <div class="contenido">
+                            <h3>Iluminación Exterior</h3>
+                            <p>¿A ciegas en la oscuridad para abrir la puerta? Eso es cosa del pasado. Es bastante fácil durante el día, cuando el sol está fuera. Por la noche o incluso al anochecer, se convierte en "Misión imposible". Encuentra en EGLO tus lámparas de exterior.</p>
+                            <a href="#">Leer más</a>
+                        </div>
+                     </div>
+                     <div class="tarjeta">
+                        <figure>
+                            <img src="../static/images/L_MPARAS_DE_CRIS.jpg" th:src="@{/images/L_MPARAS_DE_CRIS.jpg}">
+                        </figure>
+                        <div class="contenido">
+                            <h3>Lámparas de Cristal</h3>
+                            <p>Encima de la mesa o colgando del techo. No importa dónde coloques tu lámpara de cristal. Estamos seguros de que sea donde sea, será el centro de todas las miradas.Y si eres un fan de las últimas tendencias, elige lámparas con la pantalla o la base en cristal transparente ya sean éstas en estilo minimalista, clásico o super estructurado.</p>
+                            <a href="*">Leer más</a>
+                        </div>
+                     </div>
+                </div>
+            </article>
+                    
+               
+        
+        </section>
+        <aside class="columna">
+            <blockquote>
+                ¿Cómo iluminar correctamente tu sala de estar?
+            </blockquote>
+            <blockquote>
+                Consejos e ideas para iluminación de terrazas y jardines
+            </blockquote>
+            <blockquote>
+                Color claro. ¿Cómo de cálido le gustaría que fuera?
+            </blockquote>
+            <blockquote>
+                Consejos de iluminación EGLO
+            </blockquote>
+            <blockquote>
+                Conoce más sobre la luz
+            </blockquote>            
+            <blockquote>
+                ¿Necesitas más inspiración?
+            </blockquote>
+        </aside>
+        <footer class="pie">
+            <ul>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}"  class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+
+</body>
+
+</html>

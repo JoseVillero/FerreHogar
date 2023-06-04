@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" href="../static/css/estilosResgistro.css" th:href="@{/css/estilosResgistro.css}">
+</head>
+
+<body>
+    
+    <form class="formulario">
+        <h1>Registrate</h1>
+        <div class="contenedor">
+
+            <div class="input-contenedor">
+                <i class="fa-solid fa-user icon"></i>
+                <input type="text" placeholder="Nombre Completo ">
+            </div>
+            <div class="input-contenedor">
+                <i class="fa-solid fa-phone icon"></i>
+                <input type="text" placeholder="Telefono">
+            </div>
+            <div class="input-contenedor">
+                <i class="fa-solid fa-envelope icon"></i>
+                <input type="text" placeholder="Correo electronico">
+            </div>
+            <div class="input-contenedor">
+                <i class="fa-solid fa-key icon"></i>
+                <input type="password" placeholder="Contraseña">
+            </div>
+            <div class="input-contenedor">
+                <i class="fa-solid fa-key icon"></i>
+                <input type="password" placeholder="Confirmar Contraseña">
+            </div>
+            <input type="submit" value="Registrate" class="botton">
+            <p>Al registarte, aceptas nuestras condiciones de uso y políticas de privacidad.</p>
+            <p>¿Ya tienes una cuenta?<a class="link" href="#" th:href="@{/login}"> Iniciar Sesión</a></p>
+        </div>
+    </form>
+</body>
+
+</html>
