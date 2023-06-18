@@ -22,11 +22,14 @@
         </header>
         <nav  class="menu">
             <ul>
-                <li><a href="#" th:href="@{/login}">Login</a></li>
+            	<li><a href="#" th:href="@{/}">Home</a></li>
                 <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
                 <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                 <li><a href="#" th:href="@{/help}">Ayuda</a></li>
             </ul>
+            <form th:action="@{/logout}" method="post">
+                <button class="btn btn-info btn-block my-4" ><span> Logout</span></button>
+            </form>
         </nav>
         <section class="seccion">
             <article>

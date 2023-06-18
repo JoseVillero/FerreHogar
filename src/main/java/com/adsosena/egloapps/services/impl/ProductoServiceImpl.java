@@ -1,6 +1,6 @@
 package com.adsosena.egloapps.services.impl;
 
-import com.adsosena.egloapps.components.converters.ProductConverter;
+import com.adsosena.egloapps.components.converters.ProductoConverter;
 import com.adsosena.egloapps.entities.Producto;
 import com.adsosena.egloapps.models.ProductoModel;
 import com.adsosena.egloapps.repositories.ProductoRepository;
@@ -20,13 +20,13 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public List<ProductoModel> listarProductos() {
 
-        ProductConverter productConverter = new ProductConverter();
+        ProductoConverter productoConverter = new ProductoConverter();
         List<ProductoModel> productos = new ArrayList<>();
         List<Producto> productoList = productoRepository.findAll();
         System.out.println(productoList);
 
         for (Producto producto : productoList) {
-            productos.add(productConverter.productoToProductoModel(producto));
+            productos.add(productoConverter.productoToProductoModel(producto));
         }
         return productos;
     }

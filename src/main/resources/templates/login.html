@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{css/bootstrap.css}">
     <link rel="stylesheet" href="../static/css/estilosResgistro.css" th:href="@{/css/estilosResgistro.css}">
@@ -14,23 +14,52 @@
 
 <body>
 
-    <form class="formulario">
-        <h1>Login</h1>
-        <div class="contenedor">
+	<div>
+        <header class="header">
+            <figure>
+                <img src="../static/images/logo.png" th:src="@{/images/logo.png}">
+            </figure>
+        </header>
+        <nav  class="menu">
+            <ul>
+            	<li><a href="#" th:href="@{/}">Home</a></li>
+                <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
+                <li><a href="#" th:href="@{/help}">Ayuda</a></li>
+            </ul>
+        </nav>
+        <div th:if="${param.error}" class="alert alert-danger" role="alert"> Usuario o contraseña invalida </div>
+        <div th:if="${param.logout}" class="alert alert-info" role="alert"> Se ha cerrado sesión correctamente</div>
+        <form class="formulario" th:action="@{/login}" method="post">
+        	<h1>Inicia sesión</h1>
+        	<div class="contenedor">
 
-            <div class="input-contenedor">
-                <i class="fa-solid fa-envelope icon"></i>
-                <input type="text" placeholder="Correo electronico">
-            </div>
-            <div class="input-contenedor">
-                <i class="fa-solid fa-key icon"></i>
-                <input type="password" placeholder="Contraseña">
-            </div>
-            <input type="submit" value="Login" class="botton">
-            <p>Al registarte, aceptas nuestras condiciones de uso y políticas de privacidad.</p>
-            <p>¿No tienes una cuenta?<a class="link" href="#" th:href="@{/registro}"> Registrarse</a></p>
-        </div>
-    </form>
-
+            	<div class="input-contenedor">
+                	<i class="fa-solid fa-envelope icon"></i>
+                    <label>
+                        <input type="text" placeholder="Correo electronico" name="username"/>
+                    </label>
+                </div>
+            	<div class="input-contenedor">
+                	<i class="fa-solid fa-key icon"></i>
+                    <label>
+                        <input type="password" placeholder="Contraseña" name="password"/>
+                    </label>
+                </div>
+            	<input type="submit" value="Login" class="botton">
+            	<p>Al registarte, aceptas nuestras condiciones de uso y políticas de privacidad.</p>
+            	<p>¿No tienes una cuenta?<a class="link" href="#" th:href="@{/registro}"> Registrarse</a></p>
+       		</div>
+    	</form>
+    	<footer class="pie">
+            <ul>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="../static/css/estilos.css"  th:href="@{/css/estilos.css}" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+            </ul>
+     	</footer>
+	</div>
+	
 </body>
 </html>
