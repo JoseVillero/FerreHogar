@@ -8,6 +8,11 @@ import lombok.Setter;
 
 import java.util.Set;
 
+
+/**Clase producto:
+ * Esta clase representa una entidad (tabla) en la base de datos.
+ * Los atributos son representados como columnas en la base de datos
+ * @author Jose David */
 @Entity
 @Getter
 @Setter

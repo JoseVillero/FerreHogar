@@ -7,6 +7,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**Clase producto:
+ * Esta clase representa una entidad (tabla) en la base de datos.
+ * Los atributos son representados como columnas en la base de datos
+ * @author Jose David */
+
 @Entity
 @Table(name = "productos")
 @Setter
