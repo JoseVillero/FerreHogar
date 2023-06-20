@@ -115,6 +115,32 @@ h3{
     font-weight: 400;
     margin-bottom: 15px;
 }
+table{
+	width: 90%;
+	margin : 40px auto;
+	background : #f3eeee;
+	text-align: center;
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.6);
+
+}
+
+thead {
+	background: #555555;
+    color:white;
+    font-weight: bold;
+}
+td,th {
+    border: 1px solid #C1c3d1;
+    padding: 8px 15px;
+}
+tbody:hover tr{
+	background-color : #3bada4;;
+	color : #fff;
+	border-top: 1px solid #33a198;
+}
+.descripcion{
+	text-align: left;
+}
 .contenido a{
     text-decoration: none;
     display: inline-block;
