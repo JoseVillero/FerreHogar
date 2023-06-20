@@ -8,8 +8,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.HashSet;
 
+/**
+ * Clase UsuarioConverter:
+ * Brinda metodos que permite convertir un objeto de una clase modelo(una clase java estandar)
+ * en un objeto de una entidad (una clase que representa una tabla)
+ * @author Jose David */
 public class UsuarioConverter {
 
+    /**Metodo usuarioModelToUsuario:
+     * permite convertir un objeto UsuarioModel (objeto java) a un objeto Usuario para persistencia en base de datos
+     * @param usuarioModel de tipo UsuarioModel
+     * @return Usuario*/
     public Usuario usuarioModelToUsuario(UsuarioModel usuarioModel){
 
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

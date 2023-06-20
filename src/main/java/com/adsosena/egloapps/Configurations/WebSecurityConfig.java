@@ -11,7 +11,8 @@ import org.springframework.security.config.annotation.web.configurers.LogoutConf
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-
+/**Clase WebSecurityConfig: Esta clase permite configurar Spring Security
+ * @author Jose David */
 
 @Configuration
 @EnableWebSecurity

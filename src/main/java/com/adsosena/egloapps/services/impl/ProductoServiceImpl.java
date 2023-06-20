@@ -11,12 +11,20 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**Clase ProductoServiceImpl: Esta clase ejecuta los servicios
+ * es decir contiene la logica de negocio de la aplicacion.
+ * Esta clase implementa la interface ProductoService, dicha interface
+ * tiene metodos declados. La clase ProductoServiceImpl sobreescribe los metodos heredados de la interface
+ * @author Jose David */
 @Service
 public class ProductoServiceImpl implements ProductoService {
 
     @Autowired
     ProductoRepository productoRepository;
 
+    /**Metodo listarProductos: Este metodo solicita al objeto del repositorio buscar todos
+     * los productos de la base de datos y retorna un listado de estos
+     * @return List<ProductoModel></>*/
     @Override
     public List<ProductoModel> listarProductos() {
 
