@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EGLO_Colombia</title>
+    <title>Usuarios</title>
     <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
     <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
@@ -41,9 +41,9 @@
             
         </nav>
         <div class="btnEdit">
-            <button>Editar producto</button>
-            <button>Agregar producto</button>
-            <button>Eliminar producto</button> 
+            <button>Editar usuario</button>
+            <button>Agregar usuario</button>
+            <button>Eliminar usuario</button> 
         </div>
 
 
@@ -51,12 +51,12 @@
             <table>
                 <thead>
                 <tr>
-                    <th>CODIGO</th>
-                    <th>REFERENCIA</th>
+                    <th>CORREO</th>
                     <th>NOMBRE</th>
-                    <th>MARCA</th>
-                    <th>PRECIO</th>
-                    <th>DESCRIPCION</th>
+                    <th>CONTRASEÑA</th>
+                    <th>TELEFONO</th>
+                    <th>TIPO USUARIO</th>
+                    <th>ACTIVO</th>
                 </tr>
                 </thead>
                 <tbody  th:each="producto: ${productos}">

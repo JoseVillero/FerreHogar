@@ -36,12 +36,22 @@ div{
     text-align: center;
     color: rgba(247, 248, 248, 0.938);
 }
-.menu{
-    background: rgba(14, 14, 14, 0.671);
-    padding: 5px 10px; 
-    margin: 10;    
+.principal{ 
+    display: flex;
+    padding: 20px;
+    height: 220px;
 }
-.menu li {
+.menuConfig{
+    background: #05a6d3;
+    align-items: center;
+    width: 90%;
+}
+.menuConfig, .menu {
+    background: rgba(14, 14, 14, 0.671);
+    padding: 40px 10px; 
+    margin: 10px;    
+}
+.menuConfig li, .menu li {
     display: inline-block;
     margin: 15px;
     padding: 10px;
@@ -50,6 +60,12 @@ div{
     transition: all 4ooms ease;
     cursor: pointer;
 }
+.menuConfig li:hover{
+    box-shadow: 5px 5px 20px rgb(0, 0, 0);
+    transform: translateX(-3%);
+    background: #ffffff;
+    color:#097792e7;
+} 
 .menu li:hover {
     box-shadow: 5px 5px 20px rgb(0, 0, 0);
     transform: translateX(-3%);
@@ -62,11 +78,46 @@ li a{
     text-decoration: none;
     color: #ffffff;
 }
+
+.usuario{
+    vertical-align: top;
+    padding: 0 0 0 0;
+    width: 10%;
+    background: #c8cecdde;
+    float: right;
+    border-radius: 15px;
+    
+}
+.usuario img{
+    padding: 10px;
+    width: 90px;
+}
+.btn {
+    background: #0ac0ee;
+    margin:  0 0 10px 0;
+    color: #ffffff;
+}
+.btnEdit button{
+    background: #15663d;
+    color: #ffffff;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    transition: 1s all ;
+    cursor: pointer;
+    
+}
+.btnEdit button:hover{
+    background: rgb(242, 244, 245);
+    color: #0f0f0f;
+    transform: scale(1.20);
+    border: 1px solid #15663d;
+}
 .seccion{
     margin: 3px;
     width: 70%;
     float: left;
-    
 }
 .contenedor{
     width: 100%;
@@ -179,6 +230,44 @@ tbody:hover tr{
     background: #2d3436;
     color:rgba(247, 248, 248, 0.938);
 
+}
+main{
+    width: 100%;
+    display:inline-block;
+}
+.pvm{
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    background:#f5f6f7;
+    color: #070707; 
+    border-radius: 20px;
+  
+}
+.pvm h1{
+    text-decoration: underline;
+}
+.pvm p{
+    text-align: left;
+    font-style: italic;                                                        
+}
+.mapa {
+    margin: 20px auto;
+    width: 80%;
+    padding: 3em 0;
+    background: linear-gradient(#f4f5f5f3, #656666ea);
+}
+
+.mapa p {
+    color: #1c8bd4;
+    font-weight: bold;
+    margin: 0 0 2em;
+    text-align: center;
+}
+
+.mapa-contenido {
+    width: auto;
+    margin: 0 auto;
 }
 .pie{
     clear: both;
