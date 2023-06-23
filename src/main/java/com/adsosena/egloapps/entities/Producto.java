@@ -47,4 +47,5 @@ public class Producto {
 
     @Column(name = "descripcion")
     private String descripcion;
+
 }
