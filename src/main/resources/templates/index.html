@@ -20,16 +20,25 @@
                 <img src="../static/images/logo.png" th:src="@{/images/logo.png}" >
             </figure>
         </header>
-        <nav  class="menu">
-            <ul>
-            	<li><a href="#" th:href="@{/}">Home</a></li>
-                <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
-                <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
-                <li><a href="#" th:href="@{/help}">Ayuda</a></li>
-            </ul>
-            <form th:action="@{/logout}" method="post">
-                <button class="btn btn-info btn-block my-4" ><span> Logout</span></button>
-            </form>
+        <nav class="principal" >
+            <nav class="menuConfig">
+                <ul>
+                    <li><a href="#" th:href="@{/}">Home</a></li>
+                    <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
+                    <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
+                    <li><a href="#" th:href="@{/help}">Gestionar Usuarios</a></li>
+                </ul>
+ 
+            </nav>
+            <nav class="usuario">
+                <img src="../static/images/user.png" th:src="@{/images/user.png}" >
+                <h2>Usuario</h2>
+                <form th:action="@{/logout}" method="post">
+                    <button class="btn btn-info btn-block my-4" ><span> Logout</span></button>
+                </form>
+            </nav>
+            
+            
         </nav>
         <section class="seccion">
             <article>

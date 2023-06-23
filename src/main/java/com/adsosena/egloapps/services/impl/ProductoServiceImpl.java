@@ -31,7 +31,6 @@ public class ProductoServiceImpl implements ProductoService {
         ProductoConverter productoConverter = new ProductoConverter();
         List<ProductoModel> productos = new ArrayList<>();
         List<Producto> productoList = productoRepository.findAll();
-        System.out.println(productoList);
 
         for (Producto producto : productoList) {
             productos.add(productoConverter.productoToProductoModel(producto));
