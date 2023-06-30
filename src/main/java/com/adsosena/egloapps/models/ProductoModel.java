@@ -11,7 +11,6 @@ import lombok.Setter;
  * en la entidad o ya esta convertido de una entidad
  * @author Jose David */
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductoModel {
@@ -30,4 +29,41 @@ public class ProductoModel {
 
     private String descripcion;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCodigo(int codigo) {
+        if(codigo > 100){
+            this.codigo = codigo;
+        }
+    }
+
+    public void setReferencia(String referencia) {
+        if(referencia != null && !referencia.isBlank()){
+            this.referencia = referencia;
+        }
+    }
+
+    public void setNombre(String nombre) {
+        if(nombre != null && !nombre.isBlank()){
+            this.nombre = nombre;
+        }
+    }
+
+    public void setMarca(String marca) {
+        if(marca != null && !marca.isBlank()){
+            this.marca = marca;
+        }
+    }
+
+    public void setPrecio(double precio) {
+        if(precio > 0){
+            this.precio = precio;
+        }
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }

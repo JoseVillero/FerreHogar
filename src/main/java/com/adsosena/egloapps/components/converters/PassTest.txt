@@ -1,2 +1,3 @@
-alonso@fake.com     pass123
-ruben@fake.com      ruben123
+alonso@fake.com     pass123         user
+ruben@fake.com      ruben123        user
+roman@fake.com    administrador123  admin

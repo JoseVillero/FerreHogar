@@ -9,5 +9,7 @@ public class ConstantesVistas {
     public static final String INDEX_VISTA = "index";
     public static final String LOGIN_VISTA = "login";
     public static final String REGISTRO_VISTA = "registro";
+    public static final String QUIENES_SOMOS_VISTA = "about";
+    public static final String USUARIOS_VISTA = "usuarios";
 
 }

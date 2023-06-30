@@ -40,7 +40,6 @@ class RegistroServiceImplTest {
 
         usuarioModel = new UsuarioModel();
         usuarioModel.setEmail("guillermo@fake.com");
-        usuarioModel.setRoles(roles);
         usuarioModel.setEmail("Guilleromo@fake.com");
         usuarioModel.setPassword("passwordTest");
         usuarioModel.setEnable(true);

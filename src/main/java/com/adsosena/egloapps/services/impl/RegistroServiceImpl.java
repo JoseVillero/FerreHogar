@@ -1,6 +1,7 @@
 package com.adsosena.egloapps.services.impl;
 
 import com.adsosena.egloapps.components.converters.UsuarioConverter;
+import com.adsosena.egloapps.entities.Usuario;
 import com.adsosena.egloapps.models.UsuarioModel;
 import com.adsosena.egloapps.repositories.UsuarioRepository;
 import com.adsosena.egloapps.services.RegistroService;
@@ -16,11 +17,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class RegistroServiceImpl implements RegistroService {
 
+    private final UsuarioRepository usuarioRepository;
+
+    private final UsuarioConverter usuarioConverter;
+
     @Autowired
-    UsuarioRepository usuarioRepository;
+    public RegistroServiceImpl(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+        this.usuarioConverter = new UsuarioConverter();
+    }
 
     /**Metodo consultarUsuarioPorId: Este metodo recibe un UsuarioModel, llama al repositorio de Usuario y solicita
-     * consultar si el usuario del UsuarioModel esta registrado en la base de datos
+     * consultar si el usuario del UsuarioModel está registrado en la base de datos
      * @param usuarioModel recibe un UsuarioModel con el fin de consultar si el usuario existe en base de datos
      * @return boolean - respuesta de la peticion si existe o no el usuario*/
     @Override
@@ -36,8 +44,21 @@ public class RegistroServiceImpl implements RegistroService {
     @Override
     public boolean registrarUsuario(UsuarioModel usuarioModel) {
 
-        UsuarioConverter usuarioConverter = new UsuarioConverter();
         return usuarioRepository.save(usuarioConverter.usuarioModelToUsuario(usuarioModel)) != null;
 
     }
+
+    @Override
+    public void agregarUsuario(UsuarioModel usuarioModel) {
+
+        usuarioRepository.save(usuarioConverter.agregarUsuario(usuarioModel));
+    }
+
+    @Override
+    public void eliminarUsuario(String id) {
+
+        usuarioRepository.deleteById(id);
+    }
+
+
 }

@@ -1,7 +1,9 @@
 package com.adsosena.egloapps.services.impl;
 
+import com.adsosena.egloapps.components.converters.UsuarioConverter;
 import com.adsosena.egloapps.entities.Rol;
 import com.adsosena.egloapps.entities.Usuario;
+import com.adsosena.egloapps.models.UsuarioModel;
 import com.adsosena.egloapps.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,10 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 
 /**Clase UsuarioServiceImpl: Esta clase ejecuta los servicios
@@ -27,7 +26,9 @@ import java.util.Set;
 public class UsuarioServiceImpl implements UserDetailsService {
 
     @Autowired
-    UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
+
+    private String fullName;
 
     /**Metodo loadUserByUsername : Metodo heredado de la interface. El metodo es sobre escrito e implemtado.
      * recibe una cadena con el nombre de usuario. El metodo llama al objeto de tipo UsuarioRepository.
@@ -36,7 +37,11 @@ public class UsuarioServiceImpl implements UserDetailsService {
      * @return UserDetails - este objeto contiene la informacion de la autorizacion y autenticacion del usuario*/
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return crearUser(usuarioRepository.findUsuarioByEmail(username));
+        Usuario usuario = usuarioRepository.findUsuarioByEmail(username);
+        if(usuario != null){
+            fullName = usuario.getNombreCompleto();
+        }
+        return crearUser(usuario);
     }
 
     /**Metodo crearUser : Metodo de apoyo. Recibe un objeto de tipo Usuario y lo convierte en un objeto User de
@@ -57,10 +62,23 @@ public class UsuarioServiceImpl implements UserDetailsService {
         Set<GrantedAuthority> authorities = new HashSet<>();
 
         for(Rol rol: roles){
-            authorities.add(new SimpleGrantedAuthority(rol.name()));
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + rol.name()));
         }
 
         return new ArrayList<>(authorities);
     }
+    public List<UsuarioModel> listarUsuarios(){
+        UsuarioConverter usuarioConverter = new UsuarioConverter();
+        List<UsuarioModel> usuarioModelList = new ArrayList<>();
 
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        for(Usuario usuario: usuarios){
+            usuarioModelList.add(usuarioConverter.usuarioToUsuarioModel(usuario));
+        }
+        return usuarioModelList;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
 }

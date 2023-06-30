@@ -35,7 +35,11 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityWebFilterChain(HttpSecurity http)throws Exception{
 
         http
-                .authorizeHttpRequests((authorize) -> authorize.requestMatchers("/css/**", "/images/**", "/registro", "/registrar").permitAll().anyRequest().authenticated())
+                .authorizeHttpRequests((authorize) -> authorize.requestMatchers("/css/**", "/images/**", "/registro", "/registrar").permitAll()
+                        .requestMatchers("/usuarios").hasRole("ADMIN")
+                        .requestMatchers("/catalogo/agregar-producto").hasRole("ADMIN")
+                        .requestMatchers("/usuarios/agregar-usuario").hasRole("ADMIN")
+                        .anyRequest().authenticated())
                 .formLogin((form) -> form.loginPage("/login").permitAll())
                 .logout(LogoutConfigurer::permitAll)
                 .authenticationProvider(authenticationProvider());

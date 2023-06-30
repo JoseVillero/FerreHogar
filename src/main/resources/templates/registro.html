@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -25,7 +24,6 @@
             	<li><a href="#" th:href="@{/}">Home</a></li>
                 <li><a href="#" th:href="@{/login}">Login</a></li>
                 <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
-                <li><a href="#" th:href="@{/help}">Ayuda</a></li>
             </ul>
         </nav>
 		<div th:if="${existe}" class="alert alert-danger" role="alert"> Error en el registro: el usuario ya existe. </div>
@@ -36,19 +34,27 @@
 
             	<div class="input-contenedor">
                 	<i class="fa-solid fa-user icon"></i>
-                	<input type="text" placeholder="Nombre Completo" th:field="*{nombreCompleto}">
+                	<input type="text" name="name" pattern="[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\s]{4,20}"
+						   title="El nombre debe tener minimo 4 letras, no puede contener numeros o caracteres especiales"
+						   placeholder="Nombre Completo" required th:field="*{nombreCompleto}">
             	</div>
             	<div class="input-contenedor">
                 	<i class="fa-solid fa-phone icon"></i>
-                	<input type="text" placeholder="Telefono" th:field="*{telefono}">
+                	<input type="tel" pattern="[0-9]{5,10}" placeholder="Telefono"
+						   title="El telefono debe tener minimo 5 numeros. Solo se permiten caracteres numericos"
+						   required th:field="*{telefono}">
             	</div>
             	<div class="input-contenedor">
                 	<i class="fa-solid fa-envelope icon"></i>
-                	<input type="text" placeholder="Correo electronico" th:field="*{email}">
+                	<input type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+						   placeholder="Correo electronico" required th:field="*{email}">
             	</div>
             	<div class="input-contenedor">
                 	<i class="fa-solid fa-key icon"></i>
-                	<input type="password" placeholder="Contraseña" th:field="*{password}">
+                	<input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+						   title="Debe contener al menos un numero y una letra en minuscula
+						   y una letra en mayuscula, y 8 caracteres o mas."
+						   placeholder="Contraseña" required th:field="*{password}">
             	</div>
             	<input type="submit" value="Registrate" class="botton">
             	<p>Al registarte, aceptas nuestras condiciones de uso y políticas de privacidad.</p>

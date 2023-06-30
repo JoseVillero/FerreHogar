@@ -9,6 +9,7 @@
     <title>EGLO_Colombia</title>
     <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
     <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
 </head>
 
@@ -20,32 +21,61 @@
                 <img src="../static/images/logo.png" th:src="@{/images/logo.png}">
             </figure>
         </header>
+        <div th:if="${guardado}" class="alert alert-success" role="alert"> Producto agregado correctamente </div>
+        <div th:if="${noGuardado}" class="alert alert-danger" role="alert"> Error: Los campos codigo, referencia,<br>
+        nombre, marca, o precio no pueden estar vacios</div>
+
         <nav class="principal" >
             <nav class="menuConfig">
                 <ul>
                     <li><a href="#" th:href="@{/}">Home</a></li>
                     <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
                     <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
-                    <li><a href="#" th:href="@{/help}">Gestionar Usuarios</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
                 </ul>
  
             </nav>
             <nav class="usuario">
                 <img src="../static/images/user.png" th:src="@{/images/user.png}" >
-                <h2>Usuario</h2>
+                <h2 th:text="${fullName}">Usuario</h2>
+                <h2 sec:authentication="principal.authorities">User</h2>
                 <form th:action="@{/logout}" method="post">
                     <button class="btn btn-info btn-block my-4" ><span> Logout</span></button>
                 </form>
             </nav>
-            
-            
         </nav>
-        <div class="btnEdit">
+        <div class="btnEdit" sec:authorize="hasRole('ADMIN')">
             <button>Editar producto</button>
-            <button>Agregar producto</button>
-            <button>Eliminar producto</button> 
-        </div>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#agregarProductoModal">
+                Agregar producto
+            </button>
+            <div class="modal fade" id="agregarProductoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Producto</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="#" th:action="@{/catalogo/agregar-producto}"  th:object="${productoModel}" method="post">
+                                <label >Codigo <input required type="number" placeholder="Codigo" th:field="*{codigo}" ></label>
+                                <label >Referencia <input required type="text" placeholder="Referencia" th:field="*{referencia}"></label>
+                                <label >Nombre <input required type="text" placeholder="Nombre" th:field="*{nombre}"></label>
+                                <label >Marca <input required type="text"placeholder="Marca" th:field="*{marca}"></label>
+                                <label >Precio <input required type="number" step="any" placeholder="Precio" th:field="*{precio}"></label>
+                                <label >Descripcion <textarea placeholder="Descripcion" th:field="*{descripcion}"></textarea></label>
+                                <button type="submit">Guardar</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button>Eliminar producto</button>
 
+        </div>
 
         <div class="table">
             <table>
@@ -72,8 +102,6 @@
             </table>
         </div>
 
-       
-
         <footer class="pie">
             <ul>
                 <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
@@ -84,6 +112,7 @@
             </ul>
         </footer>
     </div>
+
 
 </body>
 
