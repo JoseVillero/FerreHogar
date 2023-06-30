@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UsuarioController {
-
     @Autowired
     private UsuarioServiceImpl usuarioService;
 
@@ -31,7 +30,6 @@ public class UsuarioController {
         model.addAttribute("admin",Rol.ADMIN);
         model.addAttribute("usuario", new UsuarioModel());
         model.addAttribute("fullName", usuarioService.getFullName());
-        model.addAttribute("usuarioId", "usuario");
         model.addAttribute("listaUsuario", usuarioService.listarUsuarios());
 
         return ConstantesVistas.USUARIOS_VISTA;
@@ -53,7 +51,6 @@ public class UsuarioController {
     @PostMapping ("/usuarios/eliminar")
     public String eliminarUsuario(@RequestParam(name = "id", required = true) String id){
 
-        //System.out.println(id);
        registroService.eliminarUsuario(id);
         return "redirect:/usuarios";
     }
