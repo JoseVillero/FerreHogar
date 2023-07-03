@@ -3,6 +3,7 @@ package com.adsosena.egloapps.controllers;
 
 import com.adsosena.egloapps.constants.ConstantesVistas;
 import com.adsosena.egloapps.models.ProductoModel;
+import com.adsosena.egloapps.services.ImagenService;
 import com.adsosena.egloapps.services.ProductoService;
 import com.adsosena.egloapps.services.impl.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 
 /**Clase CatalogoController: Esta clase es un controlador que maneja los endpoint o rutas
@@ -25,6 +27,9 @@ public class CatalogoController {
 
     @Autowired
     private UsuarioServiceImpl usuarioService;
+
+    @Autowired
+    private ImagenService imagenService;
 
 
     /**Metodo mostrarCatalgo: controla la peticion al recurso /catologo. Llama al servicio y le solicita listar
@@ -45,11 +50,16 @@ public class CatalogoController {
     }
 
     @PostMapping("/catalogo/agregar-producto")
-    public String agregarProducto(@ModelAttribute ProductoModel productoModel){
+    public String agregarProducto(@ModelAttribute ProductoModel productoModel, @RequestParam(name = "imagenFile") MultipartFile imagen){
 
         try {
-            if (productoModel != null){
-                productoService.agregarProducto(productoModel);
+            if (productoModel != null && imagen != null){
+
+                String imagenUrl = imagenService.guardarImagen(imagen);
+                if(!imagenUrl.isBlank()){
+                    productoModel.setImagen(imagenUrl);
+                    productoService.agregarProducto(productoModel);
+                }
                 return "redirect:/catalogo?true";
             }
         } catch (Exception exception){

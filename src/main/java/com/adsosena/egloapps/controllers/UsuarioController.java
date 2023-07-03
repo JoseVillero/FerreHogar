@@ -38,6 +38,8 @@ public class UsuarioController {
     @PostMapping("/usuarios/agregar-usuario")
     public String agregarUsuario(@ModelAttribute UsuarioModel usuarioModel){
 
+        System.out.println(usuarioModel);
+
         try {
             if(usuarioModel != null){
                 registroService.agregarUsuario(usuarioModel);

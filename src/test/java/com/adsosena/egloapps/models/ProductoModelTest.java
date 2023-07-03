@@ -17,7 +17,7 @@ class ProductoModelTest {
     void setUp() {
 
         productoModel = new ProductoModel(6,203,"LAMPARA CRISTAL", "LAMPARA DE COMEDOR",
-                "EGLO",174000.05,"DESCRIPTION TEST");
+                "EGLO",174000.05,"DESCRIPTION TEST", "http//fakeimagen.com");
 
         productoModel2 = new ProductoModel();
 

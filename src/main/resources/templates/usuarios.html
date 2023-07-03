@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+    <!-- Logo header -->
     <div>
         <header class="header">
             <figure>
@@ -117,8 +117,12 @@
                     <td th:text="${_usuario.roles}"></td>
                     <td th:text="${_usuario.enable}"></td>
                     <td>
+                        <!-- Edit Button (trigger) -->
+                        <button type="button" th:id="'botonEdit-' + ${iterStat.index}" class="btn btn-dark" data-bs-toggle="modal" th:data-bs-target="'#modalEdit' + ${iterStat.index} ">
+                            Editar
+                        </button>
                         <!-- Delete Button (trigger) -->
-                        <button type="button" th:id="'boton-' + ${iterStat.index}" class="btn btn-danger" data-bs-toggle="modal" th:data-bs-target="'#modal' + ${iterStat.index} ">
+                        <button type="button" th:id="'botonEliminar-' + ${iterStat.index}" class="btn btn-danger" data-bs-toggle="modal" th:data-bs-target="'#modalEliminar' + ${iterStat.index} ">
                             Eliminar
                         </button>
                     </td>
@@ -128,7 +132,7 @@
         </div>
         <!-- Modal for Delete -->
         <div th:each="_usuario, iterStat : ${listaUsuario}">
-            <div class="modal fade" th:id="'modal' + ${iterStat.index}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hidden="true">
+            <div class="modal fade" th:id="'modalEliminar' + ${iterStat.index}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -145,6 +149,53 @@
                                 <input type="hidden" name="id" th:value="${_usuario.email}">
                                 <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliminarModal">Confirmar</button>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Edit -->
+        <div th:each="_usuario, iterStat : ${listaUsuario}">
+            <div class="modal fade" th:id="'modalEdit' + ${iterStat.index}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropsLabel1">Editar usuario</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <th:block th:with="correo=${_usuario.email}">
+                                <form action="#" th:action="@{/usuarios/agregar-usuario}"  th:object="${usuario}" method="post">
+                                    <label >Correo: <span th:text="${_usuario.email}"></span>
+                                        <input type="hidden" th:value="${correo}" name="email" id="email">
+                                    </label>
+                                    <label >Nombre completo <input required type="text"
+                                                                   pattern="[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\s]{4,20}"
+                                                                   title="El nombre debe tener minimo 4 letras, no puede contener numeros o caracteres especiales"
+                                                                   placeholder="Nombre completo" th:field="*{nombreCompleto}"></label>
+                                    <label >Password <input required type="password" placeholder="Password"
+                                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                            title="Debe contener al menos un numero y una letra en minuscula
+                                                        y una letra en mayuscula, y 8 caracteres o mas."
+                                                            th:field="*{password}"></label>
+                                    <label >Teléfono <input required type="text" placeholder="Teléfono"
+                                                            pattern="[0-9]{5,10}"
+                                                            title="El telefono debe tener minimo 5 numeros. Solo se permiten caracteres numericos"
+                                                            th:field="*{telefono}"></label>
+                                    <label>Activado <br>
+                                        <input type="radio" name="enable" value="true" checked th:checked="${usuario.enable}"> SI
+                                        <input type="radio" name="enable" value="false" th:checked="${!usuario.enable}"> NO
+                                    </label><br>
+                                    <label >Rol<br>
+                                        <input type="radio" name="roles" value="ADMIN" checked th:checked="${usuario.getRoles().add(admin)}"> Administrador
+                                        <input type="radio" name="roles" value="USER" th:checked="${usuario.getRoles().add(user)}"> Usuario
+                                    </label>
+                                    <button type="submit">Guardar</button>
+                                </form>
+                            </th:block>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
                 </div>

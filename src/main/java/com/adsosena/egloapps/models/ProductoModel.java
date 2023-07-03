@@ -8,7 +8,7 @@ import lombok.Setter;
 /**Clase ProductoModel:
  * Esta clase representa un modelo de una entidad(tabla) de la base de datos.
  * Un modelo es un objeto intermedio que puede representar un objeto de la entidad. Ya sea para convertirse
- * en la entidad o ya esta convertido de una entidad
+ * en la entidad o ya está convertido de una entidad
  * @author Jose David */
 @Getter
 @NoArgsConstructor
@@ -28,6 +28,9 @@ public class ProductoModel {
     private double precio;
 
     private String descripcion;
+
+    private String imagen;
+
 
     public void setId(int id) {
         this.id = id;
@@ -65,5 +68,25 @@ public class ProductoModel {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public void setImagen(String imagen) {
+        if(imagen != null && !imagen.isBlank()){
+            this.imagen = imagen;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "ProductoModel{" +
+                "id=" + id +
+                ", codigo=" + codigo +
+                ", referencia='" + referencia + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", marca='" + marca + '\'' +
+                ", precio=" + precio +
+                ", descripcion='" + descripcion + '\'' +
+                ", imagen='" + imagen + '\'' +
+                '}';
     }
 }
