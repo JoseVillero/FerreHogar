@@ -3,7 +3,6 @@ package com.adsosena.egloapps.models;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**Clase ProductoModel:
  * Esta clase representa un modelo de una entidad(tabla) de la base de datos.

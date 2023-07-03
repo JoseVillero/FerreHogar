@@ -51,7 +51,7 @@ public class UsuarioController {
         return "usuarios";
     }
     @PostMapping ("/usuarios/eliminar")
-    public String eliminarUsuario(@RequestParam(name = "id", required = true) String id){
+    public String eliminarUsuario(@RequestParam(name = "id") String id){
 
        registroService.eliminarUsuario(id);
         return "redirect:/usuarios";
