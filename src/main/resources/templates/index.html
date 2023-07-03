@@ -30,16 +30,18 @@
                 </ul>
  
             </nav>
+            <nav class="totalAgregado">
+                <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+            </nav>
             <nav class="usuario">
                 <img src="../static/images/user.png" th:src="@{/images/user.png}" >
                 <h2 th:text="${fullName}">Usuario</h2>
                 <h2 sec:authentication="principal.authorities">User</h2>
                 <form th:action="@{/logout}" method="post">
-                    <button class="btn btn-info btn-block my-4" ><span> Logout</span></button>
+                    <button class="btn" ><span> Logout</span></button>
                 </form>
-            </nav>
-            
-            
+            </nav>  
         </nav>
         <section class="seccion">
             <article>
@@ -48,65 +50,71 @@
                         <figure>
                             <img src="../static/images/ILUMINACI_N_INT.jpg" th:src="@{/images/ILUMINACI_N_INT.jpg}">
                         </figure>
-                        <div class="contenido">
-                            <h3>Iliminación Interior</h3>
-                            <p>La mejor iluminación interior que puedes encontrar para tu hogar en Colombia. Cada habitación es única, un lugar de descanso o espacio de trabajo, decora con lámparas de mesa y encuentra tu estilo persona</p>
-                            <a href="#">Leer más</a>
+                        <div class="contenido-tarjeta">
+                            <div class="titulo-tarjeta">
+                                <h3>Iliminación Interior</h3>
+                                <p>La mejor iluminación interior que puedes encontrar para tu hogar en Colombia. Cada habitación es única, un lugar de descanso o espacio de trabajo, decora con lámparas de mesa y encuentra tu estilo persona</p>
+                            </div>
+                            <div class="link">
+                                <a href="https://www.homify.es/magazine/iluminacion/iluminacion-interior">Leer más</a>
+                            </div>
+                            
                         </div>
                      </div>
                      <div class="tarjeta">
                         <figure>
                             <img src="../static/images/ILUMINACION_EXT.jpg" th:src="@{images/ILUMINACION_EXT.jpg}">
                         </figure>
-                        <div class="contenido">
-                            <h3>Iluminación Exterior</h3>
-                            <p>¿A ciegas en la oscuridad para abrir la puerta? Eso es cosa del pasado. Es bastante fácil durante el día, cuando el sol está fuera. Por la noche o incluso al anochecer, se convierte en "Misión imposible". Encuentra en EGLO tus lámparas de exterior.</p>
-                            <a href="#">Leer más</a>
+                        <div class="contenido-tarjeta">
+                            <div class="titulo-tarjeta">
+                                <h3>Iluminación Exterior</h3>
+                                <p>¿A ciegas en la oscuridad para abrir la puerta? Eso es cosa del pasado. Es bastante fácil durante el día, cuando el sol está fuera. Por la noche o incluso al anochecer, se convierte en "Misión imposible". Encuentra en EGLO tus lámparas de exterior.</p>
+                            </div>                                                        
+                            <div class="link">
+                                <a href="https://www.homify.es/libros_de_ideas/6116156/iluminacion-exterior-ideas-para-iluminar-cada-rincon-y-que-quede-de-revista">Leer más</a>
+                            </div>
                         </div>
                      </div>
                      <div class="tarjeta">
                         <figure>
                             <img src="../static/images/L_MPARAS_DE_CRIS.jpg" th:src="@{/images/L_MPARAS_DE_CRIS.jpg}">
                         </figure>
-                        <div class="contenido">
-                            <h3>Lámparas de Cristal</h3>
-                            <p>Encima de la mesa o colgando del techo. No importa dónde coloques tu lámpara de cristal. Estamos seguros de que sea donde sea, será el centro de todas las miradas.Y si eres un fan de las últimas tendencias, elige lámparas con la pantalla o la base en cristal transparente ya sean éstas en estilo minimalista, clásico o super estructurado.</p>
-                            <a href="*">Leer más</a>
+                        <div class="contenido-tarjeta">
+                            <div class="titulo-tarjeta">
+                                <h3>Lámparas de Cristal</h3>
+                                <p>Encima de la mesa o colgando del techo. No importa dónde coloques tu lámpara de cristal. Estamos seguros de que sea donde sea, será el centro de todas las miradas.Y si eres un fan de las últimas tendencias, elige lámparas con la pantalla o la base en cristal transparente ya sean éstas en estilo minimalista, clásico o super estructurado.</p>          
+                            </div>
+                                <div class="link">
+                                <a href="https://www.youtube.com/watch?v=GoShy7TsTY0">Leer más</a>
+                            </div>
+                            
                         </div>
                      </div>
                 </div>
             </article>
-                    
-               
-        
         </section>
         <aside class="columna">
             <blockquote>
-                ¿Cómo iluminar correctamente tu sala de estar?
+                <h4 class="columna-text">¿Cómo iluminar correctamente tu sala de estar?</h4>
+                <iframe class="videoIliminacio" width="200" height="90" src="https://www.youtube.com/embed/z3fYsLzDwwQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </blockquote>
             <blockquote>
-                Consejos e ideas para iluminación de terrazas y jardines
+                <h4 class="columna-text">Consejos e ideas para iluminación de terrazas y jardines</h4>
+                <iframe class="videoIliminacio" width="200" height="90" src="https://www.youtube.com/embed/5bfbRRsPpBQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </blockquote>
             <blockquote>
-                Color claro. ¿Cómo de cálido le gustaría que fuera?
+                <h4 class="columna-text">Consejos de iluminación EGLO</h4>
+                <iframe class="videoIliminacio" width="200" height="90" src="https://www.youtube.com/embed/k7MGbxHJ8w0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </blockquote>
-            <blockquote>
-                Consejos de iluminación EGLO
-            </blockquote>
-            <blockquote>
-                Conoce más sobre la luz
-            </blockquote>            
-            <blockquote>
-                ¿Necesitas más inspiración?
-            </blockquote>
+
         </aside>
         <footer class="pie">
             <ul>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}"  class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/eglocolombia/" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
             </ul>
         </footer>
     </div>
