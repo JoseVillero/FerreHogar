@@ -77,6 +77,8 @@ h1{
     font-size: 40px;
 }
 input[type="text"],
+input[type="tel"],
+input[type="email"],
 input[type="password"]{
     font-size: 20px;
     width: 82%;
@@ -91,6 +93,10 @@ input[type="password"]{
     min-width: 60px;
     text-align: center;
     color: #999;
+}
+label{
+    position:static;
+    display: inline;
 }
 .botton{
     border: none;

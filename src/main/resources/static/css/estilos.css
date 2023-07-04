@@ -9,10 +9,9 @@ h2{
     font-family: sans-serif;
 }
 header, section, footer, nav, article {
-    border: 1px solid, black;
     display: block;
 }
-body{
+body,.body{
     text-align: center;
     width: 100%;
     height: 100vh;
@@ -21,6 +20,12 @@ body{
     background: url(../images/eglo1.jpg);
     background-size: cover;
     background-attachment: fixed;
+    
+}
+.body{
+    max-width: 1200px;
+    display: grid;
+    background: #ffffff;
 }
 div{
     background: none;
@@ -78,8 +83,26 @@ li a{
     text-decoration: none;
     color: #ffffff;
 }
+.totalAgregado{
+    margin-top: 40px;
+    width: 10%;
+    cursor: pointer;
+   
+}
+.agregado{
+    width:50%;
+    padding: 10px;
+    background: #f5f7f6;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.agregado:hover{
+    background: rgba(29, 28, 28, 0.93);
+    color: #ffffff;
+}
 
 .usuario{
+    justify-content: space-between;
     vertical-align: top;
     padding: 0 0 0 0;
     width: 10%;
@@ -93,9 +116,20 @@ li a{
     width: 90px;
 }
 .btn {
-    background: #0ac0ee;
-    margin:  0 0 10px 0;
+    padding: 0 3px;
+    background: #c8cecdde;
+    margin:  auto;
+    color: #097792e7;
+    border: solid 2px #097792e7;
+    font-weight: bold;
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);
+
+}
+.btn:hover{
+    background: #097792e7;
     color: #ffffff;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    
 }
 .btnEdit button{
     background: #15663d;
@@ -116,18 +150,41 @@ li a{
 }
 .seccion{
     margin: 3px;
-    width: 70%;
+    width: 75%;
     float: left;
+}
+article{
+    display: flex;
+    margin: 20px;
 }
 .contenedor{
     width: 100%;
+    justify-content: center;
     display: flex;
     max-width: 1100px;
-    background: rgba(247, 244, 244, 0.863);
+    background: #ffffffdc
     
 }
+.fila{
+    margin: 10px;
+    width: 100%;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(490px, 1fr));
+
+
+}
+.contenedorProductos{
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    margin: 10px auto;
+    background: rgba(247, 244, 244, 0.863);  
+    position:static;
+}
+
 .tarjeta{
     width: 100%;
+    height: 500px;
     margin: 10px;
     padding: 10px;
     border-radius: 6px;
@@ -143,7 +200,7 @@ li a{
 }
 .tarjeta img{
     width: 100%;
-    height: 210px;
+    height: 150px;
     margin: none;
 }
 article footer{
@@ -151,20 +208,48 @@ article footer{
     margin-top: 20px;
 }
 .contenido{
-    background: rgb(248, 248, 248);
+    background: rgb(150, 98, 98);
+    
 }
-.tarjeta.cotenido{
-    padding: 15px;
+.contenido-tarjeta{
+    padding: 5px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
 }
-p{
-    line-height: 1.5;
-    color: #8d7272;
-    margin: 15px;
+.titulo-tarjeta h3{
+    font-size: 18px;
+    margin-top: 8px;
+
 }
-h3{
-    font-weight: 400;
-    margin-bottom: 15px;
+.titulo-tarjeta p{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #5e615f;
+    line-height: 1.5;
+    text-align: justify;
+}
+.link{
+    margin-bottom: 2px;
+
+}
+.link a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px ;
+    margin: 10px auto;
+    color: #022930;
+    border: 1px solid #022930;
+    border-radius: 4px;
+    transition: all 4ooms ease;
+    cursor: pointer;
+}
+.link a:hover{
+    color: #05a6d3;
+    border: 1px solid #05a6d3;
 }
 table{
 	width: 90%;
@@ -192,33 +277,219 @@ tbody:hover tr{
 .descripcion{
 	text-align: left;
 }
-.contenido a{
-    text-decoration: none;
-    display: inline-block;
+.cardProducto{
+    margin: 10px 0 10px 0;
+    display: flex;
+    min-width: 250px;
+    width: 250px;
+    height: 400px;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.877);
+    border-radius: 6px;
+    overflow: hidden;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    transition: 0.5s;
+}
+.cardProducto:hover{
+    width: 500px;
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.877);
+
+}
+.cardProducto .imagen{
+    position: relative;
+    min-width: 250px;
+    width: 250px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s; 
+    cursor: pointer;   
+}
+.cardProducto:hover .imagen {
+    border: solid 3px #ffffff;
+
+
+}
+.cardProducto .imagen img{
+    width: 100%;
+
+}
+.cardProducto .detalle{
+    position: relative;
+    min-width: 250px;
+    background: #097792e7;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    height: 100%;
     padding: 10px;
-    margin: 10px;
-    color: #022930;
-    border: 1px solid #022930;
-    border-radius: 4px;
-    transition: all 4ooms ease;
+}
+.cardProducto .detalle::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-left: 10px solid #ffffff;
+}
+
+.codigo-nombre {
+    display:flex;
+    margin: 10px 0 0 0;
+    background: none;
+    justify-content: space-between;
+}
+
+.codigo-nombre sup{
+    margin: 0;
+    padding: 0;
+
+}
+
+.codigo-nombre h3{
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+
+}
+
+.referencia-marca {
+    display: block;
+    margin: 10px 0 0 0;
+    background: none;
+    
+
+}
+.referencia-marca h4{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 100;
+}
+.referencia-marca small{
+    margin: 0;
+    padding: 0 ;
+    font-size: 10px;
+    font-style: italic;
+    font-weight: 100;
+}
+
+.descripcion{
+    margin-top: 10px;
+    padding: 5px;
+}
+.descripcion h4{
+    font-size: 11px;
+    font-weight: bold;
+}
+.descripcion p{
+    text-align: justify;
+    color: #ffffff;
+    font-size: small;
+}
+.cantidad{
+    display: flex;
+    background: none;
+}
+.cantidad h4{
+    padding: 5px 5px 8px 5px  ;
+    margin: 10px 10px 10px 8px;
+    background: none;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.cantidad h3{
+    color: black;
+    font-weight: bold;
+    padding: 5px 5px 8px 5px  ;
+    margin: 10px 10px 10px 8px;
+    border: solid 1px rgb(99, 95, 95);
+    border-radius: 10px;
+    background: #eef1ef;
+    font-size: 12px;
+}   
+.footcard{
+    background: none;
+    display: flex;
+    justify-content: space-between;
+}
+.valor{
+    background: none;
+    display: flex;
+    margin-left: 16px;
+}
+.valor h4 {
+    padding-bottom: 2px;
+    font-size: 22px;
+    font-weight: 100;
+}
+.compra{
+    background: none;
+    margin-bottom: 3px;
+    padding: auto 2px;
+}
+
+.cesta{
+    width: 90%;
+    padding: 4px;
+    height: auto;
+    margin-right: 16px; 
+    cursor: pointer;   
+}
+.cesta :hover{
+    color: #0ce904;
+}
+.agregar{
+    width: 60px;
+    padding: 10px;
+    color: #ffffff;
+    background: #022930;
+    border-radius: 16px;
     cursor: pointer;
 }
-.contenido a:hover{
-    color: #05a6d3;
-    border: 1px solid #05a6d3;
+.agregar:hover{
+    color: #08fc14;
+}
+.options, .optionsusuarios{
+    background: #022930;
+    display: flex;  
+    justify-content: center;
+}
+.optionsusuarios{
+    background: none;
+}
+.eliminar{
+    margin: 5px;
+    cursor: pointer;
+}
+.eliminar:hover{
+    color: rgb(235, 16, 16)
+}
+.editar{
+    margin: 5px;
+    cursor: pointer;
+}
+.editar:hover{
+    color: rgb(240, 240, 8);
 }
 .columna{
-    margin: 0px;
-    width: 20%;
+    margin: 0 0 0 10px ;
+    width: 20% ;
     float: left;
 }
 .columna blockquote{
     font-size:x-large;
     width: 100%;
-    margin: 10px;
+    margin: 4px;
     border-radius: 6px;
     overflow: hidden;
-    background: rgb(37, 138, 141);
+    background: rgba(37, 138, 141, 0.89);
     box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
     color:rgba(247, 248, 248, 0.938);
     cursor: default;
@@ -226,10 +497,19 @@ tbody:hover tr{
 }
 .columna blockquote:hover{
     box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
-    transform: translateX(16%);
+    transform: translateX(2%);
     background: #2d3436;
     color:rgba(247, 248, 248, 0.938);
-
+}
+.columna-text{
+    padding: 8px 4px;
+    font-size: 16px;
+}
+.videoIliminacio{
+    padding: 4px;
+}
+.videoIliminacio:hover{
+    border: solid 1px #ffffff;
 }
 main{
     width: 100%;
