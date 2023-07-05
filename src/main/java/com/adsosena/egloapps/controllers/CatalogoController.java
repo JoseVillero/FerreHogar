@@ -54,7 +54,7 @@ public class CatalogoController {
 
         try {
             if (productoModel != null && imagen != null){
-
+                System.out.println(productoModel.getId());
                 String imagenUrl = imagenService.guardarImagen(imagen);
                 if(!imagenUrl.isBlank()){
                     productoModel.setImagen(imagenUrl);
@@ -66,6 +66,21 @@ public class CatalogoController {
 
             return "redirect:/catalogo?false";
         }
+        return "redirect:/catalogo";
+    }
+    @PostMapping("/catalogo/actualizar-producto")
+    public String actualizarProducto(@ModelAttribute ProductoModel productoModel){
+        if (productoModel != null){
+            System.out.println(productoModel);
+            productoService.agregarProducto(productoModel);
+            return "redirect:/catalogo?true";
+        }
+        return "redirect:/catalogo?false";
+    }
+    @PostMapping("/catalogo/eliminar-producto")
+    public String eliminarProducto(@RequestParam(name = "id") int id){
+
+        productoService.eliminarProducto(id);
         return "redirect:/catalogo";
     }
 

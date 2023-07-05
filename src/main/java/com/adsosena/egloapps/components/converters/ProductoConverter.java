@@ -38,7 +38,7 @@ public class ProductoConverter {
 
         Producto producto = new Producto();
 
-        producto.setId(0);
+        producto.setId(productoModel.getId());
         producto.setCodigo(productoModel.getCodigo());
         producto.setReferencia(productoModel.getReferencia());
         producto.setNombre(productoModel.getNombre());
@@ -49,5 +49,4 @@ public class ProductoConverter {
 
         return producto;
     }
-
 }

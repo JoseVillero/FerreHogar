@@ -50,4 +50,9 @@ public class ProductoServiceImpl implements ProductoService {
         return productoRepository.save(productoConverter.productoModelToProducto(productoModel));
     }
 
+    @Override
+    public void eliminarProducto(int id) {
+        productoRepository.deleteById(id);
+    }
+
 }
