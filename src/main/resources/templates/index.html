@@ -43,7 +43,7 @@
                 <h2 th:text="${fullName}">Usuario</h2>
                 <h2 sec:authentication="principal.authorities">User</h2>
                 <form th:action="@{/logout}" method="post">
-                    <button class="btn" ><span> Logout</span></button>
+                    <button class="btnLogout" ><span> Logout</span></button>
                 </form>
             </nav>  
         </nav>
@@ -141,6 +141,11 @@
                 <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
                 <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
             </ul>
+            <div class="copyrith">
+                <p class="copyrith">&copy Copyrith Proyecto SENA - 2023 </p>
+                <h4>Jose David Villero</h4>
+                <h4>Sergio Andrés Manrique Triana</h4>
+            </div>
         </footer>
     </div>
 
