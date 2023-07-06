@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-
+<!-- Headers -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,28 +10,29 @@
     <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" href="../static/css/estilosResgistro.css" th:href="@{/css/estilosResgistro.css}">
 </head>
-
 <body>
-
+<!-- Logo header -->
 	<div>
         <header class="header">
             <figure>
-                <img src="../static/images/logo.png" th:src="@{/images/logo.png}">
+                <img src="../static/images/logo.png" th:src="@{/images/logo.png}" alt="logo imagen">
             </figure>
         </header>
-        <nav  class="menu">
+		<!-- Navigation Bar -->
+		<nav  class="menu">
             <ul>
             	<li><a href="#" th:href="@{/}">Home</a></li>
                 <li><a href="#" th:href="@{/login}">Login</a></li>
                 <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
             </ul>
         </nav>
+		<!-- Alerts -->
 		<div th:if="${existe}" class="alert alert-danger" role="alert"> Error en el registro: el usuario ya existe. </div>
 		<div th:if="${noExiste}" class="alert alert-success" role="alert"> Usuario registrado con éxito, ya puedes iniciar sesión. </div>
+		<!-- Form register -->
 		<form class="formulario" action="#" th:action="@{/registrar}" th:object="${usuario}" method="post">
         	<h1>Registrate</h1>
         	<div class="contenedor">
-
             	<div class="input-contenedor">
                 	<i class="fa-solid fa-user icon"></i>
                 	<input type="text" name="name" pattern="[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\s]{4,20}"
@@ -61,7 +62,7 @@
             	<p>¿Ya tienes una cuenta?<a class="link" href="#" th:href="@{/login}"> Iniciar Sesión</a></p>
         	</div>
     	</form>
-
+		<!-- Footer -->
     	<footer class="pie">
             <ul>
                 <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
@@ -77,7 +78,5 @@
 			</div>
         </footer>
     </div>
-    
 </body>
-
 </html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="es">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<!-- Headers -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +10,15 @@
     <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{css/bootstrap.css}">
     <link rel="stylesheet" href="../static/css/estilosResgistro.css" th:href="@{/css/estilosResgistro.css}">
 </head>
-
 <body>
-
+<!-- Logo header -->
 	<div>
         <header class="header">
             <figure>
-                <img src="../static/images/logo.png" th:src="@{/images/logo.png}">
+                <img src="../static/images/logo.png" th:src="@{/images/logo.png}" alt="logo imagen">
             </figure>
         </header>
+        <!-- Navigation Bar -->
         <nav  class="menu">
             <ul>
             	<li><a href="#" th:href="@{/}">Home</a></li>
@@ -27,12 +26,13 @@
                 <li><a href="#" th:href="@{/help}">Ayuda</a></li>
             </ul>
         </nav>
+        <!-- Alerts -->
         <div th:if="${param.error}" class="alert alert-danger" role="alert"> Usuario o contraseña invalida </div>
         <div th:if="${param.logout}" class="alert alert-info" role="alert"> Se ha cerrado sesión correctamente</div>
+        <!-- Form login -->
         <form class="formulario" th:action="@{/login}" method="post">
         	<h1>Inicia sesión</h1>
-        	<div class="contenedor">
-
+            <div class="contenedor">
             	<div class="input-contenedor">
                 	<i class="fa-solid fa-envelope icon"></i>
                     <label>
@@ -48,28 +48,27 @@
                          title="Debe contener al menos un numero y una letra en minuscula
                          y una letra en mayuscula, y 8 caracteres o mas." -->
                     </label>
-          </div>
-          <input type="submit" value="Login" class="botton">
-          <p>Al registarte, aceptas nuestras condiciones de uso y políticas de privacidad.</p>
-          <p>¿No tienes una cuenta?<a class="link" href="#" th:href="@{/registro}"> Registrarse</a></p>
-         </div>
-  </form>
-  <footer class="pie">
-    <ul>
-        <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
-        <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
-        <li><a href="https://www.instagram.com/eglocolombia/" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
-        <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
-        <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
-    </ul>
-      <div class="copyrith">
-          <p class="copyrith">&copy Copyrith Proyecto SENA - 2023 </p>
-          <h4>Jose David Villero</h4>
-          <h4>Sergio Andrés Manrique Triana</h4>
-      </div>
-</footer>
-   </footer>
-</div>
-
+                </div>
+                <input type="submit" value="Login" class="botton">
+                <p>Al registarte, aceptas nuestras condiciones de uso y políticas de privacidad.</p>
+                <p>¿No tienes una cuenta?<a class="link" href="#" th:href="@{/registro}"> Registrarse</a></p>
+            </div>
+        </form>
+        <!-- Footer -->
+        <footer class="pie">
+            <ul>
+                <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/eglocolombia/" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+            </ul>
+            <div class="copyrith">
+                <p class="copyrith">&copy Copyrith Proyecto SENA - 2023 </p>
+                <h4>Jose David Villero</h4>
+                <h4>Sergio Andrés Manrique Triana</h4>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

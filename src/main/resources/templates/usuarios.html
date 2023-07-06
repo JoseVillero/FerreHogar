@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-
+<!-- Headers -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,7 @@
     <div>
         <header class="header">
             <figure>
-                <img src="../static/images/logo.png" th:src="@{/images/logo.png}">
+                <img src="../static/images/logo.png" th:src="@{/images/logo.png}" alt="logo imagen">
             </figure>
         </header>
         <!-- Alerts -->
@@ -37,7 +37,7 @@
             </nav>
             <!-- Info User -->
             <nav class="usuario">
-                <img src="../static/images/user.png" th:src="@{/images/user.png}" >
+                <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
                 <h2 th:text="${fullName}">Usuario</h2>
                 <h2 sec:authentication="principal.authorities">User</h2>
                 <form th:action="@{/logout}" method="post">
@@ -73,11 +73,11 @@
                                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                                     title="Debe contener al menos un numero y una letra en minuscula
                                                         y una letra en mayuscula, y 8 caracteres o mas."
-                                                    th:field="*{password}"class="input-padron"></label>
+                                                    th:field="*{password}" class="input-padron"></label>
                             <label >Teléfono: <input required type="text" placeholder="Teléfono"
                                                     pattern="[0-9]{5,10}"
                                                     title="El telefono debe tener minimo 5 numeros. Solo se permiten caracteres numericos"
-                                                    th:field="*{telefono}"class="input-padron"></label>
+                                                    th:field="*{telefono}" class="input-padron"></label>
                             <label>Activado: <br>
                                 <input type="radio" name="enable" value="true" checked th:checked="${usuario.enable}" class="input-padron"> SI
                                 <input type="radio" name="enable" value="false" th:checked="${!usuario.enable}" class="input-padron"> NO
@@ -104,7 +104,7 @@
                     <th class="th-usuario">TELEFONO</th>
                     <th class="th-usuario">TIPO USUARIO</th>
                     <th class="th-usuario">ACTIVO</th>
-                    <th v>OPCIONES</th>
+                    <th>OPCIONES</th>
                 </tr>
                 </thead>
                 <tbody class="tbody-usuario" th:each="_usuario, iterStat : ${listaUsuario}">

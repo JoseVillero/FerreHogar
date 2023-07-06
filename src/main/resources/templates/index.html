@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="es">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<!-- Headers -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,16 +10,17 @@
     <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
 </head>
-
 <body>
-
+<!-- Logo header -->
     <div>
         <header class="header">
             <figure>
-                <img src="../static/images/logo.png" th:src="@{/images/logo.png}" >
+                <img src="../static/images/logo.png" th:src="@{/images/logo.png}" alt="logo imagen">
             </figure>
         </header>
+        <!-- Navigation Bar -->
         <nav class="principal" >
+            <!-- Button nav -->
             <nav class="menuConfig">
                 <ul>
                     <li><a href="#" th:href="@{/}">Home</a></li>
@@ -28,8 +28,8 @@
                     <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                     <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
                 </ul>
- 
             </nav>
+            <!-- Shopping cart-->
             <nav class="totalAgregado">
                 <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0
@@ -38,8 +38,9 @@
                     1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                 </svg>
             </nav>
+            <!-- Info User -->
             <nav class="usuario">
-                <img src="../static/images/user.png" th:src="@{/images/user.png}" >
+                <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
                 <h2 th:text="${fullName}">Usuario</h2>
                 <h2 sec:authentication="principal.authorities">User</h2>
                 <form th:action="@{/logout}" method="post">
@@ -47,12 +48,13 @@
                 </form>
             </nav>  
         </nav>
+        <!-- Info section -->
         <section class="seccion">
             <article>
                 <div class="contenedor">
                     <div class="tarjeta">
                         <figure>
-                            <img src="../static/images/ILUMINACI_N_INT.jpg" th:src="@{/images/ILUMINACI_N_INT.jpg}">
+                            <img src="../static/images/ILUMINACI_N_INT.jpg" th:src="@{/images/ILUMINACI_N_INT.jpg}" alt="Lampara interior">
                         </figure>
                         <div class="contenido-tarjeta">
                             <div class="titulo-tarjeta">
@@ -64,12 +66,11 @@
                             <div class="link">
                                 <a href="https://www.homify.es/magazine/iluminacion/iluminacion-interior">Leer más</a>
                             </div>
-                            
                         </div>
                      </div>
                      <div class="tarjeta">
                         <figure>
-                            <img src="../static/images/ILUMINACION_EXT.jpg" th:src="@{images/ILUMINACION_EXT.jpg}">
+                            <img src="../static/images/ILUMINACION_EXT.jpg" th:src="@{images/ILUMINACION_EXT.jpg}" alt="Lampara exterior">
                         </figure>
                         <div class="contenido-tarjeta">
                             <div class="titulo-tarjeta">
@@ -86,7 +87,7 @@
                      </div>
                      <div class="tarjeta">
                         <figure>
-                            <img src="../static/images/L_MPARAS_DE_CRIS.jpg" th:src="@{/images/L_MPARAS_DE_CRIS.jpg}">
+                            <img src="../static/images/L_MPARAS_DE_CRIS.jpg" th:src="@{/images/L_MPARAS_DE_CRIS.jpg}" alt="lampara de cristal">
                         </figure>
                         <div class="contenido-tarjeta">
                             <div class="titulo-tarjeta">
@@ -100,12 +101,12 @@
                                 <div class="link">
                                 <a href="https://www.youtube.com/watch?v=GoShy7TsTY0">Leer más</a>
                             </div>
-                            
                         </div>
                      </div>
                 </div>
             </article>
         </section>
+        <!-- Info Column -->
         <aside class="columna">
             <blockquote>
                 <h4 class="columna-text">¿Cómo iluminar correctamente tu sala de estar?</h4>
@@ -133,6 +134,7 @@
             </blockquote>
 
         </aside>
+        <!-- Footer -->
         <footer class="pie">
             <ul>
                 <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
@@ -148,7 +150,5 @@
             </div>
         </footer>
     </div>
-
 </body>
-
 </html>
