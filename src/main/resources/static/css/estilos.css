@@ -1,3 +1,4 @@
+/* estilos  body  */
 h1{
     font-size: 20px;
     font-family: sans-serif;
@@ -8,7 +9,7 @@ h2{
     font-size: 15px;
     font-family: sans-serif;
 }
-header, section, footer, nav, article {
+section, footer, nav, article {
     display: block;
 }
 body,.body{
@@ -32,13 +33,15 @@ div{
    
 }
 .header{
+    display: flex;
+    justify-content: center;
     background: #ffffffb0;
-    border: 1px splod #999999;
     padding: 8px;
     margin: 15px;
 }
-.header image{
-    text-align: center;
+
+.header figure img{
+    margin: auto;
     color: rgba(247, 248, 248, 0.938);
 }
 .principal{ 
@@ -69,6 +72,7 @@ div{
     cursor: pointer;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     list-style: none;
+    font-size: 20px;
     text-decoration: none;
     color: #ffffff;
 }
@@ -109,11 +113,421 @@ div{
     border-radius: 15px;
     
 }
+.contenedor-img{
+    height: 70%;
+}
 .usuario img{
     padding: 8px;
     width: 80px;
 }
-.btnLogout, .btnCerrar, .btnGuardar, .btn-danger{
+.contenedor-logout{
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
+    width: 100%;
+    height: 30%;
+}
+.btnLogout{
+    margin: auto;
+    color: #ffffff;
+    background: #009AA2;
+    font-weight: bold;
+    border: none;
+    border-radius:3px ;
+}
+
+/* estilos catalogo-body  */
+.add-input{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.search{
+    position: relative;
+    top: 22px;
+    left: 40px;
+    height: 40px;
+    border-radius: 15px;
+}
+.search input{
+    border: solid 2px #009AA2;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background: #ffffff;
+    font-size: 15px;
+    padding: 5px 55px 5px 10px;
+    width: 0;
+    height: 40px;
+    outline: none;
+    transition: all 0.7s ease;
+    opacity: 1;
+}
+.logo-search{
+    position: absolute;
+    top: -15px;
+    right: 0px;
+    background: #009AA2;
+    width: 70px;
+    height: 70px;
+    line-height:70px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .5s;
+
+}
+.logo-search svg {
+    width: 50%;
+    color:#ffffff;
+    line-height: 55px;
+    transition: all .7s ease;
+}
+.search:hover input{
+    width: 240px;
+}
+.search:hover .logo-search svg{
+    transform: rotate(-360deg);
+}
+.btnEdit{
+    position: relative;
+    width: 80px;
+    margin: 0 ;
+    justify-items: center;
+    transition: all .7s ease;
+}
+
+.agregar{
+    padding: 10px;
+    color: #ffffff;
+    background: #32979d;
+    border-radius: 16px;
+    cursor: pointer;
+}
+.agregar:hover{
+    color: #32979d;
+    background:  #ffffff;
+    transition: .5s;
+}
+
+
+.tooltips-agregar{
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    padding: 4px;
+    top: 0px;
+    left: 0px;
+    width: 80px;
+    border: none;
+    background: rgba(131, 133, 133, 0.98);
+    border-radius: 10px;
+    opacity: 0;
+}
+.btnEdit:hover .tooltips-agregar{
+    visibility: visible;
+    opacity: 1;
+    top: 8px;
+    left: -100px;
+    transition: .5s;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.34);
+
+}
+.btnEdit .tooltips-agregar::before{
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: -10px;
+    transform: rotate(360deg);
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-left: 10px solid rgba(131, 133, 133, 0.87);
+}
+.tooltip-small{
+    display: flex;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 15px;
+    padding: 6px;
+}
+.contenedorProductos{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    margin: 10px 10px;
+
+    position:static;
+}
+.fila{
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(490px, 1fr));
+    background: rgba(247, 244, 244, 0.863);
+}
+.cardProducto{
+    position: relative;
+    margin: 10px 0 10px 0;
+    display: flex;
+    min-width: 250px;
+    width: 250px;
+    height: 400px;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.877);
+    border-radius: 6px;
+    overflow: hidden;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    transition: 0.5s;
+}
+.cardProducto:hover{
+    width: 500px;
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.877);
+
+}
+.cardProducto .imagen{
+    position: relative;
+    min-width: 250px;
+    width: 250px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.cardProducto:hover .imagen {
+    border: solid 3px #ffffff;
+
+
+}
+.cardProducto .imagen img{
+    width: 100%;
+
+}
+.cardProducto .detalle{
+    position: relative;
+    min-width: 250px;
+    background: #009AA2;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.cardProducto .detalle::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-left: 10px solid #ffffff;
+}
+.codigo-nombre {
+    display:flex;
+    margin: 10px 0 0 10px;
+    background: none;
+    justify-content: space-between;
+}
+
+.codigo-nombre sup{
+    margin: 0;
+    padding: 0;
+
+}
+
+.codigo-nombre h3{
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+
+}
+.referencia-marca {
+    display: block;
+    margin: 10px 0 0 10px;
+}
+.referencia-marca h4{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 100;
+}
+.referencia-marca small{
+    margin: 0;
+    padding: 0 ;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 100;
+}
+.descripcion{
+    text-align: left;
+    padding: 10px 10px 0px 10px;
+}
+
+.descripcion h4{
+    font-size: 16px;
+    font-weight: bold;
+}
+.textarea-descripcion{
+    width: 100%;
+    height: 70px;
+    padding: 0px;
+    font-size: small;
+    color: rgba(255, 255, 255, 0.87);
+    line-height: 1.2;
+    text-align: justify;
+    border:none;
+    background: none;
+}
+.cantidad{
+    display: flex;
+}
+.cantidad h4{
+    padding: 5px 5px 8px 0;
+    margin: 10px 10px 10px 8px;
+    background: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+.cantidad h3{
+    color: black;
+    font-weight: bold;
+    padding: 5px 5px 8px 5px  ;
+    margin: 10px 10px 10px 8px;
+    border: solid 1px rgb(99, 95, 95);
+    border-radius: 10px;
+    background: #eef1ef;
+    font-size: 12px;
+}
+.footcard{
+    position: absolute;
+    bottom: 40px;
+    width: 90%;
+    background: none;
+    display: flex;
+    justify-content: space-between;
+}
+.valor{
+    background: none;
+    display: flex;
+    margin-left: 16px;
+}
+.valor h4 {
+    margin: auto;
+    font-size: 22px;
+    font-weight: 100;
+}
+.compra{
+    padding: 4px;
+    width: 30%;
+    display: flex;
+    background: none;
+    margin-bottom: 3px;
+}
+.input{
+    position: relative;
+}
+.input-cantidad{
+    margin-right: 6px;
+    margin-top: 4px;
+    text-align: center;
+    width: 20px;
+    border: solid 1px rgb(99, 95, 95);
+    background: #eef1ef;
+    outline: none;
+}
+.tooltip-cantidad{
+    visibility: hidden;
+    position: absolute;
+    left: -8px;
+    bottom: 30px;
+    width: 80px;
+    border: none;
+    background: rgba(131, 133, 133, 0.7);
+    border-radius: 10px;
+}
+.input:hover .tooltip-cantidad{
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+    transition: .5s;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.34);
+}
+.input .tooltip-cantidad::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 12px;
+    transform: rotate(90deg);
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-left: 10px solid rgba(131, 133, 133, 0.81);
+}
+.tooltip-cantidad small{
+    color: rgba(255, 255, 255, 0.82);
+    display: flex;
+    text-align: center;
+    margin: 4px;
+}
+
+.contenedor-cesta{
+    position: relative;
+    width: 80px;
+}
+.cesta{
+    height: auto;
+    cursor: pointer;
+}
+.cesta :hover{
+    color: #0ce904;
+}
+.tooltip-cesta {
+    visibility: hidden;
+    position: absolute;
+    left: -35px;
+    bottom: 30px;
+    width: 80px;
+    height: 48px;
+    border: none;
+    background: rgba(131, 133, 133, 0.7);
+    border-radius: 10px;
+}
+.contenedor-cesta:hover .tooltip-cesta{
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+    transition: .5s;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.34);
+}
+.contenedor-cesta .tooltip-cesta::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50px;
+    transform: rotate(90deg);
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-left: 10px solid rgba(131, 133, 133, 0.81);
+}
+.tooltip-cesta small{
+    color: rgba(255, 255, 255, 0.82);
+    display: flex;
+    text-align: center;
+    margin: 4px;
+}
+
+/* estilos páginas de catalogo-usuario body: modal(agregar)  */
+.options{
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+}
+.btnCerrar, .btnGuardar, .btn-danger{
     padding: 5px 10px;
     margin:  0 60px;
     color: #ffffff;
@@ -122,24 +536,13 @@ div{
     border: none;
     border-radius:3px ;
 }
-.btnGuardar{
-    margin: 20px 0 0 60px;
-}
-.agregar{
-    width: 60px;
-    padding: 10px;
-    color: #ffffff;
-    background: #32979d;
-    border-radius: 16px;
-    cursor: pointer;
-}
-.agregar:hover{
-    color: #53e15b;
-}
 .btnLogout:hover, .btnCerrar:hover, .btnGuardar:hover, .btn-danger:hover{
     background: #32979d;
     color: #ffffff;
-    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);
+}
+.btnGuardar {
+    margin: 20px 0 0 60px;
 }
 form {
     justify-content: center;
@@ -161,11 +564,20 @@ form label{
     padding: 10px 25px;
     width: 55%;
 }
+.input-imagen{
+    justify-content: space-between;
+    font-size: 15px;
+    padding: 10px 25px;
+    width: 62%;
+}
 .input-textarea{
     color: #000000;
     height: 60px;
     border: solid 1px rgba(100, 98, 98, 0.93);
 }
+
+
+/* estilos index-body  */
 .seccion{
     margin: 3px;
     width: 75%;
@@ -181,23 +593,7 @@ article{
     display: flex;
     max-width: 1100px;
     background: #ffffffdc
-    
 }
-.fila{
-    margin: 10px;
-    width: 100%;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(490px, 1fr));
-}
-.contenedorProductos{
-    width: 100%;
-    height: 100%;
-    justify-content: space-between;
-    margin: 10px auto;
-    background: rgba(247, 244, 244, 0.863);  
-    position:static;
-}
-
 .tarjeta{
     width: 100%;
     height: 500px;
@@ -218,14 +614,6 @@ article{
     width: 100%;
     height: 150px;
     margin: none;
-}
-article footer{
-    text-align: right;
-    margin-top: 20px;
-}
-.contenido{
-    background: rgb(150, 98, 98);
-    
 }
 .contenido-tarjeta{
     padding: 5px;
@@ -267,236 +655,6 @@ article footer{
     color: #009AA2;
     border: 1px solid #009AA2;
 }
-.tabla-usuario{
-	width: 90%;
-	margin : 40px auto;
-	background : #f3eeee;
-	text-align: center;
-	box-shadow: 0px 2px 10px rgba(0,0,0,0.6);
-}
-
-.thead-usuario {
-	background: #555555;
-    color:white;
-    font-weight: bold;
-}
-.td-usuario,.th-usuario {
-    border: 1px solid #C1c3d1;
-    padding: 8px 15px;
-}
-.tbody-usuario:hover tr{
-	background-color : #009AA2;
-	color : #fff;
-	border-top: 1px solid #009AA2;
-}
-.descripcion{
-	text-align: left;
-}
-.cardProducto{
-    position: relative;
-    margin: 10px 0 10px 0;
-    display: flex;
-    min-width: 250px;
-    width: 250px;
-    height: 400px;
-    background-color: #ffffff;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.877);
-    border-radius: 6px;
-    overflow: hidden;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    transition: 0.5s;
-}
-.cardProducto:hover{
-    width: 500px;
-    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.877);
-
-}
-.cardProducto .imagen{
-    position: relative;
-    min-width: 250px;
-    width: 250px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s; 
-    cursor: pointer;   
-}
-.cardProducto:hover .imagen {
-    border: solid 3px #ffffff;
-
-
-}
-.cardProducto .imagen img{
-    width: 100%;
-
-}
-.cardProducto .detalle{
-    position: relative;
-    min-width: 250px;
-    background: #009AA2;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-}
-.cardProducto .detalle::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-bottom: 5px solid transparent;
-    border-top: 5px solid transparent;
-    border-left: 10px solid #ffffff;
-}
-
-.codigo-nombre {
-    display:flex;
-    margin: 10px 0 0 0;
-    background: none;
-    justify-content: space-between;
-}
-
-.codigo-nombre sup{
-    margin: 0;
-    padding: 0;
-
-}
-
-.codigo-nombre h3{
-    margin: 0;
-    padding: 0;
-    font-weight: 700;
-
-}
-
-.referencia-marca {
-    display: block;
-    margin: 10px 0 0 0;
-    background: none;
-    
-
-}
-.referencia-marca h4{
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    font-style: italic;
-    font-weight: 100;
-}
-.referencia-marca small{
-    margin: 0;
-    padding: 0 ;
-    font-size: 10px;
-    font-style: italic;
-    font-weight: 100;
-}
-
-.descripcion{
-    margin-top: 10px;
-    padding: 5px;
-}
-.descripcion h4{
-    font-size: 12px;
-    font-weight: bold;
-}
-textarea{
-    width: 100%;
-    height: 40px;
-    margin-top: 3px;
-    font-size: small;
-    color: rgba(255, 255, 255, 0.87);
-    line-height: 1.5;
-    text-align: justify;
-    border:none;
-    background: none;
-}
-.cantidad{
-    display: flex;
-    background: none;
-}
-.cantidad h4{
-    padding: 5px 5px 8px 5px  ;
-    margin: 10px 10px 10px 8px;
-    background: none;
-    margin-top: 10px;
-    font-size: 14px;
-}
-.cantidad h3{
-    color: black;
-    font-weight: bold;
-    padding: 5px 5px 8px 5px  ;
-    margin: 10px 10px 10px 8px;
-    border: solid 1px rgb(99, 95, 95);
-    border-radius: 10px;
-    background: #eef1ef;
-    font-size: 12px;
-}   
-.footcard{
-    position: absolute;
-    bottom: 40px;
-    width: 90%;
-    background: none;
-    display: flex;
-    justify-content: space-between;
-}
-.valor{
-    background: none;
-    display: flex;
-    margin-left: 16px;
-}
-.valor h4 {
-    padding-bottom: 2px;
-    font-size: 22px;
-    font-weight: 100;
-}
-.compra{
-    background: none;
-    margin-bottom: 3px;
-    padding: auto 2px;
-}
-
-.cesta{
-    width: 90%;
-    padding: 4px;
-    height: auto;
-    margin-right: 16px; 
-    cursor: pointer;   
-}
-.cesta :hover{
-    color: #0ce904;
-}
-.options{
-    position: absolute;
-    bottom: 0;
-    width: 90%;
-}
-.options, .optionsusuarios{
-    background: #022930;
-    display: flex;  
-    justify-content: center;
-}
-.optionsusuarios{
-    background: none;
-}
-.eliminar{
-    margin: 5px;
-    cursor: pointer;
-}
-.eliminar:hover{
-    color: rgb(235, 16, 16)
-}
-.editar{
-    margin: 5px;
-    cursor: pointer;
-}
-.editar:hover{
-    color: rgb(240, 240, 8);
-}
 .columna{
     margin: 0 0 0 10px ;
     width: 20% ;
@@ -530,6 +688,56 @@ textarea{
 .videoIliminacio:hover{
     border: solid 1px #ffffff;
 }
+
+
+/* estilos Usuarios-body**/
+.tabla-usuario{
+    width: 90%;
+    margin : 40px auto;
+    background : #f3eeee;
+    text-align: center;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.6);
+}
+
+.thead-usuario {
+    background: #555555;
+    color:white;
+    font-weight: bold;
+}
+.td-usuario,.th-usuario {
+    border: 1px solid #C1c3d1;
+    padding: 8px 15px;
+}
+.tbody-usuario:hover tr{
+    background-color : #009AA2;
+    color : #fff;
+    border-top: 1px solid #009AA2;
+}
+.options, .optionsusuarios{
+    background: #022930;
+    display: flex;
+    justify-content: center;
+}
+.optionsusuarios{
+    background: none;
+}
+.eliminar{
+    margin: 5px;
+    cursor: pointer;
+}
+.eliminar:hover{
+    color: rgb(235, 16, 16)
+}
+.editar{
+    margin: 5px;
+    cursor: pointer;
+}
+.editar:hover{
+    color: rgb(240, 240, 8);
+}
+
+
+/* estilos About-body**/
 main{
     width: 100%;
     display:inline-block;
@@ -539,16 +747,16 @@ main{
     padding: 10px;
     width: 80%;
     background:#f5f6f7;
-    color: #070707; 
+    color: #070707;
     border-radius: 20px;
-  
+
 }
 .pvm h1{
     text-decoration: underline;
 }
 .pvm p{
     text-align: left;
-    font-style: italic;                                                        
+    font-style: italic;
 }
 .mapa {
     margin: 20px auto;
@@ -568,6 +776,23 @@ main{
     width: auto;
     margin: 0 auto;
 }
+
+
+
+
+article footer{
+    text-align: right;
+    margin-top: 20px;
+}
+.contenido{
+    background: rgb(150, 98, 98);
+    
+}
+
+
+
+
+/* Estilos  pagina factura */
 
 .factura{
     width: 55%;
@@ -627,7 +852,6 @@ main{
 }
 .img-qr img{
     width: 100%;
-    padding: 5px;
     padding: 10% 2%;
 }
 .detalle-cliente{
@@ -717,6 +941,177 @@ main{
 }
 
 
+/* Estilos página pago */
+.bancos{
+    width: 40%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 20px;
+    background: #ffffff;
+}
+.bancos fieldset{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+    height: 25%;
+    min-width: 22%;
+    padding: 15px;
+    margin: 10PX;
+    border-radius: 20px;
+    background: #c0babae5;
+    box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.616);
+}
+.bancos fieldset legend{
+    font-size: 15px;
+}
+.label-bancos{
+    display: inline-flex;
+    width: 90%;
+    min-width: 90%;
+    height: 40px;
+    margin-left: 10px;
+}
+.label-bancos:hover .img-bancos{
+    background: #009aa248;
+    border: solid 1px #f0e9e993;
+    transition: .5s;
+    box-shadow: 0 3px 5px 0px rgb(0,0,0, 0.616);
+}
+.label-bancos:hover .div-span-bancos{
+    color: #000000;
+    border: solid 1px #55555557;
+    background: #f0e9e993;
+    transition: .5s;
+    box-shadow: 0 3px 5px 0px rgb(0,0,0, 0.616);
+}
+.div-input-bancos{
+    display: flex;
+    justify-content: center;
+    width: 3%;
+    min-width: 20px;
+    background: none;
+}
+.img-bancos{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    width: 35%;
+    min-width: 20px;
+    border: solid 1px #55555557;
+    background: #f0e9e993;
+}
+.img-bancos img{
+    width: 60%;
+
+}
+.div-span-bancos{
+    width: 25%;
+    min-width: 100px;
+    background: #009aa248;
+    border: solid 1px #d8d4d4d0;
+    color: #ffffff;
+
+}
+.div-span-bancos span{
+    display: flex;
+    justify-items: center;
+    font-size: 12px;
+    padding: 12px 0 0 5px;
+    justify-content: space-between;
+}
+
+.formulario-tarjeta{
+    margin: auto 5px;
+    width: 40%;
+    height: 30%;
+}
+.input-trajeta{
+    padding: 10px;
+    margin: auto 10px;
+    background: #c0babae5;
+    border-radius: 20px;
+    box-shadow: 0 3px 5px 0px rgb(0,0,0, 0.616);
+}
+.input-trajeta div{
+    background: none;
+}
+.card-nombres{
+    padding-left: 5px;
+    border: solid 1px #c0babae5;
+    border-radius: 5px;
+    background: #f1f4f5;
+    font-size: 15px;
+    margin: 7px;
+    width: 220px;
+    outline: none;
+}
+.card-numero{
+    padding-left: 5px;
+    border: solid 1px #c0babae5;
+    border-radius: 5px;
+    background: #f1f4f5;
+    font-size: 15px;
+    margin: 7px;
+    width: 220px;
+    outline: none;
+}
+.card-mm{
+    padding-left: 5px;
+    border: solid 1px #c0babae5;
+    border-radius: 5px;
+    background: #f1f4f5;
+    font-size: 15px;
+    margin: 7px;
+    width: 60px;
+    outline: none;
+}
+.card-aa{
+    padding-left: 5px;
+    border: solid 1px #c0babae5;
+    border-radius: 5px;
+    background: #f1f4f5;
+    font-size: 15px;
+    margin: 7px;
+    width: 60px;
+    outline: none;
+}
+.card-cw{
+    padding-left: 5px;
+    border: solid 1px #c0babae5;
+    border-radius: 5px;
+    background: #f1f4f5;
+    font-size: 15px;
+    margin: 7px;
+    width: 60px;
+    outline: none;
+}
+.btn-confirmar-pago{
+    background: none;
+    margin-top: 30px;
+}
+.btn-confirmar-pago button{
+    background: none;
+    margin:10px;
+    background: #009AA2;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 6px;
+    font-size: 18px;
+    font-weight:bold;
+    box-shadow: 0 3px 5px 0px rgb(0,0,0, .2);
+}
+.btn-confirmar-pago button:hover{
+    background: #009aa2be;
+
+}
+
+
+
+/* Estilos  Footer */
 .pie{
     width: 100%;
     clear: both;
