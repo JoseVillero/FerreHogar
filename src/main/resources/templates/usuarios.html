@@ -97,26 +97,26 @@
         </div>
         <!-- Table -->
         <div class="table">
-            <table>
-                <thead>
+            <table class="tabla-usuario">
+                <thead class="thead-usuario">
                 <tr>
-                    <th>CORREO</th>
-                    <th>NOMBRE</th>
-                    <th>CONTRASEÑA</th>
-                    <th>TELEFONO</th>
-                    <th>TIPO USUARIO</th>
-                    <th>ACTIVO</th>
-                    <th>OPCIONES</th>
+                    <th class="th-usuario">CORREO</th>
+                    <th class="th-usuario">NOMBRE</th>
+                    <th class="th-usuario">CONTRASEÑA</th>
+                    <th class="th-usuario">TELEFONO</th>
+                    <th class="th-usuario">TIPO USUARIO</th>
+                    <th class="th-usuario">ACTIVO</th>
+                    <th v>OPCIONES</th>
                 </tr>
                 </thead>
-                <tbody th:each="_usuario, iterStat : ${listaUsuario}">
+                <tbody class="tbody-usuario" th:each="_usuario, iterStat : ${listaUsuario}">
                 <tr>
-                    <td th:text="${_usuario.email}"></td>
-                    <td th:text="${_usuario.nombreCompleto}"></td>
-                    <td th:text="${_usuario.password}"></td>
-                    <td th:text="${_usuario.telefono}"></td>
-                    <td th:text="${_usuario.roles}"></td>
-                    <td th:text="${_usuario.enable}"></td>
+                    <td class="td-usuario" th:text="${_usuario.email}"></td>
+                    <td class="td-usuario" th:text="${_usuario.nombreCompleto}"></td>
+                    <td class="td-usuario" th:text="${_usuario.password}"></td>
+                    <td class="td-usuario" th:text="${_usuario.telefono}"></td>
+                    <td class="td-usuario" th:text="${_usuario.roles}"></td>
+                    <td class="td-usuario" th:text="${_usuario.enable}"></td>
                     <td>
                         <!-- Delete Button (trigger) -->
                             <div class="optionsusuarios">
