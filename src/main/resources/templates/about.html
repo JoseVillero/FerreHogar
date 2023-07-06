@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="es">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<!-- Headers -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,37 +10,43 @@
     <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
 </head>
-
 <body>
-
+<!-- Logo header -->
     <div>
         <header class="header">
             <figure>
-                <img src="../static/images/logo.png" th:src="@{/images/logo.png}" >
+                <img src="../static/images/logo.png" th:src="@{/images/logo.png}" alt="logo imagen">
             </figure>
         </header>
+        <!-- Navigation Bar -->
         <nav class="principal" >
+            <!-- Button nav -->
             <nav class="menuConfig">
                 <ul>
                     <li><a href="#" th:href="@{/}">Home</a></li>
                     <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
                     <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
-                    <li><a href="#" th:href="@{/help}">Gestionar Usuarios</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
                 </ul>
- 
             </nav>
+            <!-- Shopping cart-->
+            <nav class="totalAgregado">
+                <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+            </nav>
+            <!-- Info User -->
             <nav class="usuario">
-                <img src="../static/images/user.png" th:src="@{/images/user.png}" >
-                <h2>Usuario</h2>
+                <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
+                <h2 th:text="${fullName}">Usuario</h2>
+                <h2 sec:authentication="principal.authorities">User</h2>
                 <form th:action="@{/logout}" method="post">
-                    <button class="btn btn-info btn-block my-4" ><span> Logout</span></button>
+                    <button class="btnLogout" ><span> Logout</span></button>
                 </form>
-            </nav>   
-            
+            </nav>
         </nav>
+        <!-- Info About -->
         <main>
             <section>
-
                 <div class="pvm">
                     <h1>Nuestra historia</h1>
                     <p>
@@ -61,38 +66,34 @@
                     <h1>Visión</h1>
                     <p>
                         Alrededor de 70 empresas EGLO son responsables de ventas, servicios y, en algunos casos, del marketing regional en más de 50 países de todo el mundo. A pesar del avance de la internacionalización y la globalización, somos y seguiremos siendo una empresa familiar con raíces en el Tirol.
-                        Con el aumento de las redes y las diferentes necesidades regionales, el "Think global – act local " se convierte cada vez más en "Ask local – act global ". Los clientes pertenecen a una cultura regional y tienen diferentes necesidades, incluso si actúan y compran globalmente. Unir y reconciliar estos dos mundos es una de nuestras mayores aspiraciones.
+                        Con el aumento de las redes y las diferentes necesidades regionales, el "Think global – act local" se convierte cada vez más en "Ask local – act global". Los clientes pertenecen a una cultura regional y tienen diferentes necesidades, incluso si actúan y compran globalmente. Unir y reconciliar estos dos mundos es una de nuestras mayores aspiraciones.
                     </p>
                 </div>            
             </section>
-
+            <!-- Map section -->
             <section class="mapa">
                 <h3 class="titulo-principal">Nuestra ubicación</h3>
                 <p>Nuestro establecimiento está ubicado en el corazón del pais</p>
-
                 <div class="mapa-contenido">
-
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254488.28442444844!2d-74.32107151328127!3d4.703969800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9aaae3b4529b%3A0xa699104941018e28!2sEglo%20Bogot%C3%A1!5e0!3m2!1ses-419!2sve!4v1687285232040!5m2!1ses-419!2sve" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
                 </div>
-            
-
             </section>
-
-
         </main>
+        <!-- Footer -->
         <footer class="pie">
             <ul>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}"  class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/eglocolombia/" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
             </ul>
-            
+            <div class="copyrith">
+                <p class="copyrith">&copy Copyrith Proyecto SENA - 2023 </p>
+                <h4>Jose David Villero</h4>
+                <h4>Sergio Andrés Manrique Triana</h4>
+            </div>
         </footer>
     </div>
-
 </body>
-
 </html>

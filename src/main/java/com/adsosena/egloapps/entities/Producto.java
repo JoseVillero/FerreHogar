@@ -1,7 +1,6 @@
 package com.adsosena.egloapps.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,27 +24,25 @@ public class Producto {
     @Column(name = "id")
     private int id;
 
-    @NotNull
-    @Column(name = "codigo")
+    @Column(name = "codigo", nullable = false)
     private int codigo;
 
-    @NotNull
-    @Column(name = "referencia")
+    @Column(name = "referencia", nullable = false, length = 30)
     private String referencia;
 
-    @NotNull
-    @Column(name = "nombre")
+    @Column(name = "nombre", nullable = false, length = 30)
     private String nombre;
 
-    @NotNull
-    @Column(name = "marca")
+    @Column(name = "marca", nullable = false, length = 15)
     private String marca;
 
-    @NotNull
-    @Column(name = "precio")
+    @Column(name = "precio",nullable = false)
     private double precio;
 
     @Column(name = "descripcion")
     private String descripcion;
+
+    @Column(name = "imagen", nullable = false)
+    private String imagen;
 
 }

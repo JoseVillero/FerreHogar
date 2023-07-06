@@ -26,6 +26,7 @@ public class ProductoConverter {
         productoModel.setMarca(producto.getMarca());
         productoModel.setPrecio(producto.getPrecio());
         productoModel.setDescripcion(producto.getDescripcion());
+        productoModel.setImagen(producto.getImagen());
         return productoModel;
     }
 
@@ -37,16 +38,15 @@ public class ProductoConverter {
 
         Producto producto = new Producto();
 
+        producto.setId(productoModel.getId());
         producto.setCodigo(productoModel.getCodigo());
         producto.setReferencia(productoModel.getReferencia());
         producto.setNombre(productoModel.getNombre());
         producto.setMarca(productoModel.getMarca());
         producto.setDescripcion(productoModel.getDescripcion());
+        producto.setPrecio(productoModel.getPrecio());
+        producto.setImagen(productoModel.getImagen());
+
         return producto;
     }
-
-
-
-
-
 }

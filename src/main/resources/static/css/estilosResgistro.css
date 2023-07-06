@@ -28,29 +28,30 @@ div{
 }
 .menu{
     background: rgba(14, 14, 14, 0.671);
-    padding: 5px 10px; 
-    margin: 10;    
+    margin: 10px;
+    height: 60px;
 }
 .menu li {
     display: inline-block;
-    margin: 15px;
+    margin: 18px 10px 0 10px;
+}
+
+.menu li a{
     padding: 10px;
-    background: #097792e7;
+    background: #009AA2;
     border-radius: 4px;
     transition: all 4ooms ease;
     cursor: pointer;
-}
-.menu li:hover {
-    box-shadow: 5px 5px 20px rgb(0, 0, 0);
-    transform: translateX(-3%);
-    background: #ffffff;
-    color:#097792e7;
-}
-li a{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     list-style: none;
     text-decoration: none;
     color: #ffffff;
+}
+.menu li:hover a{
+    box-shadow: 5px 5px 20px rgb(0, 0, 0);
+    transform: translateX(-3%);
+    background: #ffffff;
+    color:#009AA2;
 }
 body{
     font-family: Arial, Helvetica, sans-serif;
@@ -77,6 +78,8 @@ h1{
     font-size: 40px;
 }
 input[type="text"],
+input[type="tel"],
+input[type="email"],
 input[type="password"]{
     font-size: 20px;
     width: 82%;
@@ -91,6 +94,10 @@ input[type="password"]{
     min-width: 60px;
     text-align: center;
     color: #999;
+}
+label{
+    position:static;
+    display: inline;
 }
 .botton{
     border: none;
@@ -116,6 +123,9 @@ p{
     color: rgb(19, 157, 161);
 }
 .pie{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
     clear: both;
     padding: 10px;
     margin-top: 150px;
@@ -156,7 +166,7 @@ p{
 .pie a:hover {
     filter: blur(2px);
 }
-.pie li :hover{
+.pie li a:hover{
     transform: translateY(-3px)scale(1.05);
     box-shadow: 0 5px 5px 5px rgb(0,0,0, .4);
     filter: none;
@@ -175,6 +185,21 @@ p{
 }
 .pie ul li .whatsapp:hover{
     background: var(--whatsapp);
+}
+.copyrith{
+    margin: 5px;
+    background: none;
+    display:block
+
+}
+.copyrith P{
+    font-size: 14PX;
+    color: #ffffff;
+}
+
+.copyrith h4{
+    font-size: 12px;
+    color: #ffffff;
 }
 @media(min-width:768px)
 {

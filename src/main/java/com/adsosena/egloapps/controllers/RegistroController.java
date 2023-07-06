@@ -20,7 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RegistroController {
 
     @Autowired
-    RegistroService registroService;
+    private RegistroService registroService;
+
 
     /**Metodo mostrarRegistro: controla la peticion al recurso /registro. El metodo puede recibir tres parametros.
      * Dos de los parametros son parametros http opcionales.

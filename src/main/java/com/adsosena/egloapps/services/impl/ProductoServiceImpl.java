@@ -19,8 +19,15 @@ import java.util.List;
 @Service
 public class ProductoServiceImpl implements ProductoService {
 
+    private ProductoRepository productoRepository;
+
+    private ProductoConverter productoConverter;
+
     @Autowired
-    ProductoRepository productoRepository;
+    public ProductoServiceImpl(ProductoRepository productoRepository) {
+        this.productoRepository = productoRepository;
+        this.productoConverter = new ProductoConverter();
+    }
 
     /**Metodo listarProductos: Este metodo solicita al objeto del repositorio buscar todos
      * los productos de la base de datos y retorna un listado de estos
@@ -28,7 +35,6 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public List<ProductoModel> listarProductos() {
 
-        ProductoConverter productoConverter = new ProductoConverter();
         List<ProductoModel> productos = new ArrayList<>();
         List<Producto> productoList = productoRepository.findAll();
 
@@ -36,6 +42,17 @@ public class ProductoServiceImpl implements ProductoService {
             productos.add(productoConverter.productoToProductoModel(producto));
         }
         return productos;
+    }
+
+    @Override
+    public Producto agregarProducto(ProductoModel productoModel) {
+
+        return productoRepository.save(productoConverter.productoModelToProducto(productoModel));
+    }
+
+    @Override
+    public void eliminarProducto(int id) {
+        productoRepository.deleteById(id);
     }
 
 }

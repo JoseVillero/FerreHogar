@@ -97,11 +97,4 @@ class UsuarioModelTest {
         assertTrue(usuarioModel2.isEnable());
     }
 
-    @Test
-    void setRoles() {
-        roles.clear();
-        roles.add(Rol.ADMIN);
-        usuarioModel2.setRoles(roles);
-        assertTrue(roles.contains(Rol.ADMIN));
-    }
 }

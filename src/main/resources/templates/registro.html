@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="es">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<!-- Headers -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,62 +10,73 @@
     <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
     <link rel="stylesheet" href="../static/css/estilosResgistro.css" th:href="@{/css/estilosResgistro.css}">
 </head>
-
 <body>
-
+<!-- Logo header -->
 	<div>
         <header class="header">
             <figure>
-                <img src="../static/images/logo.png" th:src="@{/images/logo.png}">
+                <img src="../static/images/logo.png" th:src="@{/images/logo.png}" alt="logo imagen">
             </figure>
         </header>
-        <nav  class="menu">
+		<!-- Navigation Bar -->
+		<nav  class="menu">
             <ul>
             	<li><a href="#" th:href="@{/}">Home</a></li>
                 <li><a href="#" th:href="@{/login}">Login</a></li>
                 <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
-                <li><a href="#" th:href="@{/help}">Ayuda</a></li>
             </ul>
         </nav>
+		<!-- Alerts -->
 		<div th:if="${existe}" class="alert alert-danger" role="alert"> Error en el registro: el usuario ya existe. </div>
 		<div th:if="${noExiste}" class="alert alert-success" role="alert"> Usuario registrado con éxito, ya puedes iniciar sesión. </div>
+		<!-- Form register -->
 		<form class="formulario" action="#" th:action="@{/registrar}" th:object="${usuario}" method="post">
         	<h1>Registrate</h1>
         	<div class="contenedor">
-
             	<div class="input-contenedor">
                 	<i class="fa-solid fa-user icon"></i>
-                	<input type="text" placeholder="Nombre Completo" th:field="*{nombreCompleto}">
+                	<input type="text" name="name" pattern="[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\s]{4,20}"
+						   title="El nombre debe tener minimo 4 letras, no puede contener numeros o caracteres especiales"
+						   placeholder="Nombre Completo" required th:field="*{nombreCompleto}">
             	</div>
             	<div class="input-contenedor">
                 	<i class="fa-solid fa-phone icon"></i>
-                	<input type="text" placeholder="Telefono" th:field="*{telefono}">
+                	<input type="tel" pattern="[0-9]{5,10}" placeholder="Telefono"
+						   title="El telefono debe tener minimo 5 numeros. Solo se permiten caracteres numericos"
+						   required th:field="*{telefono}">
             	</div>
             	<div class="input-contenedor">
                 	<i class="fa-solid fa-envelope icon"></i>
-                	<input type="text" placeholder="Correo electronico" th:field="*{email}">
+                	<input type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+						   placeholder="Correo electronico" required th:field="*{email}">
             	</div>
             	<div class="input-contenedor">
                 	<i class="fa-solid fa-key icon"></i>
-                	<input type="password" placeholder="Contraseña" th:field="*{password}">
+                	<input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+						   title="Debe contener al menos un numero y una letra en minuscula
+						   y una letra en mayuscula, y 8 caracteres o mas."
+						   placeholder="Contraseña" required th:field="*{password}">
             	</div>
             	<input type="submit" value="Registrate" class="botton">
             	<p>Al registarte, aceptas nuestras condiciones de uso y políticas de privacidad.</p>
             	<p>¿Ya tienes una cuenta?<a class="link" href="#" th:href="@{/login}"> Iniciar Sesión</a></p>
         	</div>
     	</form>
-
+		<!-- Footer -->
     	<footer class="pie">
             <ul>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="../static/css/estilos.css"  th:href="@{/css/estilos.css}" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href="../static/css/estilos.css" th:href="@{/css/estilos.css}" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/eglocolombia/" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
             </ul>
-	</footer>
+			<div class="copyrith">
+				<p class="copyrith">&copy Copyrith Proyecto SENA - 2023 </p>
+				<h4>Jose David Villero</h4>
+				<h4>Sergio Andrés Manrique Triana</h4>
+			</div>
+        </footer>
     </div>
-    
 </body>
-
 </html>
