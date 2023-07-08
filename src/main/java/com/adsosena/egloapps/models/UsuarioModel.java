@@ -1,11 +1,14 @@
 package com.adsosena.egloapps.models;
 
+
 import com.adsosena.egloapps.entities.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**Clase UsuarioModel:
@@ -29,8 +32,14 @@ public class UsuarioModel {
 
     private Set<Rol> roles;
 
+    private List<TransaccionModel> transacciones;
+
+    private CarritoModel carrito;
+
     public UsuarioModel() {
+
         this.roles = new HashSet<>();
+        this.transacciones = new ArrayList<>();
     }
 
     public void setNombreCompleto(String nombreCompleto) {
@@ -66,6 +75,21 @@ public class UsuarioModel {
         this.enable = Boolean.parseBoolean(enable);
     }
 
+    public void setRoles(Set<Rol> roles) {
+        this.roles = roles;
+    }
+    public void setRoles(String rol) {
+        roles.add(Rol.valueOf(rol));
+    }
+
+    public void setTransacciones(List<TransaccionModel> transacciones) {
+        this.transacciones = transacciones;
+    }
+
+    public void setCarrito(CarritoModel carrito) {
+        this.carrito = carrito;
+    }
+
     @Override
     public String toString() {
         return "UsuarioModel{" +
@@ -75,13 +99,8 @@ public class UsuarioModel {
                 ", telefono='" + telefono + '\'' +
                 ", enable=" + enable +
                 ", roles=" + roles +
+                ", transacciones=" + transacciones +
+                ", carrito=" + carrito +
                 '}';
-    }
-
-    public void setRoles(Set<Rol> roles) {
-        this.roles = roles;
-    }
-    public void setRoles(String rol) {
-        roles.add(Rol.valueOf(rol));
     }
 }

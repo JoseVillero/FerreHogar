@@ -27,6 +27,9 @@ public class ProductoConverter {
         productoModel.setPrecio(producto.getPrecio());
         productoModel.setDescripcion(producto.getDescripcion());
         productoModel.setImagen(producto.getImagen());
+        productoModel.setCantidadDisponible(producto.getCantidadDisponible());
+        // TODO: productoModel.setTransacciones(producto.getTransacciones());
+
         return productoModel;
     }
 
@@ -46,6 +49,8 @@ public class ProductoConverter {
         producto.setDescripcion(productoModel.getDescripcion());
         producto.setPrecio(productoModel.getPrecio());
         producto.setImagen(productoModel.getImagen());
+        producto.setCantidadDisponible(productoModel.getCantidadDisponible());
+        // TODO: producto.setTransacciones(productoModel.getTransacciones());
 
         return producto;
     }

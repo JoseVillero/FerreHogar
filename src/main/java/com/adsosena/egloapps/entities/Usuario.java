@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -43,4 +44,9 @@ public class Usuario {
     @Column(name = "rol")
     private Set<Rol> roles;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Transaccion> transacciones;
+
+    @OneToOne(mappedBy = "usuario")
+    private Carrito carrito;
 }

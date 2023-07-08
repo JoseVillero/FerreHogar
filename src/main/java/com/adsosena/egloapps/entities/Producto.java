@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 /**Clase producto:
  * Esta clase representa una entidad (tabla) en la base de datos.
  * Los atributos son representados como columnas en la base de datos
@@ -44,5 +46,11 @@ public class Producto {
 
     @Column(name = "imagen", nullable = false)
     private String imagen;
+
+    @Column(name = "cantidad_disponible", nullable = false)
+    private int cantidadDisponible;
+
+    @OneToMany(mappedBy = "producto", fetch = FetchType.LAZY)
+    private List<Transaccion> transacciones;
 
 }

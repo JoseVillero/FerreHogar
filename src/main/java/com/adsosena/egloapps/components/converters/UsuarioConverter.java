@@ -8,13 +8,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.HashSet;
 
+
 /**
  * Clase UsuarioConverter:
  * Brinda metodos que permite convertir un objeto de una clase modelo(una clase java estandar)
  * en un objeto de una entidad (una clase que representa una tabla)
  * @author Jose David */
 public class UsuarioConverter {
-
 
     private final PasswordEncoder passwordEncoder;
 
@@ -39,6 +39,7 @@ public class UsuarioConverter {
         usuario.setEnable(true);
         usuario.setRoles(new HashSet<>());
         usuario.getRoles().add(Rol.USER);
+       // TODO: Hacer usuario.setTransacciones() usuario.setCarrito()
 
         return usuario;
     }
@@ -52,6 +53,8 @@ public class UsuarioConverter {
         usuarioModel.setTelefono(usuario.getTelefono());
         usuarioModel.setEnable(usuario.isEnable());
         usuarioModel.setRoles(usuario.getRoles());
+        // TODO: Hacer usuarioModel.setTransacciones() usuarioModel.setCarrito()
+
 
         return usuarioModel;
     }
@@ -68,10 +71,9 @@ public class UsuarioConverter {
         for(Rol rol: usuarioModel.getRoles()){
             usuario.getRoles().add(rol);
         }
+        // TODO: Hacer usuario.setTransacciones() usuario.setCarrito()
 
         return usuario;
     }
-
-
-
 }
+//todo: agregar nuevos atributos junto con setter getter, revisar constructor
