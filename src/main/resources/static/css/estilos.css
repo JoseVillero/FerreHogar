@@ -47,7 +47,7 @@ div{
 .principal{ 
     display: flex;
     padding: 20px;
-    height: 250px;
+    height: 100%;
 }
 .menuConfig{
     align-items: center;
@@ -85,11 +85,13 @@ div{
 .totalAgregado{
     margin-top: 40px;
     width: 10%;
+    min-width: 150px;
     cursor: pointer;
    
 }
 .agregado{
     width:50%;
+    min-width: 50%;
     padding: 10px;
     background: #c8cecdde;
     border-radius: 15px;
@@ -145,7 +147,7 @@ div{
 .search{
     position: relative;
     top: 22px;
-    left: 40px;
+    left: 100px;
     height: 40px;
     border-radius: 15px;
 }
@@ -155,7 +157,6 @@ div{
     border-radius: 15px;
     background: #ffffff;
     font-size: 15px;
-    padding: 5px 55px 5px 10px;
     width: 0;
     height: 40px;
     outline: none;
@@ -164,11 +165,11 @@ div{
 }
 .logo-search{
     position: absolute;
-    top: -15px;
-    right: 0px;
+    top: -25px;
+    right: -5px;
     background: #009AA2;
-    width: 70px;
-    height: 70px;
+    width: 85px;
+    height: 85px;
     line-height:70px;
     text-align: center;
     border-radius: 50%;
@@ -177,13 +178,15 @@ div{
 
 }
 .logo-search svg {
-    width: 50%;
+    margin: 15px;
+    width: 60%;
     color:#ffffff;
-    line-height: 55px;
+    line-height: 85px;
     transition: all .7s ease;
 }
 .search:hover input{
     width: 240px;
+    padding: 5px 85px 5px 15px;
 }
 .search:hover .logo-search svg{
     transform: rotate(-360deg);
@@ -376,7 +379,7 @@ div{
 .textarea-descripcion{
     width: 100%;
     height: 70px;
-    padding: 0px;
+    padding: 0 5px 0 0;
     font-size: small;
     color: rgba(255, 255, 255, 0.87);
     line-height: 1.2;
@@ -663,6 +666,7 @@ article{
 .columna blockquote{
     font-size:x-large;
     width: 100%;
+    min-width: 220px;
     margin: 4px;
     border-radius: 6px;
     overflow: hidden;
@@ -690,7 +694,7 @@ article{
 }
 
 
-/* estilos Usuarios-body**/
+/* estilos Usuarios-body */
 .tabla-usuario{
     width: 90%;
     margin : 40px auto;
@@ -706,6 +710,13 @@ article{
 }
 .td-usuario,.th-usuario {
     border: 1px solid #C1c3d1;
+    width: auto;
+    height: auto;
+    padding: 8px 15px;
+}
+.td-usuario-password{
+    border: 1px solid #C1c3d1;
+    width: 100px;
     padding: 8px 15px;
 }
 .tbody-usuario:hover tr{
@@ -734,6 +745,9 @@ article{
 }
 .editar:hover{
     color: rgb(240, 240, 8);
+}
+.contenido{
+    background: rgb(150, 98, 98);
 }
 
 
@@ -779,26 +793,20 @@ main{
 
 
 
-
 article footer{
     text-align: right;
     margin-top: 20px;
 }
-.contenido{
-    background: rgb(150, 98, 98);
-    
-}
-
 
 
 
 /* Estilos  pagina factura */
 
 .factura{
-    width: 55%;
+    width: 45%;
     padding: 20px;
     margin-top: 8%;
-    margin-left: 20%;
+    margin-left: 30%;
     margin-bottom: 20%;
     border-radius: 20px;
     background: #ffffff;
@@ -846,7 +854,6 @@ article footer{
     font-size: 12px;
 }
 .img-qr{
-
     width: 30%;
     left: 0;
 }
@@ -941,9 +948,10 @@ article footer{
 }
 
 
-/* Estilos página pago */
+/* Estilos trasacción */
 .bancos{
-    width: 40%;
+    width: 35%;
+    min-width: 700px;
     padding-top: 20px;
     padding-bottom: 20px;
     display: inline-flex;
@@ -955,7 +963,7 @@ article footer{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 30%;
+    width: 40%;
     height: 25%;
     min-width: 22%;
     padding: 15px;
@@ -1025,7 +1033,7 @@ article footer{
 
 .formulario-tarjeta{
     margin: auto 5px;
-    width: 40%;
+    width: 45%;
     height: 30%;
 }
 .input-trajeta{
@@ -1109,7 +1117,20 @@ article footer{
 
 }
 
-
+/* Estilos  404*/
+.container{
+    width: 50%;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+    background: #ffffff;
+    border-radius: 10px;
+}
+.container br h1, .container h3{
+    color: #000000;
+}
+.figure-img{
+    width: 40%;
+}
 
 /* Estilos  Footer */
 .pie{
@@ -1227,3 +1248,306 @@ article footer{
 .card-text {
     margin-bottom: 15px;
 }
+
+/* creamos condiciones mediande la @media para que nuestras páginas seas responsivas*/
+
+@media screen and (max-width:1000px ) {
+    /* responsive - head*/
+    .principal {
+        display: flex;
+        padding: 0;
+    }
+
+    .menuConfig, .menu {
+        display: flex;
+        height: 100%;
+        margin: 5px;
+        padding: 2px;
+    }
+
+    .menuConfig li, .menu li {
+        display: flex;
+        margin-left: -20px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+        height: 100%;
+    }
+
+    .menuConfig li a, .menu li a {
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .lista-diferenciales, .imagen-diferenciales, .contenedorProductos, .fila {
+
+        width: 100%;
+    }
+
+    .usuario {
+        width: 120px;
+    }
+}
+
+@media screen and (max-width:800px ) {
+/* responseive- index */
+    .seccion{
+        width: 100%;
+    }
+    .contenedor{
+        display: block;
+        margin: 10px 0 0 10px;
+    }
+    .tarjeta{
+        width: 350px;
+        min-width: 200px;
+        margin: 10px auto;
+    }
+    .columna{
+        display: flex;
+        flex-direction: column;
+        margin-left: 25px;
+        float: none;
+        width: 90%;
+    }
+    .columna blockquote{
+        margin: 5px auto;
+    }
+}
+
+/* responsive- factura */
+@media screen and (max-width:1000px ) {
+    .factura {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .header-factura {
+        width: 100%;
+    }
+
+    .header {
+        display: inline-flex;
+        width: 100%;
+        height: 30%;
+    }
+
+    .img-logo {
+        width: 30%;
+        margin: 5px;
+    }
+
+    .img-logo img {
+        margin-top: 40%;
+        width: 100%;
+    }
+
+    .Eglo {
+        width: 40%;
+        min-width: 40%;
+        margin: .2%;
+        display: block;
+        padding-top: 5%;
+
+    }
+
+    .Eglo div {
+        position: relative;
+        text-align: center;
+        margin: 5px;
+    }
+
+    .Eglo h3 {
+        padding: 5px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .Eglo h4 {
+        margin: 1px;
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    .Eglo h5 {
+        font-size: 8px;
+    }
+
+    .img-qr {
+        width: 30%;
+        left: 0;
+    }
+
+    .img-qr img {
+        width: 100%;
+        padding: 10% 2%;
+    }
+
+    .detalle-cliente {
+        display: inline-flex;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .cliente {
+        width: 70%;
+    }
+
+    .info-cliente {
+        display: flex;
+    }
+
+    .info-cliente h6, .info-cliente h7 {
+        margin: 5px;
+        width: 200px;
+        background: #009aa248;
+        text-align: left;
+    }
+
+    .info-cliente h6 {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .info-cliente h7 {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .numero-factura {
+        width: 25%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .numero-factura h6 {
+        display: flex;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    .numero-factura h4 {
+        font-size: 14px;
+        padding: 5%;
+        background: #555555;
+        color: #ffffff;
+    }
+
+    .body-factura {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tabla-uno {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .thead-factura {
+        background: #555555;
+        color: white;
+        font-weight: bold;
+    }
+
+    .td-factura, .th-factura {
+        border: 1px solid #C1c3d1;
+        padding: 5px;
+        font-size: 10px;
+    }
+
+    .td-factura {
+        background: #ffffff;
+    }
+
+    .tabla-dos {
+        margin-left: 76.5%;
+        width: auto;
+    }
+
+    .foother-factura {
+        display: flex;
+        margin-top: 20px;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    .foother-factura button {
+        background: #009AA2;
+        border: none;
+        color: #ffffff;
+        border-radius: 5px;
+        padding: 6px;
+        font-size: 18px;
+        font-weight: bold;
+        width: 80px;
+    }
+
+    .foother-factura button:hover {
+        background: #009aa2be;
+    }
+}
+/* resposive-transaccion */
+
+@media screen and (max-width:700px) {
+    .bancos {
+        margin: 25px;
+        display: block;
+        width: 90%;
+        min-width: 350px;
+    }
+    .bancos fieldset {
+        width: 60%;
+        margin: 15px auto;
+    }
+    .formulario-tarjeta{
+        width: 80%;
+        margin: 15px auto;
+    }
+
+/* responsive-usuarios*/
+    table{
+
+    }
+    .tabla-usuario{
+        width: 90%;
+        margin : 40px 5px;
+        background : #f3eeee;
+        text-align: center;
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.6);
+    }
+
+    .thead-usuario {
+        background: #555555;
+        color:white;
+        font-weight: bold;
+    }
+    .td-usuario,.th-usuario {
+        border: 1px solid #C1c3d1;
+        padding: 5px;
+        font-size: 10px;
+    }
+    .td-usuario-password{
+        font-size: 10px;
+        height: 150px;
+
+    }
+    /* Estilos  404*/
+    .container{
+        width: 70%;
+        padding: 40px 20px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        background: #ffffff;
+        border-radius: 10px;
+    }
+    .container br h1, .container h3{
+        color: #000000;
+        margin: 20px;
+    }
+    .figure-img{
+        width: 60%;
+    }
+}
+
