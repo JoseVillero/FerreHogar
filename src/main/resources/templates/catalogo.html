@@ -71,14 +71,14 @@
                         </div>
                         <div class="modal-body">
                             <form action="#" th:action="@{/catalogo/agregar-producto}"  th:object="${productoModel}" method="post" enctype="multipart/form-data">
-                                <label >Codigo: <input required type="number" th:field="*{codigo}" class="input-padron"></label>
+                                <label >Codigo: <input required type="number" min="0" th:field="*{codigo}" class="input-padron"></label>
                                 <label >Referencia: <input required type="text" placeholder="Referencia" th:field="*{referencia}" class="input-padron"></label>
                                 <label >Nombre: <input required type="text" placeholder="Nombre" th:field="*{nombre}" class="input-padron"></label>
                                 <label >Marca: <input required type="text" placeholder="Marca" th:field="*{marca}" class="input-padron"></label>
-                                <label >Precio: <input required type="number" step="any" th:field="*{precio}" class="input-padron"></label>
+                                <label >Precio: <input required type="number" min="0" step="any" th:field="*{precio}" class="input-padron"></label>
                                 <label> Imagen: <input required name="imagenFile" id="imagenFile" type="file" accept=".png, .jpg, .jpeg"></label>
                                 <label> Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
-                                <label> Cantidad: <input required type="number" th:field="*{cantidad}" class="input-padron"></label>
+                                <label> Cantidad: <input required type="number" min="0" th:field="*{cantidadDisponible}" class="input-padron"></label>
                                 <button class="btnGuardar" type="submit">Guardar</button>
                                 <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
                             </form>
@@ -109,7 +109,7 @@
                         </div>
                         <div class="cantidad">
                             <h4>Cantidad</h4>
-                            <h3 th:text="${producto.cantidad}"></h3>
+                            <h3 th:text="${producto.cantidadDisponible}"></h3>
                         </div>
                         <div class="footcard" >
                             <div class="valor">
@@ -189,16 +189,16 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <th:block th:with="idProducto=${producto.id}, imagenUrl=${producto.imagen}, cantidadProducto=${producto.cantidad}">
+                            <th:block th:with="idProducto=${producto.id}, imagenUrl=${producto.imagen}, cantidadProducto=${producto.cantidadDisponible}">
                                 <form action="#" th:action="@{/catalogo/actualizar-producto}"  th:object="${productoModel}" method="post">
                                     <label><input type="hidden" th:value="${idProducto}" id="id" name="id"></label>
                                     <label><input type="hidden" th:value="${imagenUrl}" id="imagen" name="imagen"></label>
-                                    <label><input type="hidden" th:value="${cantidadProducto}" id="cantidad" name="cantidad"></label>
-                                    <label> Codigo: [[${producto.codigo}]]<input required type="number" th:field="*{codigo}" class="input-padron" ></label>
+                                    <label><input type="hidden" th:value="${cantidadProducto}" id="cantidadDisponible" name="cantidadDisponible"></label>
+                                    <label> Codigo: <input required type="number" min="0" th:field="*{codigo}" class="input-padron" ></label>
                                     <label> Referencia: <input required type="text" th:placeholder="${producto.referencia}" th:field="*{referencia}" class="input-padron"></label>
                                     <label> Nombre: <input required type="text" th:placeholder="${producto.nombre}" th:field="*{nombre}" class="input-padron"></label>
                                     <label> Marca: <input required type="text" th:placeholder="${producto.marca}" th:field="*{marca}" class="input-padron"></label>
-                                    <label> Precio:[[${producto.precio}]] <input required type="number" step="any" th:field="*{precio}" class="input-padron"></label>
+                                    <label> Precio: <input required type="number" min="0" step="any" th:field="*{precio}" class="input-padron"></label>
                                     <label >Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
                                     <button class="btnGuardar" type="submit">Guardar</button>
                                     <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>

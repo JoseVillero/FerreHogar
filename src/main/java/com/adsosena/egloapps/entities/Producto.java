@@ -50,7 +50,7 @@ public class Producto {
     @Column(name = "cantidad_disponible", nullable = false)
     private int cantidadDisponible;
 
-    @OneToMany(mappedBy = "producto", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "producto", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Transaccion> transacciones;
 
 }

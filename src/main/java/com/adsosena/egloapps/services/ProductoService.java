@@ -11,7 +11,12 @@ import java.util.List;
 public interface ProductoService {
 
     List<ProductoModel> listarProductos();
+
     Producto agregarProducto(ProductoModel productoModel);
+
     void eliminarProducto(int id);
+
+    void actualizarProducto(ProductoModel productoModel);
+
 
 }

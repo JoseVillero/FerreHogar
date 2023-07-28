@@ -78,9 +78,6 @@ public class UsuarioModel {
     public void setRoles(Set<Rol> roles) {
         this.roles = roles;
     }
-    public void setRoles(String rol) {
-        roles.add(Rol.valueOf(rol));
-    }
 
     public void setTransacciones(List<TransaccionModel> transacciones) {
         this.transacciones = transacciones;

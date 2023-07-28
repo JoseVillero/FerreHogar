@@ -3,6 +3,8 @@ package com.adsosena.egloapps.components.converters;
 import com.adsosena.egloapps.entities.Producto;
 import com.adsosena.egloapps.models.ProductoModel;
 
+import java.util.ArrayList;
+
 /**Clase ProductoConverter:
  * Brinda metodos que permite convertir un objeto de una clase modelo(una clase java estandar)
  * en un objeto de una entidad (una clase que representa una tabla)
@@ -28,7 +30,6 @@ public class ProductoConverter {
         productoModel.setDescripcion(producto.getDescripcion());
         productoModel.setImagen(producto.getImagen());
         productoModel.setCantidadDisponible(producto.getCantidadDisponible());
-        // TODO: productoModel.setTransacciones(producto.getTransacciones());
 
         return productoModel;
     }
@@ -38,7 +39,16 @@ public class ProductoConverter {
      * @param productoModel de tipo ProductoModel
      * @return Producto*/
     public Producto productoModelToProducto(ProductoModel productoModel){
+        Producto producto = setAtributosProductos(productoModel);
+        producto.setTransacciones(new ArrayList<>());
+        return producto;
+    }
 
+    public Producto actualizarProducto(ProductoModel productoModel){
+       return setAtributosProductos(productoModel);
+    }
+
+    private Producto setAtributosProductos(ProductoModel productoModel){
         Producto producto = new Producto();
 
         producto.setId(productoModel.getId());
@@ -50,7 +60,6 @@ public class ProductoConverter {
         producto.setPrecio(productoModel.getPrecio());
         producto.setImagen(productoModel.getImagen());
         producto.setCantidadDisponible(productoModel.getCantidadDisponible());
-        // TODO: producto.setTransacciones(productoModel.getTransacciones());
 
         return producto;
     }

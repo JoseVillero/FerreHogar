@@ -45,16 +45,14 @@ public class CatalogoController {
         model.addAttribute("guardado", guardado);
         model.addAttribute("productoModel", new ProductoModel());
         model.addAttribute("productos",productoService.listarProductos());
-        model.addAttribute("fullName", usuarioService.getFullName());
+        model.addAttribute("fullName", usuarioService.getUsuarioActual().getNombreCompleto());
         return ConstantesVistas.CATALOGO_VISTA;
     }
 
     @PostMapping("/catalogo/agregar-producto")
     public String agregarProducto(@ModelAttribute ProductoModel productoModel, @RequestParam(name = "imagenFile") MultipartFile imagen){
-
         try {
             if (productoModel != null && imagen != null){
-                System.out.println(productoModel.getId());
                 String imagenUrl = imagenService.guardarImagen(imagen);
                 if(!imagenUrl.isBlank()){
                     productoModel.setImagen(imagenUrl);
@@ -63,6 +61,7 @@ public class CatalogoController {
                 return "redirect:/catalogo?true";
             }
         } catch (Exception exception){
+            exception.printStackTrace();
 
             return "redirect:/catalogo?false";
         }
@@ -71,8 +70,7 @@ public class CatalogoController {
     @PostMapping("/catalogo/actualizar-producto")
     public String actualizarProducto(@ModelAttribute ProductoModel productoModel){
         if (productoModel != null){
-            System.out.println(productoModel);
-            productoService.agregarProducto(productoModel);
+            productoService.actualizarProducto(productoModel);
             return "redirect:/catalogo?true";
         }
         return "redirect:/catalogo?false";
@@ -83,5 +81,4 @@ public class CatalogoController {
         productoService.eliminarProducto(id);
         return "redirect:/catalogo";
     }
-
 }

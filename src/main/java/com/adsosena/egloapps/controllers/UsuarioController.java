@@ -29,7 +29,7 @@ public class UsuarioController {
         model.addAttribute("user",Rol.USER);
         model.addAttribute("admin",Rol.ADMIN);
         model.addAttribute("usuario", new UsuarioModel());
-        model.addAttribute("fullName", usuarioService.getFullName());
+        model.addAttribute("fullName", usuarioService.getUsuarioActual().getNombreCompleto());
         model.addAttribute("listaUsuario", usuarioService.listarUsuarios());
 
         return ConstantesVistas.USUARIOS_VISTA;
@@ -37,9 +37,6 @@ public class UsuarioController {
 
     @PostMapping("/usuarios/agregar-usuario")
     public String agregarUsuario(@ModelAttribute UsuarioModel usuarioModel){
-
-        System.out.println(usuarioModel);
-
         try {
             if(usuarioModel != null){
                 registroService.agregarUsuario(usuarioModel);
@@ -55,5 +52,18 @@ public class UsuarioController {
 
        registroService.eliminarUsuario(id);
         return "redirect:/usuarios";
+    }
+
+    @PostMapping("/usuarios/editar-usuario")
+    public String editarUsuario(@ModelAttribute UsuarioModel usuarioModel) {
+        try {
+            if (usuarioModel != null) {
+                registroService.editarUsuario(usuarioModel);
+                return "redirect:/usuarios?true";
+            }
+        } catch (Exception exception) {
+            return "redirect:/usuarios?false";
+        }
+        return "usuarios";
     }
 }

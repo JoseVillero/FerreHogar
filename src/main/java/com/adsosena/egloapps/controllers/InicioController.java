@@ -17,7 +17,7 @@ public class InicioController {
     @GetMapping("/")
     public String mostrarInicio(Model model){
 
-        model.addAttribute("fullName",usuarioService.getFullName());
+        model.addAttribute("fullName",usuarioService.getUsuarioActual().getNombreCompleto());
 
         return ConstantesVistas.INDEX_VISTA;
     }

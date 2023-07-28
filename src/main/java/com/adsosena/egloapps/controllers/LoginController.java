@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 
-    /**Metodo mostrarLogin: controla la peticion al recurso /login. Si el usuario no es autenticado vuelve y redireccina
+    /**Metodo mostrarLogin: controla la peticion al recurso /login. Si el usuario no es autenticado vuelve y redirecciona
      * a la vista login
      * @param userDetails de tipo UserDetail, spring se encarga de inyectar el atributo
      * @return String - retorna la vista login o index si userDetails no es nulo*/

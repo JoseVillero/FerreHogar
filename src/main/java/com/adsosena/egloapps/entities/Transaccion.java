@@ -32,6 +32,7 @@ public class Transaccion {
     private int cantidad;
 
     @Column(name = "tipo_operacion", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Operacion tipoDeOperacion;
 
     @Column(name = "metodo_de_pago")
@@ -42,5 +43,4 @@ public class Transaccion {
 
     @Column(name = "fecha_realizacion", nullable = false)
     private Timestamp fechaDeRealizacion;
-
 }

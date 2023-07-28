@@ -1,10 +1,7 @@
 package com.adsosena.egloapps.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 import java.util.Set;
@@ -19,6 +16,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Table(name = "usuarios")
 public class Usuario {
 
@@ -47,6 +45,6 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Transaccion> transacciones;
 
-    @OneToOne(mappedBy = "usuario")
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Carrito carrito;
 }

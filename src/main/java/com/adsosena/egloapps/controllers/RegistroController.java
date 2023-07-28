@@ -54,6 +54,7 @@ public class RegistroController {
         else {
             registroService.registrarUsuario(usuarioModel);
             return "redirect:/registro?false";
+            //TODO: envolver en un try catch.
         }
     }
 }
