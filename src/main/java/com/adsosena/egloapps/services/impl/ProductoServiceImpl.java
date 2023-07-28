@@ -82,8 +82,21 @@ public class ProductoServiceImpl implements ProductoService {
         }
     }
 
+    @Override
+    public List<ProductoModel> buscarProductos(String busqueda) {
+        List<ProductoModel> productos = new ArrayList<>();
+        List<Producto> productoList =
+                productoRepository.findByNombreContainingIgnoreCaseOrReferenciaContainingIgnoreCaseOrMarcaContainingIgnoreCase
+                        (busqueda, busqueda, busqueda);
+        for (Producto producto : productoList) {
+            productos.add(productoConverter.productoToProductoModel(producto));
+        }
+        return productos;
+    }
+
     private  Producto guardarProducto(ProductoModel productoModel){
         return productoRepository.save(productoConverter.productoModelToProducto(productoModel));
     }
+
 }
 

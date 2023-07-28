@@ -18,5 +18,7 @@ public interface ProductoService {
 
     void actualizarProducto(ProductoModel productoModel);
 
+    List<ProductoModel> buscarProductos(String busqueda);
+
 
 }

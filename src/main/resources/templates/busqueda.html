@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<!-- Headers -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
+</head>
+<body>
+<!-- Logo header -->
+<div>
+    <header class="header">
+        <figure>
+            <img src="../static/images/logo.png" th:src="@{/images/logo.png}" alt="logo imagen">
+        </figure>
+    </header>
+    <!-- Navigation Bar -->
+    <nav class="principal" >
+        <!-- Button nav -->
+        <nav class="menuConfig">
+            <ul>
+                <li><a href="#" th:href="@{/}">Home</a></li>
+                <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
+                <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
+                <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
+            </ul>
+            <!-- Shopping cart-->
+        </nav>
+        <nav class="totalAgregado">
+            <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0
+                    1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0
+                    1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7
+                    0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+        </nav>
+        <!-- Info User -->
+        <nav class="usuario">
+            <div class="contenedor-img">
+                <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
+                <h2 th:text="${fullName}">Usuario</h2>
+                <h2 sec:authentication="principal.authorities">User</h2>
+            </div>
+            <form class="contenedor-logout" th:action="@{/logout}" method="post">
+                <button class="btnLogout" ><span> Logout</span></button>
+            </form>
+        </nav>
+    </nav>
+    <!-- Search Bar -->
+    <div class="search">
+        <div class="logo-search">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0
+                     1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+        </div>
+        <form action="#" th:action="@{/buscar-producto}" method="post">
+            <label><input type="text" name="busqueda" th:value="${busqueda}" placeholder="Buscar producto"></label>
+        </form>
+    </div>
+    <!-- Cards for products -->
+    <div class="contenedorProductos">
+        <div class="fila">
+            <div th:each="producto, iterStat: ${productos}" class="cardProducto">
+                <figure class="imagen">
+                    <img src="#" th:src="@{${producto.imagen}}" alt="Lamparas imagen">
+                </figure>
+                <div class="detalle">
+                    <div class="codigo-nombre">
+                        <h3 th:text="${producto.nombre}">Pasteri</h3>
+                        <sup th:text="${producto.codigo}">106</sup>
+                    </div>
+                    <div class="referencia-marca">
+                        <h4 th:text="${producto.referencia}">lamapara de pie</h4>
+                        <small th:text="${producto.marca}">Led</small>
+                    </div>
+                    <div class="descripcion">
+                        <h4>Descripción</h4>
+                        <textarea th:text="${producto.descripcion}" class="textarea-descripcion">20% en toda la gama de productos de exterior, excluye productos en la sección SALE El descuento se deduce automáticamente en la cesta de la compra.</textarea>
+                    </div>
+                    <div class="cantidad">
+                        <h4>Cantidad</h4>
+                        <h3 th:text="${producto.cantidadDisponible}"></h3>
+                    </div>
+                    <div class="footcard" >
+                        <div class="valor">
+                            <samp>$</samp>
+                            <h4 th:text="${producto.precio}">120000</h4>
+                        </div>
+                        <div class="compra">
+                            <div class="input">
+                                <input class="input-cantidad">
+                                <span class="tooltip-cantidad"><small>Ingrese la cantidad</small></span>
+                            </div>
+                            <div class="contenedor-cesta">
+                                <svg class="cesta" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1
+                                        .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0
+                                        1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89
+                                        4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7
+                                        1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                </svg>
+                                <span class="tooltip-cesta"><small>Agregar al carrito</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="pie">
+        <ul>
+            <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/eglocolombia/" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+        </ul>
+        <div class="copyrith">
+            <p class="copyrith">&copy Copyrith Proyecto SENA - 2023 </p>
+            <h4>Jose David Villero</h4>
+            <h4>Sergio Andrés Manrique Triana</h4>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
