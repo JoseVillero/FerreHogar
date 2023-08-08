@@ -30,6 +30,7 @@ public class ProductoConverter {
         productoModel.setDescripcion(producto.getDescripcion());
         productoModel.setImagen(producto.getImagen());
         productoModel.setCantidadDisponible(producto.getCantidadDisponible());
+        productoModel.setTransacciones(producto.getTransacciones());
 
         return productoModel;
     }

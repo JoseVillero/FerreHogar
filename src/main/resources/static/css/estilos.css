@@ -431,12 +431,13 @@ div{
 }
 .input{
     position: relative;
+    right: 25px;
 }
 .input-cantidad{
     margin-right: 6px;
     margin-top: 4px;
     text-align: center;
-    width: 20px;
+    width: 50px;
     border: solid 1px rgb(99, 95, 95);
     background: #eef1ef;
     outline: none;
@@ -478,10 +479,12 @@ div{
 .contenedor-cesta{
     position: relative;
     width: 80px;
+    right: 19px;
 }
 .cesta{
     height: auto;
     cursor: pointer;
+    width: 25px;
 }
 .cesta :hover{
     color: #0ce904;

@@ -1,7 +1,9 @@
 package com.adsosena.egloapps.models;
 
 
+import com.adsosena.egloapps.entities.Carrito;
 import com.adsosena.egloapps.entities.Rol;
+import com.adsosena.egloapps.entities.Transaccion;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -32,9 +34,9 @@ public class UsuarioModel {
 
     private Set<Rol> roles;
 
-    private List<TransaccionModel> transacciones;
+    private List<Transaccion> transacciones;
 
-    private CarritoModel carrito;
+    private Carrito carrito;
 
     public UsuarioModel() {
 
@@ -79,25 +81,11 @@ public class UsuarioModel {
         this.roles = roles;
     }
 
-    public void setTransacciones(List<TransaccionModel> transacciones) {
-        this.transacciones = transacciones;
-    }
-
-    public void setCarrito(CarritoModel carrito) {
+    public void setCarrito(Carrito carrito) {
         this.carrito = carrito;
     }
 
-    @Override
-    public String toString() {
-        return "UsuarioModel{" +
-                "nombreCompleto='" + nombreCompleto + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", enable=" + enable +
-                ", roles=" + roles +
-                ", transacciones=" + transacciones +
-                ", carrito=" + carrito +
-                '}';
+    public void setTransacciones(List<Transaccion> transacciones) {
+        this.transacciones = transacciones;
     }
 }

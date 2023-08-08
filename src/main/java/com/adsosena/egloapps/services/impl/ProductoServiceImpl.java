@@ -44,9 +44,12 @@ public class ProductoServiceImpl implements ProductoService {
      * @return List<ProductoModel></>*/
     @Override
     public List<ProductoModel> listarProductos() {
-
-        List<ProductoModel> productos = new ArrayList<>();
         List<Producto> productoList = productoRepository.findAll();
+        return productoListToProductoModelList(productoList);
+    }
+
+    private List<ProductoModel> productoListToProductoModelList(List<Producto> productoList){
+        List<ProductoModel> productos = new ArrayList<>();
 
         for (Producto producto : productoList) {
             productos.add(productoConverter.productoToProductoModel(producto));
@@ -84,14 +87,10 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public List<ProductoModel> buscarProductos(String busqueda) {
-        List<ProductoModel> productos = new ArrayList<>();
         List<Producto> productoList =
                 productoRepository.findByNombreContainingIgnoreCaseOrReferenciaContainingIgnoreCaseOrMarcaContainingIgnoreCase
                         (busqueda, busqueda, busqueda);
-        for (Producto producto : productoList) {
-            productos.add(productoConverter.productoToProductoModel(producto));
-        }
-        return productos;
+        return productoListToProductoModelList(productoList);
     }
 
     private  Producto guardarProducto(ProductoModel productoModel){

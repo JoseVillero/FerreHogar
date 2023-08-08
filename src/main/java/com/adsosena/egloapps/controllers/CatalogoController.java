@@ -47,6 +47,7 @@ public class CatalogoController {
         model.addAttribute("productos",productoService.listarProductos());
         model.addAttribute("fullName", usuarioService.getUsuarioActual().getNombreCompleto());
         model.addAttribute("busqueda", "");
+        model.addAttribute("cantidad",1);
         return ConstantesVistas.CATALOGO_VISTA;
     }
 

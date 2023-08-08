@@ -52,6 +52,8 @@ public class UsuarioConverter {
         usuarioModel.setTelefono(usuario.getTelefono());
         usuarioModel.setEnable(usuario.isEnable());
         usuarioModel.setRoles(usuario.getRoles());
+        usuarioModel.setTransacciones(usuario.getTransacciones());
+        usuarioModel.setCarrito(usuario.getCarrito());
         return usuarioModel;
     }
 

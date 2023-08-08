@@ -11,7 +11,7 @@ public class ConstantesVistas {
     public static final String REGISTRO_VISTA = "registro";
     public static final String QUIENES_SOMOS_VISTA = "about";
     public static final String USUARIOS_VISTA = "usuarios";
-
     public static final String BUSQUEDA_VISTA = "busqueda";
+    public static final String CARRITO_VISTA = "carrito";
 
 }

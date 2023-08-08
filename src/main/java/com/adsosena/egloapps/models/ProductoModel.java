@@ -1,5 +1,6 @@
 package com.adsosena.egloapps.models;
 
+import com.adsosena.egloapps.entities.Transaccion;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -33,7 +34,7 @@ public class ProductoModel {
 
     private int cantidadDisponible;
 
-    private List<TransaccionModel> transacciones;
+    private List<Transaccion> transacciones;
 
     public ProductoModel() {
         this.transacciones = new ArrayList<>();
@@ -89,23 +90,7 @@ public class ProductoModel {
         }
     }
 
-    public void setTransacciones(List<TransaccionModel> transacciones) {
+    public void setTransacciones(List<Transaccion> transacciones) {
         this.transacciones = transacciones;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductoModel{" +
-                "id=" + id +
-                ", codigo=" + codigo +
-                ", referencia='" + referencia + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", marca='" + marca + '\'' +
-                ", precio=" + precio +
-                ", descripcion='" + descripcion + '\'' +
-                ", imagen='" + imagen + '\'' +
-                ", cantidadDisponible=" + cantidadDisponible +
-                ", transacciones=" + transacciones +
-                '}';
     }
 }

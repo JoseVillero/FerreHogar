@@ -25,25 +25,27 @@
         <nav class="menuConfig">
             <ul>
                 <li><a href="#" th:href="@{/}">Home</a></li>
-                <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
+                <li><a href="#" th:href="@{/about}">¿Quiénes somos?</a></li>
                 <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                 <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
             </ul>
             <!-- Shopping cart-->
         </nav>
         <nav class="totalAgregado">
-            <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0
-                    1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0
-                    1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7
-                    0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-            </svg>
+            <a href="#" th:href="@{/carrito}">
+                <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0
+                    1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0
+                    0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0
+                    1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+            </a>
         </nav>
         <!-- Info User -->
         <nav class="usuario">
             <div class="contenedor-img">
                 <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
-                <h2 th:text="${fullName}">Usuario</h2>
+                <h2 th:text="${usuarioActual.getNombreCompleto()}">Usuario</h2>
                 <h2 sec:authentication="principal.authorities">User</h2>
             </div>
             <form class="contenedor-logout" th:action="@{/logout}" method="post">
@@ -59,7 +61,7 @@
                      1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
             </svg>
         </div>
-        <form action="#" th:action="@{/buscar-producto}" method="post">
+        <form action="#" th:action="@{/buscar-producto}" method="get">
             <label><input type="text" name="busqueda" th:value="${busqueda}" placeholder="Buscar producto"></label>
         </form>
     </div>
@@ -93,12 +95,10 @@
                             <h4 th:text="${producto.precio}">120000</h4>
                         </div>
                         <div class="compra">
-                            <div class="input">
-                                <input class="input-cantidad">
-                                <span class="tooltip-cantidad"><small>Ingrese la cantidad</small></span>
-                            </div>
                             <div class="contenedor-cesta">
-                                <svg class="cesta" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                                <svg th:id="'botonCarrito-' + ${iterStat.index}" data-bs-toggle="modal"
+                                     th:data-bs-target="'#modalAgregarAlCarrito' + ${iterStat.index} " class="cesta"
+                                     xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1
                                         .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0
                                         1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89
@@ -106,6 +106,34 @@
                                         1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg>
                                 <span class="tooltip-cesta"><small>Agregar al carrito</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Modal AgregarAlCarrito -->
+                <div class="modal fade" th:id="'modalAgregarAlCarrito' + ${iterStat.index}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropsLabel" >Aviso</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Está seguro que desea agregar esa cantidad de
+                                <span th:style="'font-weight: bold;'" th:text="${producto.nombre}"></span> marca:
+                                <span th:style="'font-weight: bold;'" th:text="${producto.marca}"></span> al carrito?
+                            </div>
+                            <div class="modal-footer">
+                                <form id="pedidoForm" action="#" th:action="@{/carrito/agregar-pedido}" method="post">
+                                    <label><input type="hidden" name="idProducto" th:value="${producto.id}"></label>
+                                    <label><input type="hidden" name="busqueda" th:value="${busqueda}"></label>
+                                    <div class="input">
+                                        <label><input class="input-cantidad" type="number" min="1" name="cantidad" th:value="${cantidad}" ></label>
+                                        <span class="tooltip-cantidad"><small>Ingrese la cantidad</small></span>
+                                    </div>
+                                    <button type="submit" class="btnGuardar" data-bs-toggle="modal" data-bs-target="#CarritoModal">Confirmar</button>
+                                    <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                </form>
                             </div>
                         </div>
                     </div>
