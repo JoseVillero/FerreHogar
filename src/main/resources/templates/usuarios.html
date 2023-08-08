@@ -119,11 +119,11 @@
                     <tr>
                         <td class="td-usuario" th:text="${_usuario.email}">roman@fake.com</td>
                         <td class="td-usuario" th:text="${_usuario.nombreCompleto}">Roman Diaz</td>
-                        <td class="td-usuario-password" th:text="${_usuario.password}">$2a$10$dmGn2rCnf8L5VGqEXXx/Q.0lZqrX5OivHXfmYo1ySFHZNyyi.8uLO</td>
+                        <td class="td-usuario-password" > <h6 th:text="${_usuario.password}">$2a$10$dmGn2rCnf8L5VGqEXXx/Q.0lZqrX5OivHXfmYo1ySFHZNyyi.8uLO</h6> </td>
                         <td class="td-usuario" th:text="${_usuario.telefono}">	6451887</td>
                         <td class="td-usuario" th:text="${_usuario.roles}">	[ADMIN]</td>
                         <td class="td-usuario" th:text="${_usuario.enable}">true</td>
-                        <td>
+                        <td class="td-usuario">
                             <!-- Delete and edit Buttons (trigger) -->
                                 <div class="optionsusuarios">
                                     <svg class="eliminar" th:id="'boton-' + ${iterStat.index}" data-bs-toggle="modal"
