@@ -1,4 +1,4 @@
-/* estilos  body  */
+/* estilos  body-header  */
 h1{
     font-size: 20px;
     font-family: sans-serif;
@@ -104,45 +104,112 @@ div{
 }
 
 .usuario{
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     vertical-align: top;
     padding: 10px;
     width: 10%;
-    height: 100%;
+    min-width: 130px;
+    height: 200px;
     background: #c8cecdde;
     float: right;
     border-radius: 15px;
-    
+    position: relative;
+    overflow: hidden;
 }
+
 .contenedor-img{
-    height: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: .3s ease all;
 }
-.usuario img{
-    padding: 8px;
-    width: 80px;
+.contenedor-img::after {
+    content: "";
+    width: 100%;
+    height: 150px;
+    background: rgba(0, 154, 162, 0.37);
+    position: absolute;
+    z-index: 1;
+    top: -60px;
+    left: -0px;
+    transition: .6s ease-in-out;
+    border-radius: 90px;
+}
+.contenedor-img img {
+    justify-content: center;
+    margin: 5px auto;
+    padding: 0;
+    width: 60px;
+}
+.contenedor-img img,.contenedor-img h2{
+    z-index: 2;
+
 }
 .contenedor-logout{
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 2px;
+    margin: 5px auto;
     width: 100%;
     height: 30%;
 }
-.btnLogout{
-    margin: auto;
-    color: #ffffff;
-    background: #009AA2;
-    font-weight: bold;
+.contenedor-logout button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff ;
     border: none;
-    border-radius:3px ;
+    color: #009AA2;
+    width: 70%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight:bold;
+    transition: .8s ease all;
+    position: relative;
+    overflow: hidden;
 }
+.contenedor-logout button::after{
+    content: "";
+    width: 1px;
+    height: 1px;
+    background: none;
+    position: absolute;
+    z-index: 1;
+    top: 43%;
+    left: 46%;
+    transition: .6s ease-in-out;
+    border-radius: 100px;
+    transform-origin: center;
+
+}
+.contenedor-logout button:hover::after{
+    transform: scale(80);
+    background: #009AA2;
+}
+.contenedor-logout button:hover {
+    background: #02858c;
+}
+.contenedor-logout button span{
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+.contenedor-logout button:hover span{
+    color: #ffffff;
+}
+
 
 /* estilos catalogo-body  */
 .add-input{
     display: flex;
     width: 100%;
     justify-content: center;
+    margin: 50px auto;
+    padding: 5px;
 }
 .search{
     position: relative;
@@ -208,8 +275,6 @@ div{
     background:  #ffffff;
     transition: .5s;
 }
-
-
 .tooltips-agregar{
     visibility: hidden;
     position: absolute;
@@ -255,7 +320,6 @@ div{
     height: 100%;
     justify-content: center;
     margin: 10px 10px;
-
     position:static;
 }
 .fila{
@@ -333,18 +397,14 @@ div{
     background: none;
     justify-content: space-between;
 }
-
 .codigo-nombre sup{
     margin: 0;
     padding: 0;
-
 }
-
 .codigo-nombre h3{
     margin: 0;
     padding: 0;
     font-weight: 700;
-
 }
 .referencia-marca {
     display: block;
@@ -368,7 +428,6 @@ div{
     text-align: left;
     padding: 10px 10px 0px 10px;
 }
-
 .descripcion h4{
     font-size: 16px;
     font-weight: bold;
@@ -383,6 +442,7 @@ div{
     text-align: justify;
     border:none;
     background: none;
+    outline: none;
 }
 .cantidad{
     display: flex;
@@ -539,7 +599,7 @@ div{
     border: none;
     border-radius:3px ;
 }
-.btnLogout:hover, .btnCerrar:hover, .btnGuardar:hover, .btn-danger:hover{
+.btnCerrar:hover, .btnGuardar:hover, .btn-danger:hover{
     background: #32979d;
     color: #ffffff;
     box-shadow: 0px 0px 3px rgb(0, 0, 0);
@@ -716,8 +776,11 @@ article{
 }
 .td-usuario-password{
     border: 1px solid #C1c3d1;
-    width: 100px;
+    width: auto;
     padding: 8px 15px;
+}
+.td-usuario-password h6{
+    margin: auto;
 }
 .tbody-usuario:hover tr{
     background-color : #009AA2;
@@ -790,15 +853,10 @@ main{
     width: auto;
     margin: 0 auto;
 }
-
-
-
 article footer{
     text-align: right;
     margin-top: 20px;
 }
-
-
 
 /* Estilos  pagina factura */
 
@@ -847,11 +905,11 @@ article footer{
 }
 .Eglo h4{
     margin: 1px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
 }
 .Eglo h5{
-    font-size: 12px;
+    font-size: 18px;
 }
 .img-qr{
     width: 30%;
@@ -884,6 +942,7 @@ article footer{
 }
 .info-cliente h7{
     font-size: 16px;
+    color: #838388;
     padding: 5px;
 }
 .numero-factura{
@@ -949,38 +1008,51 @@ article footer{
 
 
 /* Estilos trasacción */
+
 .bancos{
-    width: 35%;
+    width: 40%;
     min-width: 700px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     display: inline-flex;
     justify-content: center;
+    align-content: center;
     border-radius: 20px;
     background: #ffffff;
+    margin-top: 8%;
+    margin-bottom: 10%;
 }
+.legend-transaccion{
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 15px;
+    font-weight:bold;
+}
+
 .bancos fieldset{
     display: flex;
-    justify-content: center;
     flex-direction: column;
     width: 40%;
-    height: 25%;
+    height: 300px;
     min-width: 22%;
-    padding: 15px;
-    margin: 10PX;
-    border-radius: 20px;
-    background: #c0babae5;
-    box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.616);
+    padding: 10px 0px 10px 10px;
+    margin: auto 10px;
+    border-radius: 10px;
+    background: rgba(192, 186, 186, 0.47);
+}
+.bancos fieldset:hover{
+    background: rgba(192, 186, 186, 0.77);
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.44);
 }
 .bancos fieldset legend{
     font-size: 15px;
 }
 .label-bancos{
+    justify-content: center;
     display: inline-flex;
     width: 90%;
     min-width: 90%;
-    height: 40px;
     margin-left: 10px;
+    cursor: pointer;
 }
 .label-bancos:hover .img-bancos{
     background: #009aa248;
@@ -1006,7 +1078,8 @@ article footer{
     display: flex;
     justify-content: center;
     padding: 5px;
-    width: 35%;
+    width: 40%;
+    height: 60px;
     min-width: 20px;
     border: solid 1px #55555557;
     background: #f0e9e993;
@@ -1016,7 +1089,8 @@ article footer{
 
 }
 .div-span-bancos{
-    width: 25%;
+    width: 140px;
+    height: 60px;
     min-width: 100px;
     background: #009aa248;
     border: solid 1px #d8d4d4d0;
@@ -1025,97 +1099,92 @@ article footer{
 }
 .div-span-bancos span{
     display: flex;
-    justify-items: center;
-    font-size: 12px;
-    padding: 12px 0 0 5px;
-    justify-content: space-between;
+    padding: 20px 5px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 13px;
+
+}
+.label-bancos:hover .div-span-bancos span{
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .formulario-tarjeta{
-    margin: auto 5px;
-    width: 45%;
-    height: 30%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px 0px 10px 15px ;
+    background: rgba(50, 151, 157, 0.34);
+    border-radius: 10px;
 }
-.input-trajeta{
-    padding: 10px;
-    margin: auto 10px;
-    background: #c0babae5;
-    border-radius: 20px;
-    box-shadow: 0 3px 5px 0px rgb(0,0,0, 0.616);
+.formulario-tarjeta:hover{
+    background: rgba(87, 164, 166, 0.68);
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.44);
+}
+.formulario-tarjeta-input{
+    margin: 10px 5px;
 }
 .input-trajeta div{
     background: none;
 }
-.card-nombres{
-    padding-left: 5px;
-    border: solid 1px #c0babae5;
-    border-radius: 5px;
-    background: #f1f4f5;
-    font-size: 15px;
-    margin: 7px;
+.card-nombres ,.card-direccion,.card-numero,.card-mm,.card-aa,.card-cw{
     width: 220px;
-    outline: none;
-}
-.card-numero{
-    padding-left: 5px;
+    height: 30px;
+    padding: 5px 5px 0px 5px;
     border: solid 1px #c0babae5;
     border-radius: 5px;
-    background: #f1f4f5;
-    font-size: 15px;
+    background: #ffffff;
+    font-size: 14px;
     margin: 7px;
-    width: 220px;
+    justify-items: center;
     outline: none;
 }
-.card-mm{
-    padding-left: 5px;
-    border: solid 1px #c0babae5;
-    border-radius: 5px;
-    background: #f1f4f5;
-    font-size: 15px;
-    margin: 7px;
+.card-mm,.card-aa,.card-cw{
     width: 60px;
-    outline: none;
-}
-.card-aa{
-    padding-left: 5px;
-    border: solid 1px #c0babae5;
-    border-radius: 5px;
-    background: #f1f4f5;
-    font-size: 15px;
-    margin: 7px;
-    width: 60px;
-    outline: none;
-}
-.card-cw{
-    padding-left: 5px;
-    border: solid 1px #c0babae5;
-    border-radius: 5px;
-    background: #f1f4f5;
-    font-size: 15px;
-    margin: 7px;
-    width: 60px;
-    outline: none;
-}
-.btn-confirmar-pago{
-    background: none;
-    margin-top: 30px;
 }
 .btn-confirmar-pago button{
-    background: none;
-    margin:10px;
-    background: #009AA2;
+    display: flex;
+    margin: 18px auto 3px;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff ;
     border: none;
-    color: #ffffff;
+    color: #009AA2;
+    width: 60%;
+    height: 30px;
+    border: none;
     border-radius: 5px;
-    padding: 6px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight:bold;
-    box-shadow: 0 3px 5px 0px rgb(0,0,0, .2);
+    transition: .3s ease all;
+    position: relative;
+    overflow: hidden;
 }
-.btn-confirmar-pago button:hover{
-    background: #009aa2be;
+.btn-confirmar-pago button::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 33, 35, 0.89);
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 0;
+    transition: .3s ease-in-out;
 
 }
+.btn-confirmar-pago button:hover::after{
+    top: 0;
+}
+.btn-confirmar-pago button span{
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+.btn-confirmar-pago button:hover span{
+    color: #ffffff;
+}
+
 
 /* Estilos  404*/
 .container{
@@ -1284,7 +1353,10 @@ article footer{
     }
 
     .usuario {
-        width: 120px;
+        width: 130px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
@@ -1506,33 +1578,6 @@ article footer{
         margin: 15px auto;
     }
 
-/* responsive-usuarios*/
-    table{
-
-    }
-    .tabla-usuario{
-        width: 90%;
-        margin : 40px 5px;
-        background : #f3eeee;
-        text-align: center;
-        box-shadow: 0px 2px 10px rgba(0,0,0,0.6);
-    }
-
-    .thead-usuario {
-        background: #555555;
-        color:white;
-        font-weight: bold;
-    }
-    .td-usuario,.th-usuario {
-        border: 1px solid #C1c3d1;
-        padding: 5px;
-        font-size: 10px;
-    }
-    .td-usuario-password{
-        font-size: 10px;
-        height: 150px;
-
-    }
     /* Estilos  404*/
     .container{
         width: 70%;
@@ -1550,4 +1595,32 @@ article footer{
         width: 60%;
     }
 }
+@media screen and (max-width:1200px) {
+    /* responsive-usuarios*/
+    .table {
+        display: flex;
+        justify-content: center;
+    }
 
+    .tabla-usuario {
+        width: 90%;
+        margin: 40px 5px;
+        background: #f3eeee;
+        text-align: center;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .td-usuario, .th-usuario, .td-usuario-password {
+        border: 1px solid #C1c3d1;
+        padding: 3px;
+        font-size: 8px;
+    }
+
+    .td-usuario-password h6 {
+        width: 30px;
+        padding: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 8px;
+    }
+}
