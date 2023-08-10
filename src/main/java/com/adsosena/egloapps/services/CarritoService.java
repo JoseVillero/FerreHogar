@@ -14,4 +14,6 @@ public interface CarritoService {
 
     void guardarPedido(int idProducto, int cantidad, Long idCarrito);
 
+    void borrarPedido(Long id);
+
 }

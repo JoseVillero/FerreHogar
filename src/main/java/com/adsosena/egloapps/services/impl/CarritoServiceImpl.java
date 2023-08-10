@@ -8,6 +8,7 @@ import com.adsosena.egloapps.repositories.CarritoRepository;
 import com.adsosena.egloapps.repositories.PedidoRepository;
 import com.adsosena.egloapps.repositories.ProductoRepository;
 import com.adsosena.egloapps.services.CarritoService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +56,16 @@ public class CarritoServiceImpl implements CarritoService {
 
         pedidoRepository.save(pedido);
 
+    }
+
+    @Override
+    public void borrarPedido(Long id) {
+        pedidoRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void actualizarPedido(Long id, int cantidad){
+        pedidoRepository.updateCantidad(id, cantidad);
     }
 
 }
