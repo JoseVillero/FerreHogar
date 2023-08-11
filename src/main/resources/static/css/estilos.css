@@ -46,16 +46,18 @@ div{
 }
 .principal{ 
     display: flex;
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
     height: 100%;
+    width: 100%;
 }
 .menuConfig{
     align-items: center;
-    width: 90%;
 }
 .menuConfig, .menu {
     background: rgba(14, 14, 14, 0.671);
-    width: 90%;
+    width: 80%;
     height: 150px;
 }
 
@@ -68,41 +70,40 @@ div{
     padding: 10px;
     background: #009AA2;
     border-radius: 4px;
-    transition: all 4ooms ease;
     cursor: pointer;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    list-style: none;
     font-size: 20px;
     text-decoration: none;
     color: #ffffff;
+    transition: .6s ease all;
 }
 .menuConfig li:hover a, .menu li:hover a{
-    box-shadow: 5px 5px 20px rgb(0, 0, 0);
-    transform: translateX(-3%);
     background: #ffffff;
     color:#009AA2;
 }
 .totalAgregado{
-    margin-top: 40px;
-    width: 10%;
-    min-width: 150px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    margin: 0 30px;
+    border-radius: 100px;
     cursor: pointer;
-   
+    background: rgb(124, 182, 183)
 }
 .agregado{
-    width:50%;
-    min-width: 50%;
-    padding: 10px;
-    background: #c8cecdde;
-    border-radius: 15px;
+    width: 55px;
+    min-width: 55px;
+    color: #ffffff;
     cursor: pointer;
     transition:.5s ;
 }
-.agregado:hover{
-    background: rgba(29, 28, 28, 0.93);
-    color: #ffffff;
+.totalAgregado:hover .agregado{
+    transform: scale(120%);
 }
-
 .usuario{
     display: flex;
     flex-direction: column;
@@ -159,7 +160,7 @@ div{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff ;
+    background: rgba(243, 236, 236, 0.98);
     border: none;
     color: #009AA2;
     width: 70%;
@@ -213,24 +214,45 @@ div{
 }
 .search{
     position: relative;
-    top: 0px;
-    left: 100px;
+    top: 22px;
+    left: 40px;
     height: 40px;
     border-radius: 15px;
+    background: #2d3436;
 }
-.search input{
+.search form{
+    position: relative;
+    top: -40px;
+    left: 0px;
+    width: 180px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.search form label{
+    position: relative;
+    top: 0px;
+    left: -30px;
+}
+.search form label input{
+    position: relative;
+    top: -10px;
+    left: 0px;
     border: solid 2px #009AA2;
     box-sizing: border-box;
     border-radius: 15px;
     background: #ffffff;
     font-size: 15px;
+    width: 180px;
     height: 40px;
     outline: none;
+    padding: 5px 15px 5px 15px;
+    transition: all 0.7s ease;
+    opacity: 1;
 }
 .logo-search{
     position: absolute;
-    top: -33px;
-    left: 750px;
+    top: -25px;
+    right: -75px;
     background: #009AA2;
     width: 85px;
     height: 85px;
@@ -711,7 +733,7 @@ article{
     color: #022930;
     border: 1px solid #022930;
     border-radius: 4px;
-    transition: all 4ooms ease;
+    transition: all 400ms ease;
     cursor: pointer;
 }
 .link a:hover{
@@ -1007,7 +1029,7 @@ article footer{
 }
 
 
-/* Estilos trasacción */
+/* Estilos transacción */
 
 .bancos{
     width: 40%;
@@ -1115,7 +1137,7 @@ article footer{
     justify-content: center;
     flex-direction: column;
     padding: 10px 0px 10px 15px ;
-    background: rgba(50, 151, 157, 0.34);
+    background: rgba(124, 181, 182, 0.69);
     border-radius: 10px;
 }
 .formulario-tarjeta:hover{
@@ -1185,6 +1207,198 @@ article footer{
     color: #ffffff;
 }
 
+/*Estilo carrito*/
+.seccion-carrito{
+    display: inline-flex;
+    margin-top: 8%;
+    margin-bottom: 10%;
+}
+.Productos-carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 550px;
+    height: 100%;
+    min-width: 420px;
+    margin: 10px auto;
+
+}
+.titulo-productosCarrito{
+    width: 100%;
+    background: rgb(124, 182, 183);
+    padding: 10px 0 5px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.titulo-productosCarrito h2{
+    font-size: 18px;
+    color: #ffffff;
+}
+.contenedor-productosCarrito{
+    background: #ffffff;
+    display: flex;
+    margin-right: 0;
+    width: 100%;
+    min-width: 420px;
+    padding: 3px;
+    border-bottom: solid 1px rgba(81, 85, 89, 0.46);
+}
+.Img-productoCarrito{
+    display: flex;
+    width: 30%;
+    min-width: 90px;
+    padding: 8px 0;
+
+}
+.Img-productoCarrito Img{
+    width: 150px;
+    min-width: 90px;
+    height: auto;
+}
+.Descripcion-ProductoCarrito{
+    flex-direction: column;
+    text-align: left;
+    margin: auto 2px;
+    width: 25%;
+    min-width: 50px;
+}
+.Descripcion-ProductoCarrito div{
+    display: flex;
+    flex-direction: column;
+}
+.Descripcion-ProductoCarrito div h4{
+    width: 100%;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+}
+.Descripcion-ProductoCarrito div h3{
+    font-size: 12px;
+    font-weight: bold;
+    width: 100%;
+}
+.valor-ProductoCarrito{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border: solid 2px rgba(0, 154, 162, 0.37);
+}
+.valor-ProductoCarrito h3{
+    margin: 5px ;
+    width: 100%;
+}
+.cantidad-ProductoCarrito{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 80px;
+    background: #dad6d638;
+}
+.cantidad-ProductoCarrito h4{
+    width: 100%;
+    font-size: 10px;
+    padding: auto 0px;
+}
+.cantidad-ProductoCarrito h3, .subtotal-ProductoCarrito h3{
+    font-size: 12px;
+    font-weight: bold;
+    width: 100%;
+}
+.subtotal-ProductoCarrito{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    min-width: 20px;
+}
+.subtotal-ProductoCarrito h4, .opciones-ProductoCarrito h4{
+    width: 100%;
+    font-size: 10px;
+    margin: 5px 0 ;
+    padding: 0;
+}
+.opciones-ProductoCarrito{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    min-width: 20px;
+    background: #dad6d638;
+}
+
+.valorPago-ProductoCarrito{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #ffffff;
+    margin: 10px;
+    width: 220px;
+    max-height: 190px;
+    padding: 3px;
+}
+.valorTotal-ProductoCarrito{
+    border-bottom: solid 1px rgb(124, 180, 181);
+}
+.valorTotal-ProductoCarrito h4{
+    width: 100%;
+    font-size: 15px;
+    margin: 5px 0 ;
+    padding: 0;
+}
+.valorTotal-ProductoCarrito h3{
+    margin-top: 7px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+}
+.btnPagar-ProductoCarrito{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+.btnPagar-ProductoCarrito ul{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: auto 0px;
+}
+.btnPagar-ProductoCarrito ul li {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    margin-right: 35px;
+}
+.btnPagar-ProductoCarrito ul li a{
+    width: 120px;
+    font-size: 12px;
+    color: #8f8c8c;
+    text-decoration: none;
+    padding: 5px;
+    border: solid 1px #7cb5b6;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .6s ease all;
+}
+.btnPagar-ProductoCarrito ul li:hover a{
+    font-weight: bold;
+    color: #ffffff;
+    background: #7cb5b6;
+}
+.texto-ProductoCarrito{
+    padding: 5px;
+    background: #7cb5b6;
+}
+.texto-ProductoCarrito h2,.texto-ProductoCarrito h3{
+    font-size: 11px;
+    color: #ffffff;
+    margin: 0;
+
+}
+.texto-ProductoCarrito h3{
+    margin-top: 5px;
+    font-style: italic;
+}
 
 /* Estilos  404*/
 .container{
@@ -1622,5 +1836,23 @@ article footer{
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: 8px;
+    }
+    /* responsive carrito*/
+    .Productos-carrito{
+        display: inline-flex;
+        flex-direction: column;
+        align-items: normal;
+        width: 420px;
+        height: 100%;
+        margin: 10px auto;
+    }
+    .titulo-productosCarrito{
+        width: 420px;
+    }
+    .seccion-carrito{
+        display: block;
+    }
+    .valorPago-ProductoCarrito{
+        margin: 10px auto;
     }
 }

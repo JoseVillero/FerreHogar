@@ -57,51 +57,54 @@
                 </form>
             </nav>
         </nav>
-        <!-- Search Bar -->
-        <div class="search">
-            <div class="logo-search">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0
-                     1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <div class="add-input">
+            <!-- add product Button (trigger)-->
+            <div class="btnEdit" sec:authorize="hasRole('ADMIN')">
+                <svg data-bs-toggle="modal" data-bs-target="#agregarProductoModal" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="agregar" viewBox="0 0 16 16">
+                    <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
                 </svg>
-            </div>
-            <form action="#" th:action="@{/buscar-producto}" method="get">
-                <label><input type="text" name="busqueda" th:value="${busqueda}" placeholder="Buscar producto"></label>
-            </form>
-        </div>
-        <!-- add product Button (trigger)-->
-        <div class="btnEdit" sec:authorize="hasRole('ADMIN')">
-            <svg data-bs-toggle="modal" data-bs-target="#agregarProductoModal"
-                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="agregar" viewBox="0 0 16 16">
-                <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
-                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2
-                2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
-            </svg>
-            <!-- Add product Modal-->
-            <div class="modal fade" id="agregarProductoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Producto</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="#" th:action="@{/catalogo/agregar-producto}"  th:object="${productoModel}" method="post" enctype="multipart/form-data">
-                                <label >Codigo: <input required type="number" placeholder="Codigo" th:field="*{codigo}" class="input-padron"></label>
-                                <label >Referencia: <input required type="text" placeholder="Referencia" th:field="*{referencia}" class="input-padron"></label>
-                                <label >Nombre: <input required type="text" placeholder="Nombre" th:field="*{nombre}" class="input-padron"></label>
-                                <label >Marca: <input required type="text" placeholder="Marca" th:field="*{marca}" class="input-padron"></label>
-                                <label >Precio: <input required type="number" step="any" placeholder="Precio" th:field="*{precio}" class="input-padron"></label>
-                                <label> Imagen: <input required name="imagenFile" id="imagenFile" type="file" accept=".png, .jpg, .jpeg"></label>
-                                <label >Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
-                                <button class="btnGuardar" type="submit">Guardar</button>
-                                <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
-                            </form>
+                <span class="tooltips-agregar">
+                    <small class="tooltip-small">Agregar producto</small>
+                </span>
+                <!-- Add product Modal-->
+                <div class="modal fade" id="agregarProductoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Producto</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" th:action="@{/catalogo/agregar-producto}"  th:object="${productoModel}" method="post" enctype="multipart/form-data">
+                                    <label >Codigo: <input required type="number" placeholder="Codigo" th:field="*{codigo}" class="input-padron"></label>
+                                    <label >Referencia: <input required type="text" placeholder="Referencia" th:field="*{referencia}" class="input-padron"></label>
+                                    <label >Nombre: <input required type="text" placeholder="Nombre" th:field="*{nombre}" class="input-padron"></label>
+                                    <label >Marca: <input required type="text" placeholder="Marca" th:field="*{marca}" class="input-padron"></label>
+                                    <label >Precio: <input required type="number" step="any" placeholder="Precio" th:field="*{precio}" class="input-padron"></label>
+                                    <label> Imagen: <input required name="imagenFile" id="imagenFile" type="file" accept=".png, .jpg, .jpeg"></label>
+                                    <label >Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
+                                    <button class="btnGuardar" type="submit">Guardar</button>
+                                    <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Search Bar -->
+            <div class="search">
+                <form action="#" th:action="@{/buscar-producto}" method="get">
+                    <label><input type="search" name="busqueda" th:value="${busqueda}" placeholder="Buscar producto"></label>
+                </form>
+                <div class="logo-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </div>
+            </div>
         </div>
+
         <!-- Cards for products -->
         <div class="contenedorProductos">
             <div class="fila">
