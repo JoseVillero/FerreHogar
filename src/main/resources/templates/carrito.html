@@ -166,19 +166,22 @@
                             <h1 class="modal-title fs-5" id="staticBackdropsLabel1">Editar Pedido</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-bodyForm">
                             Ingresa la cantidad deseada.
                             <th:block th:with="idPedido=${pedido.id}">
                                 <form action="#" th:action="@{/carrito/actualizar-pedido}" method="post">
-                                    <label class="input">
+                                    <label class="modal-bodyLabel">
                                         <input class="input-cantidad" type="number" min="1"
                                                th:value="${cantidadEditada}" name="cantidad" id="cantidad">
                                     </label>
-                                    <label >
+                                    <label>
                                         <input type="hidden" th:value="${idPedido}" name="idPedido" id="idPedido">
                                     </label>
-                                    <button class="btnGuardar" type="submit">Confirmar</button>
-                                    <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                    <div class="modal-footerEdit">
+                                        <button class="btnGuardar" type="submit">Confirmar</button>
+                                        <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                    </div>
+
                                 </form>
                             </th:block>
                         </div>

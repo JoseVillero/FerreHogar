@@ -33,8 +33,8 @@
                     <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                     <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
                 </ul>
-                <!-- Shopping cart-->
             </nav>
+            <!-- Shopping cart-->
             <nav class="totalAgregado">
                 <a href="#" th:href="@{/carrito}">
                     <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
@@ -81,11 +81,15 @@
                                     <label >Referencia: <input required type="text" placeholder="Referencia" th:field="*{referencia}" class="input-padron"></label>
                                     <label >Nombre: <input required type="text" placeholder="Nombre" th:field="*{nombre}" class="input-padron"></label>
                                     <label >Marca: <input required type="text" placeholder="Marca" th:field="*{marca}" class="input-padron"></label>
+                                    <label >Cantidad: <input required type="number" placeholder="Cantidad" th:field="*{cantidadDisponible}" class="input-padron"></label>
                                     <label >Precio: <input required type="number" step="any" placeholder="Precio" th:field="*{precio}" class="input-padron"></label>
-                                    <label> Imagen: <input required name="imagenFile" id="imagenFile" type="file" accept=".png, .jpg, .jpeg"></label>
+                                    <label >Imagen: <input required name="imagenFile" id="imagenFile" type="file" accept=".png, .jpg, .jpeg" class="input-imagen"></label>
                                     <label >Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
-                                    <button class="btnGuardar" type="submit">Guardar</button>
-                                    <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                    <div class="modal-body-div">
+                                        <button class="btnGuardar" type="submit">Guardar</button>
+                                        <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>
@@ -118,7 +122,7 @@
                             <sup th:text="${producto.codigo}">106</sup>
                         </div>
                         <div class="referencia-marca">
-                            <h4 th:text="${producto.referencia}">lamapara de pie</h4>
+                            <h4 th:text="${producto.referencia}">Lamapara de pie</h4>
                             <small th:text="${producto.marca}">Led</small>
                         </div>
                         <div class="descripcion">
@@ -127,7 +131,7 @@
                         </div>
                         <div class="cantidad">
                             <h4>Cantidad</h4>
-                            <h3 th:text="${producto.cantidadDisponible}"></h3>
+                            <h3 th:text="${producto.cantidadDisponible}">2</h3>
                         </div>
                         <div class="footcard" >
                             <div class="valor">
@@ -136,9 +140,7 @@
                             </div>
                             <div class="compra">
                                 <div class="contenedor-cesta">
-                                    <svg th:id="'botonCarrito-' + ${iterStat.index}" data-bs-toggle="modal"
-                                         th:data-bs-target="'#modalAgregarAlCarrito' + ${iterStat.index} "
-                                         class="cesta" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <svg th:id="'botonCarrito-' + ${iterStat.index}" data-bs-toggle="modal" th:data-bs-target="'#modalAgregarAlCarrito' + ${iterStat.index} " class="cesta" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
                                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1
                                         .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0
                                         1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89
@@ -182,7 +184,7 @@
                                     <h1 class="modal-title fs-5" id="staticBackdropsLabel0" >Aviso</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-bodyCarrito">
                                     ¿Está seguro que desea agregar esa cantidad de
                                     <span th:style="'font-weight: bold;'" th:text="${producto.nombre}"></span> marca:
                                     <span th:style="'font-weight: bold;'" th:text="${producto.marca}"></span> al carrito?
@@ -195,8 +197,10 @@
                                             <label><input class="input-cantidad" type="number" min="1" name="cantidad" th:value="${cantidad}" ></label>
                                             <span class="tooltip-cantidad"><small>Ingrese la cantidad</small></span>
                                         </div>
-                                        <button type="submit" class="btnGuardar" data-bs-toggle="modal" data-bs-target="#CarritoModal">Confirmar</button>
-                                        <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                        <div class="modal-body-div">
+                                            <button type="submit" class="btnGuardar" data-bs-toggle="modal" data-bs-target="#CarritoModal">Confirmar</button>
+                                            <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -214,15 +218,18 @@
                             <h1 class="modal-title fs-5" id="staticBackdropsLabel">Advertencia</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-bodyCarrito">
                             ¿Está seguro que desea eliminar este producto?
                             Esta operación no se puede deshacer.
                         </div>
                         <div class="modal-footer">
                             <form action="#" th:action="@{/catalogo/eliminar-producto}" method="post">
                                 <input type="hidden" name="id" th:value="${producto.id}">
-                                <button type="submit" class="btnGuardar" data-bs-toggle="modal" data-bs-target="#EliminarModal">Confirmar</button>
-                                <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                <div class="modal-body-divEli">
+                                    <button type="submit" class="btnGuardar" data-bs-toggle="modal" data-bs-target="#EliminarModal">Confirmar</button>
+                                    <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                </div>
+
                             </form>
                         </div>
                     </div>
@@ -249,9 +256,11 @@
                                     <label> Nombre: <input required type="text" th:placeholder="${producto.nombre}" th:field="*{nombre}" class="input-padron"></label>
                                     <label> Marca: <input required type="text" th:placeholder="${producto.marca}" th:field="*{marca}" class="input-padron"></label>
                                     <label> Precio: <input required type="number" min="0" step="any" th:field="*{precio}" class="input-padron"></label>
-                                    <label >Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
-                                    <button class="btnGuardar" type="submit">Guardar</button>
-                                    <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                    <label> Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
+                                    <div class="modal-body-div">
+                                        <button class="btnGuardar" type="submit">Guardar</button>
+                                        <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                    </div>
                                 </form>
                             </th:block>
                         </div>
