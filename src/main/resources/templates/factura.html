@@ -28,6 +28,7 @@
                     <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
                     <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                     <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
                 </ul>
             </nav>
             <!-- Shopping cart-->
@@ -49,14 +50,14 @@
         </nav>
         <!-- Ticket -->
         <section class="factura">
-            <div class="header-factura">
-                <div class="header">
+            <div class="Body-factura">
+                <div class="header-Factura">
                     <div class="img-logo">
                         <img src="../static/images/logo.png" th:src="@{/images/logo.png}" alt="logo">
                     </div>
                     <div class="Eglo">
                         <div>
-                            <h3>Eglo Colombia</h3>
+                            <h3>Ferre Hogar</h3>
                         </div>
                         <div>
                             <h4>Nit</h4>
@@ -68,7 +69,7 @@
                         </div>
                         <div>
                             <h4>Direccion</h4>
-                            <h5> Ak.9 #127-36 - Bogotá</h5>
+                            <h5> Cl 132 #93A-10 - Bogotá</h5>
                         </div>
 
                     </div>
@@ -99,13 +100,21 @@
                             <h7>Cl 6 # 5 - 46</h7>
                         </div>
                         <div class="info-cliente">
+                            <h6>Barrio</h6>
+                            <h7>Kenedy</h7>
+                        </div>
+                        <div class="info-cliente">
+                            <h6>Ciudad</h6>
+                            <h7>Bogotá</h7>
+                        </div>
+                        <div class="info-cliente">
                             <h6>Correo</h6>
                             <h7>juan@hotmail.com</h7>
                         </div>
                     </div>
                     <div class="numero-factura">
                         <div>
-                            <h6>Factura Electrónica de Venta</h6>
+                            <h6>Factura Electrónica de Venta N°</h6>
                             <h4>0001</h4>
                         </div>
                     </div>

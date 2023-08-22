@@ -28,6 +28,7 @@
                 <li><a href="#" th:href="@{/about}">¿Quiénes somos?</a></li>
                 <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                 <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
+                <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
             </ul>
             <!-- Shopping cart-->
         </nav>

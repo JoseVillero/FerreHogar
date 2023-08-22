@@ -40,6 +40,7 @@
                         <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
                         <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                         <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
+                        <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
                     </ul>
                 </nav>
                 <!-- Shopping cart-->
@@ -61,93 +62,105 @@
             </nav>
             <!--  -->
             <section class="bancos">
-                <fieldset>
-                    <legend class="legend-transaccion">Seleccione su banco</legend>
+                <div class="divBancoTitulo">
+                    <h2>Formulario de pago</h2>
+                </div>
+                <div class="div-bancos">
+                    <fieldset>
+                        <legend class="legend-transaccion">Seleccione su banco</legend>
 
-                    <label for="radio-visa" class="label-bancos">
-                        <div class="div-input-bancos">
-                            <input type="radio" name="banco" value="visa" id="radio-visa" class="input-bancos">
-                        </div>
-                        <div class="img-bancos">
-                            <img src="../static/images/visa.png" th:src="@{/images/visa.png}" alt="Logo banco">
-                        </div>
-                        <div class="div-span-bancos">
-                            <span>Visa</span>
-                        </div>
+                        <label for="radio-visa" class="label-bancos">
+                            <div class="div-input-bancos">
+                                <input type="radio" name="banco" value="visa" id="radio-visa" class="input-bancos">
+                            </div>
+                            <div class="img-bancos">
+                                <img src="../static/images/visa.png" th:src="@{/images/visa.png}" alt="Logo banco">
+                            </div>
+                            <div class="div-span-bancos">
+                                <span>Visa</span>
+                            </div>
 
-                    </label>
+                        </label>
 
-                    <label for="radio-mastercard" class="label-bancos">
-                        <div class="div-input-bancos">
-                            <input type="radio" name="banco" value="mastercard" id="radio-mastercard" class="input-bancos">
-                        </div>
-                        <div class="img-bancos">
-                            <img src="../static/images/Mastercard.png" th:src="@{/images/mastercard.png}" alt="Logo banco">
-                        </div>
-                        <div class="div-span-bancos">
-                            <span>MasterCard</span>
-                        </div>
-                        
-                    </label>
+                        <label for="radio-mastercard" class="label-bancos">
+                            <div class="div-input-bancos">
+                                <input type="radio" name="banco" value="mastercard" id="radio-mastercard" class="input-bancos">
+                            </div>
+                            <div class="img-bancos">
+                                <img src="../static/images/Mastercard.png" th:src="@{/images/mastercard.png}" alt="Logo banco">
+                            </div>
+                            <div class="div-span-bancos">
+                                <span>MasterCard</span>
+                            </div>
 
-                    <label for="radio-dinnersClub" class="label-bancos">
-                        <div class="div-input-bancos">
-                            <input type="radio" name="banco" value="dinnersClub" id="radio-dinnersClub" class="input-bancos">
-                        </div >                        
-                        <div class="img-bancos">
-                            <img src="../static/images/Diners-club.png" th:src="@{/images/Diners-club.png}" alt="Logo banco">
-                        </div>
-                        <div class="div-span-bancos">
-                            <span>Dinners Club</span>
-                        </div>
-                        
-                    </label>
+                        </label>
 
-                    <label for="radio-americanExpress" class="label-bancos">
-                        <div class="div-input-bancos">
-                            <input type="radio" name="banco" value="americanExpress" id="radio-americanExpress" class="input-bancos">
-                        </div>                        
-                        <div class="img-bancos">
-                            <img src="../static/images/American-Express.png" th:src="@{/images/American-Express.png}" alt="Logo banco">
-                        </div>
-                        <div class="div-span-bancos">
-                            <span>American Express</span>
-                        </div>
-                        
-                    </label>
-                    
-                </fieldset>
-                <div class="formulario-tarjeta">
-                    <form class="formulario-tarjeta-input">
-                        <legend class="legend-transaccion">Información adicional</legend>
-                        <div>
-                            <input class="card-nombres" type="text" placeholder="Nombres y Apellidos" name="name">
-                        </div>
-                        <div>
-                            <input class="card-direccion" type="text" placeholder="Dirección" name="name">
-                        </div>
+                        <label for="radio-dinnersClub" class="label-bancos">
+                            <div class="div-input-bancos">
+                                <input type="radio" name="banco" value="dinnersClub" id="radio-dinnersClub" class="input-bancos">
+                            </div >
+                            <div class="img-bancos">
+                                <img src="../static/images/Diners-club.png" th:src="@{/images/Diners-club.png}" alt="Logo banco">
+                            </div>
+                            <div class="div-span-bancos">
+                                <span>Dinners Club</span>
+                            </div>
 
+                        </label>
 
-                    </form>
-                    <form class="formulario-tarjeta-input">
-                        <legend class="legend-transaccion">Información tarjeta</legend>
-                        <div class="input-trajeta">
+                        <label for="radio-americanExpress" class="label-bancos">
+                            <div class="div-input-bancos">
+                                <input type="radio" name="banco" value="americanExpress" id="radio-americanExpress" class="input-bancos">
+                            </div>
+                            <div class="img-bancos">
+                                <img src="../static/images/American-Express.png" th:src="@{/images/American-Express.png}" alt="Logo banco">
+                            </div>
+                            <div class="div-span-bancos">
+                                <span>American Express</span>
+                            </div>
+
+                        </label>
+
+                    </fieldset>
+                    <div class="formulario-tarjeta">
+                        <form class="formulario-tarjeta-inputUser">
+                            <legend class="legend-transaccion">Información adicional</legend>
                             <div>
-                                <input class="card-numero" type="number" placeholder="Numero de tarjeta" name="card">
+                                <input class="card-nombres" type="text" placeholder="Nombres y Apellidos" name="name">
                             </div>
                             <div>
+                                <input class="card-direccion" type="text" placeholder="Dirección" name="name">
+                            </div>
+                            <div>
+                                <input class="card-direccion" type="text" placeholder="Barrio" name="name">
+                            </div>
+                            <div>
+                                <input class="card-direccion" type="text" placeholder="Ciudad" name="name">
+                            </div>
+
+
+                        </form>
+                        <form class="formulario-tarjeta-input">
+                            <legend class="legend-transaccion">Información tarjeta</legend>
+                            <div class="input-trajeta">
                                 <div>
-                                    <input class="card-mm" type="number" placeholder="MM" name="card">
-                                    <input class="card-aa" type="number" placeholder="AA" name="card">
-                                    <input class="card-cw" type="number" placeholder="CVV" name="card">
+                                    <input class="card-numero" type="number" placeholder="Numero de tarjeta" name="card">
+                                </div>
+                                <div>
+                                    <div>
+                                        <input class="card-mm" type="number" placeholder="MM" name="card">
+                                        <input class="card-aa" type="number" placeholder="AA" name="card">
+                                        <input class="card-cw" type="number" placeholder="CVV" name="card">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="btn-confirmar-pago">
-                            <button><span>Confirmar pago</span></button>
-                        </div>
-                    </form>
+                            <div class="btn-confirmar-pago">
+                                <button><span>Confirmar pago</span></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
 
             </section>
             <!-- Footer -->
