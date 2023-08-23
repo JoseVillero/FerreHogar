@@ -41,6 +41,7 @@
                         <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                         <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
                         <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
+                        <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">ventas</a></li>
                     </ul>
                 </nav>
                 <!-- Shopping cart-->

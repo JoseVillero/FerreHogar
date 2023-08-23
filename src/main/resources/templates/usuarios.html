@@ -34,6 +34,7 @@
                     <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                     <li><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
                     <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">ventas</a></li>
                 </ul>
             </nav>
             <!-- Shopping cart-->
@@ -115,7 +116,7 @@
             </div>
         </div>
         <!-- Cards User -->
-        <div class="bodyUsuarios">
+        <main class="bodyUsuarios">
             <div class="contenedorUsuarios">
                 <div class="cardUsuarios" th:each="_usuario, iterStat : ${listaUsuario}">
                     <div class="encabezadocardUsuarios">
@@ -172,7 +173,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
         <!-- Modal for Delete -->
         <div th:each="_usuario, iterStat : ${listaUsuario}">
             <div class="modal fade" th:id="'modal' + ${iterStat.index}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hidden="true">

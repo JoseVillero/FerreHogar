@@ -27,6 +27,8 @@
                     <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
                     <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                     <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">ventas</a></li>
                 </ul>
                 <!-- Shopping cart-->
             </nav>
@@ -41,7 +43,7 @@
             <!-- Info User -->
             <nav class="usuario">
                 <div class="contenedor-img">
-                    <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
+                    <img src="../../static/images/user.png" th:src="@{/images/user.png}">
                     <h2 th:text="${fullName}">Usuario</h2>
                     <h2 sec:authentication="principal.authorities">User</h2>
                 </div>
@@ -53,7 +55,7 @@
         <div class="container">
             <h1 class="h1">¡Huy! Hay una luz encendida ...</h1>
             <h3>Desafortunadamente, no se pudo encontrar la página deseada.</h3>
-            <img class="figure-img" src="../../static/images/404er.gif.gif" th:src="@{/images/404er.gif}">
+            <img class="figure-img" src="../../static/images/404er.gif" th:src="@{/images/404er.gif}">
         </div>
 
         <footer class="pie">

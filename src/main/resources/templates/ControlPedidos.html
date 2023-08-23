@@ -41,6 +41,7 @@
                         <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                         <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
                         <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
+                        <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">ventas</a></li>
                     </ul>
                 </nav>
                 <!-- Shopping cart-->
@@ -60,7 +61,7 @@
                     </form>
                 </nav>
             </nav>
-            <!-- List Eesgistros -->
+            <!-- List Resgistros -->
             <section class="seccion-Registro">
                 <div class="registroPedidos">
                     <div class="titulo-Registro"> <h2>Lista de pedidos generados</h2></div>
@@ -143,7 +144,7 @@
                                         </tr>
                                         </tbody>
                                     </table >
-                                    <table class="Regitro-Productostabla-dos">
+                                    <table class="Regitro-Productostabla-doss">
                                         <thead class="Regitro-Productosthead-registro">
                                         <th class="th-Regitro-Productos-total">Total pagado</th>
                                         </thead>
