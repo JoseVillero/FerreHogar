@@ -1,4 +1,4 @@
-# Eglo web site
+# Ferre Hogar web site
 ## _Analisis y desarrollo de software_
 **SENA**
 
@@ -11,21 +11,21 @@ Grupo 6.
 - Jose David Villero Hernandez.
 - Sergio Andrés Manrique Triana.
       
-## _Web site de compras para usuarios VIP de la empresa EGLO_
+## _Web site de compras para articulos de ferreteria
 
-La empresa Eglo es una reconocida multinacional lider en iluminacion, estilo y decoracion de lamparas de interiores, exteriores y de cristal. 
+FerreHogar es una ferreteria emergente de origen familiar. Su objetivo es posecionarse como un referente a nivel local de articulos y productos de ferreteria. 
 
-El web site Eglo es una aplicacion de web donde los clientes VIP de la empresa pueden registrarse y acceder a un catalogo privado y exclusivo de la empresa.
+El web site FerreHogar es una aplicacion de web donde los clientes pueden registrarse y acceder a un catalogo, facil y rapido.
 
 ### _Caracteristicas Principales:_
 
-- Al registrarse hacen parte de la base de datos de clientes VIP exclusivos de la empresa. 
+- Al registrarse hacen parte de la base de datos de la empresa. 
 - Sus contraseñas almacenadas son cifradas en la base de datos.
-- En este sitio web pueden encontrar productos unicos disponibles para la compra en linea. 
+- En este sitio web pueden encontrar productos  y articulos  disponibles para la compra en linea. 
 - El web site permite el ingreso de usuarios especiales de la empresa con roles de administrador
 - El rol administrador permite la gestion de usuarios y de productos (eliminar, editar y crear).
 - Los perfiles con roles administrador permiten llevar un control completo de los usuarios disponibles en la base de datos y los productos como su cantidad, descripcion, referencia o imagen.
-- Los usuarios VIP pueden añadir producto al carrito y realizar la compra del producto de manera online
+- Los usuarios pueden añadir productos al carrito y realizar la compra del producto de manera online
 
 ### Tecnologias utilizadas:
 
