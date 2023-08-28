@@ -1,7 +1,10 @@
 package com.adsosena.egloapps.services.impl;
 
 import com.adsosena.egloapps.components.converters.ProductoConverter;
+import com.adsosena.egloapps.components.converters.TransaccionConverter;
 import com.adsosena.egloapps.entities.Producto;
+import com.adsosena.egloapps.entities.Transaccion;
+import com.adsosena.egloapps.entities.Usuario;
 import com.adsosena.egloapps.models.ProductoModel;
 import com.adsosena.egloapps.repositories.ProductoRepository;
 import com.adsosena.egloapps.services.ProductoService;
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**Clase ProductoServiceImpl: Esta clase ejecuta los servicios
  * es decir contiene la logica de negocio de la aplicacion.
@@ -23,10 +27,16 @@ public class ProductoServiceImpl implements ProductoService {
 
     private ProductoConverter productoConverter;
 
+    private TransaccionConverter transaccionConverter;
+
+    private UsuarioServiceImpl usuarioService;
+
     @Autowired
-    public ProductoServiceImpl(ProductoRepository productoRepository) {
+    public ProductoServiceImpl(ProductoRepository productoRepository, UsuarioServiceImpl usuarioService) {
         this.productoRepository = productoRepository;
         this.productoConverter = new ProductoConverter();
+        this.transaccionConverter = new TransaccionConverter();
+        this.usuarioService = usuarioService;
     }
 
     /**Metodo listarProductos: Este metodo solicita al objeto del repositorio buscar todos
@@ -34,9 +44,12 @@ public class ProductoServiceImpl implements ProductoService {
      * @return List<ProductoModel></>*/
     @Override
     public List<ProductoModel> listarProductos() {
-
-        List<ProductoModel> productos = new ArrayList<>();
         List<Producto> productoList = productoRepository.findAll();
+        return productoListToProductoModelList(productoList);
+    }
+
+    private List<ProductoModel> productoListToProductoModelList(List<Producto> productoList){
+        List<ProductoModel> productos = new ArrayList<>();
 
         for (Producto producto : productoList) {
             productos.add(productoConverter.productoToProductoModel(producto));
@@ -47,7 +60,11 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public Producto agregarProducto(ProductoModel productoModel) {
 
-        return productoRepository.save(productoConverter.productoModelToProducto(productoModel));
+        Usuario usuario = usuarioService.getUsuarioActual();
+        Producto producto = guardarProducto(productoModel);
+        producto.getTransacciones().add(transaccionConverter.transaccionAgregarProducto(producto, usuario));
+
+        return productoRepository.save(producto);
     }
 
     @Override
@@ -55,4 +72,39 @@ public class ProductoServiceImpl implements ProductoService {
         productoRepository.deleteById(id);
     }
 
+    @Override
+    public void actualizarProducto(ProductoModel productoModel) {
+
+        Optional<Producto> optional = productoRepository.findById(productoModel.getId());
+
+        if(optional.isPresent()){
+            List<Transaccion> listaTransacciones = optional.get().getTransacciones();
+            Producto producto = productoConverter.actualizarProducto(productoModel);
+            producto.setTransacciones(listaTransacciones);
+            productoRepository.save(producto);
+        }
+    }
+
+    @Override
+    public List<ProductoModel> buscarProductos(String busqueda) {
+        List<Producto> productoList =
+                productoRepository.findByNombreContainingIgnoreCaseOrReferenciaContainingIgnoreCaseOrMarcaContainingIgnoreCase
+                        (busqueda, busqueda, busqueda);
+        return productoListToProductoModelList(productoList);
+    }
+
+    private  Producto guardarProducto(ProductoModel productoModel){
+        return productoRepository.save(productoConverter.productoModelToProducto(productoModel));
+    }
+
+    public void restarCantidadProducto(int productoId, int cantidad){
+
+        productoRepository.restarCantidad(productoId, cantidad);
+    }
+
+    public void actualizarProducto(Producto producto){
+        productoRepository.save(producto);
+    }
+
 }
+

@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <div>
         <header class="header">
             <figure>
@@ -21,41 +20,57 @@
             </figure>
         </header>
         <nav class="principal" >
+            <!-- Button nav -->
             <nav class="menuConfig">
                 <ul>
                     <li><a href="#" th:href="@{/}">Home</a></li>
                     <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
                     <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
-                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/help}">Gestionar Usuarios</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">ventas</a></li>
                 </ul>
-
+                <!-- Shopping cart-->
             </nav>
+            <nav class="totalAgregado">
+                <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0
+                    1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0
+                    1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7
+                    0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+            </nav>
+            <!-- Info User -->
             <nav class="usuario">
-                <img src="../../static/images/user.png" th:src="@{/images/user.png}" >
-                <h2 sec:authentication="name">Usuario</h2>
-                <h2 sec:authentication="principal.authorities">User</h2>
-                <form th:action="@{/logout}" method="post">
-                    <button class="btn btn-info btn-block my-4" ><span> Logout</span></button>
+                <div class="contenedor-img">
+                    <img src="../../static/images/user.png" th:src="@{/images/user.png}">
+                    <h2 th:text="${fullName}">Usuario</h2>
+                    <h2 sec:authentication="principal.authorities">User</h2>
+                </div>
+                <form class="contenedor-logout" th:action="@{/logout}" method="post">
+                    <button class="btnLogout" ><span> Logout</span></button>
                 </form>
             </nav>
         </nav>
         <div class="container">
-            <br>
             <h1 class="h1">¡Huy! Hay una luz encendida ...</h1>
-            <br>
             <h3>Desafortunadamente, no se pudo encontrar la página deseada.</h3>
-            <img class="figure-img" src="../../static/images/404er-fehlerseite.jpg" th:src="@{/images/404er-fehlerseite.jpg}">
+            <img class="figure-img" src="../../static/images/404er.gif" th:src="@{/images/404er.gif}">
         </div>
-
 
         <footer class="pie">
             <ul>
-                <li><a href="../../static/css/estilos.css" th:href="@{/css/estilos.css}" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
-                <li><a href="../../static/css/estilos.css" th:href="@{/css/estilos.css}" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="../../static/css/estilos.css" th:href="@{/css/estilos.css}" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="../../static/css/estilos.css" th:href="@{/css/estilos.css}" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href="../../static/css/estilos.css" th:href="@{/css/estilos.css}" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/eglocolombia/" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
             </ul>
+            <div class="copyrith">
+                <p class="copyrith">&copy Copyrith Proyecto SENA - 2023 </p>
+                <h4>Jose David Villero</h4>
+                <h4>Sergio Andrés Manrique Triana</h4>
+            </div>
         </footer>
     </div>
 

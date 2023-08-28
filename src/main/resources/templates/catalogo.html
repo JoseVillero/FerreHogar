@@ -32,60 +32,85 @@
                     <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
                     <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                     <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">ventas</a></li>
                 </ul>
-                <!-- Shopping cart-->
             </nav>
+            <!-- Shopping cart-->
             <nav class="totalAgregado">
-                <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0
-                    1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0
-                    1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7
-                    0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </svg>
+                <a href="#" th:href="@{/carrito}">
+                    <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0
+                    1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0
+                    0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0
+                    1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                </a>
             </nav>
             <!-- Info User -->
             <nav class="usuario">
-                <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
-                <h2 th:text="${fullName}">Usuario</h2>
-                <h2 sec:authentication="principal.authorities">User</h2>
-                <form th:action="@{/logout}" method="post">
+                <div class="contenedor-img">
+                    <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
+                    <h2 th:text="${fullName}">Usuario</h2>
+                    <h2 sec:authentication="principal.authorities">User</h2>
+                </div>
+                <form class="contenedor-logout" th:action="@{/logout}" method="post">
                     <button class="btnLogout" ><span> Logout</span></button>
                 </form>
             </nav>
         </nav>
-        <!-- add product Button (trigger)-->
-        <div class="btnEdit" sec:authorize="hasRole('ADMIN')">
-            <svg data-bs-toggle="modal" data-bs-target="#agregarProductoModal"
-                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="agregar" viewBox="0 0 16 16">
-                <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
-                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2
-                2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
-            </svg>
-            <!-- Add product Modal-->
-            <div class="modal fade" id="agregarProductoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Producto</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="#" th:action="@{/catalogo/agregar-producto}"  th:object="${productoModel}" method="post" enctype="multipart/form-data">
-                                <label >Codigo: <input required type="number" placeholder="Codigo" th:field="*{codigo}" class="input-padron"></label>
-                                <label >Referencia: <input required type="text" placeholder="Referencia" th:field="*{referencia}" class="input-padron"></label>
-                                <label >Nombre: <input required type="text" placeholder="Nombre" th:field="*{nombre}" class="input-padron"></label>
-                                <label >Marca: <input required type="text" placeholder="Marca" th:field="*{marca}" class="input-padron"></label>
-                                <label >Precio: <input required type="number" step="any" placeholder="Precio" th:field="*{precio}" class="input-padron"></label>
-                                <label> Imagen: <input required name="imagenFile" id="imagenFile" type="file" accept=".png, .jpg, .jpeg"></label>
-                                <label >Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
-                                <button class="btnGuardar" type="submit">Guardar</button>
-                                <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
-                            </form>
+        <div class="add-input">
+            <!-- add product Button (trigger)-->
+            <div class="btnEdit" sec:authorize="hasRole('ADMIN')">
+                <svg data-bs-toggle="modal" data-bs-target="#agregarProductoModal" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="agregar" viewBox="0 0 16 16">
+                    <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                </svg>
+                <span class="tooltips-agregar">
+                    <small class="tooltip-small">Agregar producto</small>
+                </span>
+                <!-- Add product Modal-->
+                <div class="modal fade" id="agregarProductoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Producto</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" th:action="@{/catalogo/agregar-producto}"  th:object="${productoModel}" method="post" enctype="multipart/form-data">
+                                    <label >Codigo: <input required type="number" placeholder="Codigo" th:field="*{codigo}" class="input-padron"></label>
+                                    <label >Referencia: <input required type="text" placeholder="Referencia" th:field="*{referencia}" class="input-padron"></label>
+                                    <label >Nombre: <input required type="text" placeholder="Nombre" th:field="*{nombre}" class="input-padron"></label>
+                                    <label >Marca: <input required type="text" placeholder="Marca" th:field="*{marca}" class="input-padron"></label>
+                                    <label >Cantidad: <input required type="number" placeholder="Cantidad" th:field="*{cantidadDisponible}" class="input-padron"></label>
+                                    <label >Precio: <input required type="number" step="any" placeholder="Precio" th:field="*{precio}" class="input-padron"></label>
+                                    <label >Imagen: <input required name="imagenFile" id="imagenFile" type="file" accept=".png, .jpg, .jpeg" class="input-imagen"></label>
+                                    <label >Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
+                                    <div class="modal-body-div">
+                                        <button class="btnGuardar" type="submit">Guardar</button>
+                                        <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                    </div>
+
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Search Bar -->
+            <div class="search">
+                <form action="#" th:action="@{/buscar-producto}" method="get">
+                    <label><input type="search" name="busqueda" th:value="${busqueda}" placeholder="Buscar producto"></label>
+                </form>
+                <div class="logo-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </div>
+            </div>
         </div>
+
         <!-- Cards for products -->
         <div class="contenedorProductos">
             <div class="fila">
@@ -99,16 +124,16 @@
                             <sup th:text="${producto.codigo}">106</sup>
                         </div>
                         <div class="referencia-marca">
-                            <h4 th:text="${producto.referencia}">lamapara de pie</h4>
+                            <h4 th:text="${producto.referencia}">Lamapara de pie</h4>
                             <small th:text="${producto.marca}">Led</small>
                         </div>
                         <div class="descripcion">
                             <h4>Descripción</h4>
-                                <textarea th:text="${producto.descripcion}">20% en toda la gama de productos de exterior, excluye productos en la sección SALE El descuento se deduce automáticamente en la cesta de la compra.</textarea>
+                            <textarea th:text="${producto.descripcion}" class="textarea-descripcion">20% en toda la gama de productos de exterior, excluye productos en la sección SALE El descuento se deduce automáticamente en la cesta de la compra.</textarea>
                         </div>
                         <div class="cantidad">
                             <h4>Cantidad</h4>
-                            <h3>4</h3>
+                            <h3 th:text="${producto.cantidadDisponible}">2</h3>
                         </div>
                         <div class="footcard" >
                             <div class="valor">
@@ -116,18 +141,20 @@
                                 <h4 th:text="${producto.precio}">120000</h4>
                             </div>
                             <div class="compra">
-                                <svg class="cesta" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                     fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1
-                                    .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0
-                                    1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89
-                                    4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7
-                                    1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                                </svg>
+                                <div class="contenedor-cesta">
+                                    <svg th:id="'botonCarrito-' + ${iterStat.index}" data-bs-toggle="modal" th:data-bs-target="'#modalAgregarAlCarrito' + ${iterStat.index} " class="cesta" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1
+                                        .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0
+                                        1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89
+                                        4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7
+                                        1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                    </svg>
+                                    <span class="tooltip-cesta"><small>Agregar al carrito</small></span>
+                                </div>
                             </div>
                         </div>
                         <!-- Delete and Edit buttons -->
-                        <div class="options">
+                        <div class="options" sec:authorize="hasRole('ADMIN')">
                             <svg class="eliminar" th:id="'botonDelete-' + ${iterStat.index}" data-bs-toggle="modal"
                                  th:data-bs-target="'#modalDelete' + ${iterStat.index} "
                                  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -151,11 +178,41 @@
                             </svg>
                         </div>
                     </div>
+                    <!--Modal AgregarAlCarrito -->
+                    <div class="modal fade" th:id="'modalAgregarAlCarrito' + ${iterStat.index}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropsLabel0" >Aviso</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-bodyCarrito">
+                                    ¿Está seguro que desea agregar esa cantidad de
+                                    <span th:style="'font-weight: bold;'" th:text="${producto.nombre}"></span> marca:
+                                    <span th:style="'font-weight: bold;'" th:text="${producto.marca}"></span> al carrito?
+                                </div>
+                                <div class="modal-footer">
+                                    <form id="pedidoForm" action="#" th:action="@{/carrito/agregar-pedido}" method="post">
+                                        <label><input type="hidden" name="idProducto" th:value="${producto.id}"></label>
+                                        <label><input type="hidden" name="busqueda" th:value="${busqueda}"></label>
+                                        <div class="input">
+                                            <label><input class="input-cantidad" type="number" min="1" name="cantidad" th:value="${cantidad}" ></label>
+                                            <span class="tooltip-cantidad"><small>Ingrese la cantidad</small></span>
+                                        </div>
+                                        <div class="modal-body-div">
+                                            <button type="submit" class="btnGuardar" data-bs-toggle="modal" data-bs-target="#CarritoModal">Confirmar</button>
+                                            <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Modal for Delete Function -->
-        <div th:each="producto, iterStat: ${productos}">
+        <div th:each="producto, iterStat: ${productos}" sec:authorize="hasRole('ADMIN')">
             <div class="modal fade" th:id="'modalDelete' + ${iterStat.index}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -163,15 +220,18 @@
                             <h1 class="modal-title fs-5" id="staticBackdropsLabel">Advertencia</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-bodyCarrito">
                             ¿Está seguro que desea eliminar este producto?
                             Esta operación no se puede deshacer.
                         </div>
                         <div class="modal-footer">
                             <form action="#" th:action="@{/catalogo/eliminar-producto}" method="post">
                                 <input type="hidden" name="id" th:value="${producto.id}">
-                                <button type="submit" class="btnGuardar" data-bs-toggle="modal" data-bs-target="#EliminarModal">Confirmar</button>
-                                <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                <div class="modal-body-divEli">
+                                    <button type="submit" class="btnGuardar" data-bs-toggle="modal" data-bs-target="#EliminarModal">Confirmar</button>
+                                    <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                </div>
+
                             </form>
                         </div>
                     </div>
@@ -179,7 +239,7 @@
             </div>
         </div>
         <!-- Modal for Edit Function -->
-        <div th:each="producto, iterStat: ${productos}">
+        <div th:each="producto, iterStat: ${productos}" sec:authorize="hasRole('ADMIN')">
             <div class="modal fade" th:id="'modalEdit' + ${iterStat.index}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel1" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -188,18 +248,21 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <th:block th:with="idProducto=${producto.id}, imagenUrl=${producto.imagen}">
+                            <th:block th:with="idProducto=${producto.id}, imagenUrl=${producto.imagen}, cantidadProducto=${producto.cantidadDisponible}">
                                 <form action="#" th:action="@{/catalogo/actualizar-producto}"  th:object="${productoModel}" method="post">
                                     <label><input type="hidden" th:value="${idProducto}" id="id" name="id"></label>
                                     <label><input type="hidden" th:value="${imagenUrl}" id="imagen" name="imagen"></label>
-                                    <label> Codigo: [[${producto.codigo}]]<input required type="number" th:field="*{codigo}" class="input-padron" ></label>
+                                    <label><input type="hidden" th:value="${cantidadProducto}" id="cantidadDisponible" name="cantidadDisponible"></label>
+                                    <label> Codigo: <input required type="number" min="0" th:field="*{codigo}" class="input-padron" ></label>
                                     <label> Referencia: <input required type="text" th:placeholder="${producto.referencia}" th:field="*{referencia}" class="input-padron"></label>
                                     <label> Nombre: <input required type="text" th:placeholder="${producto.nombre}" th:field="*{nombre}" class="input-padron"></label>
                                     <label> Marca: <input required type="text" th:placeholder="${producto.marca}" th:field="*{marca}" class="input-padron"></label>
-                                    <label> Precio:[[${producto.precio}]] <input required type="number" step="any" th:field="*{precio}" class="input-padron"></label>
-                                    <label >Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
-                                    <button class="btnGuardar" type="submit">Guardar</button>
-                                    <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                    <label> Precio: <input required type="number" min="0" step="any" th:field="*{precio}" class="input-padron"></label>
+                                    <label> Descripcion: <textarea placeholder="Descripcion" th:field="*{descripcion}" class="input-textarea"></textarea></label>
+                                    <div class="modal-body-div">
+                                        <button class="btnGuardar" type="submit">Guardar</button>
+                                        <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                    </div>
                                 </form>
                             </th:block>
                         </div>

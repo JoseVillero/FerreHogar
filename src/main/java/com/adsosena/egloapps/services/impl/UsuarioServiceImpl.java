@@ -6,8 +6,10 @@ import com.adsosena.egloapps.entities.Usuario;
 import com.adsosena.egloapps.models.UsuarioModel;
 import com.adsosena.egloapps.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,19 +30,15 @@ public class UsuarioServiceImpl implements UserDetailsService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    private String fullName;
 
-    /**Metodo loadUserByUsername : Metodo heredado de la interface. El metodo es sobre escrito e implemtado.
-     * recibe una cadena con el nombre de usuario. El metodo llama al objeto de tipo UsuarioRepository.
-     * y el objeto se encarga de buscar el nombre de usuario en la base de datos
+    /**Metodo loadUserByUsername: Metodo heredado de la interface. El metodo es sobreescrito e implementado.
+     * Recibe una cadena con el nombre de usuario. El metodo llama al objeto de tipo UsuarioRepository.
+     * Y el objeto se encarga de buscar el nombre de usuario en la base de datos
      * @param username  recibe una cadena con el nombre de usuario
-     * @return UserDetails - este objeto contiene la informacion de la autorizacion y autenticacion del usuario*/
+     * @return UserDetails - este objeto contiene la información de la autorizacion y autenticacion del usuario*/
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario = usuarioRepository.findUsuarioByEmail(username);
-        if(usuario != null){
-            fullName = usuario.getNombreCompleto();
-        }
         return crearUser(usuario);
     }
 
@@ -54,7 +52,7 @@ public class UsuarioServiceImpl implements UserDetailsService {
                 true,true, crearAuthority(usuario.getRoles()));
     }
 
-    /**Metodo crearAuthority : Metodo de apoyo. Recibe un Set de tipo Rol y lo convierte en una coleccion
+    /**Metodo crearAuthority: Metodo de apoyo. Recibe un Set de tipo Rol y lo convierte en una coleccion
      * con tipos de datos GrantedAuthority
      * @param roles  de tipo Set Rol
      * @return Collection<> - coleccion de tipo GrantedAuthority de Spring Security*/
@@ -78,7 +76,13 @@ public class UsuarioServiceImpl implements UserDetailsService {
         return usuarioModelList;
     }
 
-    public String getFullName() {
-        return fullName;
+    public Usuario getUsuarioActual(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return usuarioRepository.findUsuarioByEmail(authentication.getName());
+    }
+
+    public void actualizaUsuario(Usuario usuario){
+        usuarioRepository.save(usuario);
     }
 }
+

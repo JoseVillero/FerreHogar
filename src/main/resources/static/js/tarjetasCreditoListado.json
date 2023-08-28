@@ -1,0 +1,403 @@
+[
+  {
+    "franquicia": "VISA",
+    "numero": "4859461258555547",
+    "nombre": "Roman Lopez",
+    "direccion": "Cl 8 #24-10",
+    "pais": "COLOMBIA",
+    "monto": "8174876",
+    "CVV": "948",
+    "expiracion": "12/2025"
+  },
+  {
+    "franquicia": "VISA",
+    "numero": "4513769670012816",
+    "nombre": "Marian Uriarte",
+    "direccion": "Cl.79 #51-66",
+    "pais": "COLOMBIA",
+    "monto": "11335937",
+    "CVV": "675",
+    "expiracion": "05/2025"
+  },
+  {
+    "franquicia": "VISA",
+    "numero": "4468467002229761",
+    "nombre": "Matias Lamas",
+    "direccion": "Cr 96G #23GBIS-76",
+    "pais": "COLOMBIA",
+    "monto": "9385668",
+    "CVV": "400",
+    "expiracion": "09/2030"
+  },
+  {
+    "franquicia": "VISA",
+    "numero": "4513746935494559",
+    "nombre": "Maria Araceli Candela",
+    "direccion": "Cr 52 #48-45",
+    "pais": "COLOMBIA",
+    "monto": "2043719",
+    "CVV": "538",
+    "expiracion": "12/2022"
+  },
+  {
+    "franquicia": "VISA",
+    "numero": "4544001945077892",
+    "nombre": "Elsa Alcala",
+    "direccion": "Cl 34 #28-60",
+    "pais": "COLOMBIA",
+    "monto": "2254998",
+    "CVV": "712",
+    "expiracion": "04/2028"
+  },
+  {
+    "franquicia": "VISA",
+    "numero": "4310262625321750",
+    "nombre": "Luis Manuel Perez",
+    "direccion": "Cr 52 #76-122",
+    "pais": "COLOMBIA",
+    "monto": "2084349",
+    "CVV": "118",
+    "expiracion": "08/2024"
+  },
+  {
+    "franquicia": "VISA",
+    "numero": "4004896521168970",
+    "nombre": "Juan Jose Barrios",
+    "direccion": "Cl 90 #46-121",
+    "pais": "COLOMBIA",
+    "monto": "3616123",
+    "CVV": "475",
+    "expiracion": "06/2022"
+  },
+  {
+    "franquicia": "VISA",
+    "numero": "4415112819162193",
+    "nombre": "Jasmine Valle",
+    "direccion": "Cr 33 #43-36",
+    "pais": "COLOMBIA",
+    "monto": "3083862",
+    "CVV": "533",
+    "expiracion": "05/2026"
+  },
+  {
+    "franquicia": "VISA",
+    "numero": "4859367265109006",
+    "nombre": "Yeray Barros",
+    "direccion": "Cr 52 #48-45",
+    "pais": "COLOMBIA",
+    "monto": "4022429",
+    "CVV": "187",
+    "expiracion": "10/2028"
+  },
+  {
+    "franquicia": "VISA",
+    "numero": "4415115785881845",
+    "nombre": "Maria Soledad Perez",
+    "direccion": "Cl 14 #21-62",
+    "pais": "COLOMBIA",
+    "monto": "3197628",
+    "CVV": "814",
+    "expiracion": "09/2028"
+  },
+  {
+    "franquicia": "MASTERCARD",
+    "numero": "5133607973536759",
+    "nombre": "Manuel Angel Hurtado",
+    "direccion": "Cr 14 #10-21",
+    "pais": "COLOMBIA",
+    "monto": "7959534",
+    "CVV": "673",
+    "expiracion": "10/2024"
+  },
+  {
+    "franquicia": "MASTERCARD",
+    "numero": "5396122381455297",
+    "nombre": "Martina Salgado",
+    "direccion": "Cl 25 #54-04",
+    "pais": "COLOMBIA",
+    "monto": "8089552",
+    "CVV": "823",
+    "expiracion": "03/2027"
+  },
+  {
+    "franquicia": "MASTERCARD",
+    "numero": "5396124023112039",
+    "nombre": "Maria Rosario Garriga",
+    "direccion": "Cr 53 #29-118",
+    "pais": "COLOMBIA",
+    "monto": "4989437",
+    "CVV": "158",
+    "expiracion": "08/2023"
+  },
+  {
+    "franquicia": "MASTERCARD",
+    "numero": "5221044058155482",
+    "nombre": "Jesus Javier Velasco",
+    "direccion": "Cl 34C #87A-14",
+    "pais": "COLOMBIA",
+    "monto": "5769545",
+    "CVV": "506",
+    "expiracion": "12/2024"
+  },
+  {
+    "franquicia": "MASTERCARD",
+    "numero": "5158644867948204",
+    "nombre": "Vicente Jose Duque",
+    "direccion": "Cl 10 #52-43",
+    "pais": "COLOMBIA",
+    "monto": "4599383",
+    "CVV": "640",
+    "expiracion": "06/2029"
+  },
+  {
+    "franquicia": "MASTERCARD",
+    "numero": "5491567651440482",
+    "nombre": "Yaiza Barrientos",
+    "direccion": "Cr 17 #31-143",
+    "pais": "COLOMBIA",
+    "monto": "11851946",
+    "CVV": "899",
+    "expiracion": "07/2025"
+  },
+  {
+    "franquicia": "MASTERCARD",
+    "numero": "5406943524254513",
+    "nombre": "Maria Josefa Juarez",
+    "direccion": "Cl 23 #41-16",
+    "pais": "COLOMBIA",
+    "monto": "8942795",
+    "CVV": "760",
+    "expiracion": "06/2022"
+  },
+  {
+    "franquicia": "MASTERCARD",
+    "numero": "5592251175859075",
+    "nombre": "Jose Carlos Cordon",
+    "direccion": "Cl 76 #38-18",
+    "pais": "COLOMBIA",
+    "monto": "3031042",
+    "CVV": "936",
+    "expiracion": "12/2024"
+  },
+  {
+    "franquicia": "MASTERCARD",
+    "numero": "5332952430089730",
+    "nombre": "Jacinto Pinto",
+    "direccion": "Cr 39 #10-18",
+    "pais": "COLOMBIA",
+    "monto": "3648627",
+    "CVV": "589",
+    "expiracion": "08/2022"
+  },
+  {
+    "franquicia": "MASTERCARD",
+    "numero": "5474815567811531",
+    "nombre": "Olga Díaz",
+    "direccion": "Cl 17 #21A-61",
+    "pais": "COLOMBIA",
+    "monto": "2836015",
+    "CVV": "869",
+    "expiracion": "02/2030"
+  },
+  {
+    "franquicia": "AMERICAN_EXPRESS",
+    "numero": "377815396915353",
+    "nombre": "Jimena Pereira",
+    "direccion": "Cr 54 #52-65",
+    "pais": "COLOMBIA",
+    "monto": "14098818",
+    "CVV": "8217",
+    "expiracion": "12/2022"
+  },
+  {
+    "franquicia": "AMERICAN_EXPRESS",
+    "numero": "377816502977527",
+    "nombre": "Leo Vaquero",
+    "direccion": "Cr 14 #5N-85",
+    "pais": "COLOMBIA",
+    "monto": "14931745",
+    "CVV": "3169",
+    "expiracion": "06/2030"
+  },
+  {
+    "franquicia": "AMERICAN_EXPRESS",
+    "numero": "377845691949278",
+    "nombre": "Sebo Ribeiro",
+    "direccion": "Cl 15 #22 B-26",
+    "pais": "COLOMBIA",
+    "monto": "16248176",
+    "CVV": "9236",
+    "expiracion": "08/2030"
+  },
+  {
+    "franquicia": "AMERICAN_EXPRESS",
+    "numero": "377847293899430",
+    "nombre": "Jose Pedro Sánchez",
+    "direccion": "Cr 23 #10B-88",
+    "pais": "COLOMBIA",
+    "monto": "16947023",
+    "CVV": "4187",
+    "expiracion": "11/2023"
+  },
+  {
+    "franquicia": "AMERICAN_EXPRESS",
+    "numero": "377843342451638",
+    "nombre": "Aday Velasco",
+    "direccion": "Cr 14 #13-65",
+    "pais": "COLOMBIA",
+    "monto": "15403060",
+    "CVV": "5284",
+    "expiracion": "05/2029"
+  },
+  {
+    "franquicia": "AMERICAN_EXPRESS",
+    "numero": "377845623656561",
+    "nombre": "Irina Peinado",
+    "direccion": "Cl 53 #54-53",
+    "pais": "COLOMBIA",
+    "monto": "15768735",
+    "CVV": "5536",
+    "expiracion": "06/2023"
+  },
+  {
+    "franquicia": "AMERICAN_EXPRESS",
+    "numero": "377814684135410",
+    "nombre": "Adolfo Gracia",
+    "direccion": "Cl 2 A #69-16",
+    "pais": "COLOMBIA",
+    "monto": "13899728",
+    "CVV": "1968",
+    "expiracion": "10/2023"
+  },
+  {
+    "franquicia": "AMERICAN_EXPRESS",
+    "numero": "377844283189633",
+    "nombre": "Luciano Reina",
+    "direccion": "Cr 43B #8-35",
+    "pais": "COLOMBIA",
+    "monto": "13534052",
+    "CVV": "3270",
+    "expiracion": "11/2026"
+  },
+  {
+    "franquicia": "AMERICAN_EXPRESS",
+    "numero": "377813942133191",
+    "nombre": "Balbina Salcedo",
+    "direccion": "Cl 49B #68-50",
+    "pais": "COLOMBIA",
+    "monto": "14208520",
+    "CVV": "2366",
+    "expiracion": "02/2029"
+  },
+  {
+    "franquicia": "AMERICAN_EXPRESS",
+    "numero": "377844264695699",
+    "nombre": "Gabriel Carreras",
+    "direccion": "Cl 70 #1D-79",
+    "pais": "COLOMBIA",
+    "monto": "18186256",
+    "CVV": "2868",
+    "expiracion": "04/2024"
+  },
+  {
+    "franquicia": "DINNERS_CLUB",
+    "numero": "36015142143771",
+    "nombre": "Juan Luis Peral",
+    "direccion": "Cl 41 #51-15",
+    "pais": "COLOMBIA",
+    "monto": "17723067",
+    "CVV": "472",
+    "expiracion": "03/2029"
+  },
+  {
+    "franquicia": "DINNERS_CLUB",
+    "numero": "36015123954196",
+    "nombre": "Lina Holgado",
+    "direccion": "Cl 45 #16-21",
+    "pais": "COLOMBIA",
+    "monto": "16853572",
+    "CVV": "388",
+    "expiracion": "08/2022"
+  },
+  {
+    "franquicia": "DINNERS_CLUB",
+    "numero": "3601517658631306266",
+    "nombre": "Martha Granados",
+    "direccion": "Cl 34 #43-100",
+    "pais": "COLOMBIA",
+    "monto": "18230950",
+    "CVV": "202",
+    "expiracion": "12/2022"
+  },
+  {
+    "franquicia": "DINNERS_CLUB",
+    "numero": "36015185345663",
+    "nombre": "Jose Mario Arrieta",
+    "direccion": "Cr 7 #180-75",
+    "pais": "COLOMBIA",
+    "monto": "15854060",
+    "CVV": "567",
+    "expiracion": "09/2024"
+  },
+  {
+    "franquicia": "DINNERS_CLUB",
+    "numero": "36015175343991",
+    "nombre": "Amador Tovar",
+    "direccion": "Cl 52N #3AN-191",
+    "pais": "COLOMBIA",
+    "monto": "22761262",
+    "CVV": "145",
+    "expiracion": "05/2025"
+  },
+  {
+    "franquicia": "DINNERS_CLUB",
+    "numero": "36015188501395",
+    "nombre": "Adan Martinez",
+    "direccion": "Cl 17 #15-22",
+    "pais": "COLOMBIA",
+    "monto": "21631731",
+    "CVV": "748",
+    "expiracion": "04/2030"
+  },
+  {
+    "franquicia": "DINNERS_CLUB",
+    "numero": "3601519494095897568",
+    "nombre": "Olga Ceballos",
+    "direccion": "Cl 120A #7-8",
+    "pais": "COLOMBIA",
+    "monto": "18746958",
+    "CVV": "677",
+    "expiracion": "07/2023"
+  },
+  {
+    "franquicia": "DINNERS_CLUB",
+    "numero": "3601516865549453996",
+    "nombre": "Jaime Peña",
+    "direccion": "Cl 30 #17-05",
+    "pais": "COLOMBIA",
+    "monto": "23025361",
+    "CVV": "968",
+    "expiracion": "02/2025"
+  },
+  {
+    "franquicia": "DINNERS_CLUB",
+    "numero": "3601517772558704211",
+    "nombre": "Lina Bustos",
+    "direccion": "Cl 70 #2-50",
+    "pais": "COLOMBIA",
+    "monto": "26243304",
+    "CVV": "901",
+    "expiracion": "04/2028"
+  },
+  {
+    "franquicia": "DINNERS_CLUB",
+    "numero": "3601512142437968947",
+    "nombre": "Emiliana Hoyos",
+    "direccion": "Cr 55 #72-109",
+    "pais": "COLOMBIA",
+    "monto": "21245740",
+    "CVV": "604",
+    "expiracion": "09/2023"
+  }
+]
+

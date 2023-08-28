@@ -1,11 +1,14 @@
 package com.adsosena.egloapps.services.impl;
 
 import com.adsosena.egloapps.components.converters.UsuarioConverter;
+import com.adsosena.egloapps.entities.Carrito;
 import com.adsosena.egloapps.entities.Usuario;
 import com.adsosena.egloapps.models.UsuarioModel;
 import com.adsosena.egloapps.repositories.UsuarioRepository;
+import com.adsosena.egloapps.services.CarritoService;
 import com.adsosena.egloapps.services.RegistroService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 
@@ -21,10 +24,18 @@ public class RegistroServiceImpl implements RegistroService {
 
     private final UsuarioConverter usuarioConverter;
 
+
+    private final CarritoService carritoService;
+
+    private Usuario usuario;
+
+    private Carrito carrito;
+
     @Autowired
-    public RegistroServiceImpl(UsuarioRepository usuarioRepository) {
+    public RegistroServiceImpl(UsuarioRepository usuarioRepository, CarritoService carritoService) {
         this.usuarioRepository = usuarioRepository;
         this.usuarioConverter = new UsuarioConverter();
+        this.carritoService = carritoService;
     }
 
     /**Metodo consultarUsuarioPorId: Este metodo recibe un UsuarioModel, llama al repositorio de Usuario y solicita
@@ -42,16 +53,17 @@ public class RegistroServiceImpl implements RegistroService {
      * @param usuarioModel recibe un UsuarioModel para convertirlo en Usuario con el fin de guardarlo en base de datos
      * @return boolean - respuesta de la peticion si guardo o no el usuario*/
     @Override
-    public boolean registrarUsuario(UsuarioModel usuarioModel) {
+    public void registrarUsuario(UsuarioModel usuarioModel) {
 
-        return usuarioRepository.save(usuarioConverter.usuarioModelToUsuario(usuarioModel)) != null;
-
+            usuario = usuarioConverter.usuarioModelToUsuario(usuarioModel);
+            setCarritoYGuardarUsuario(usuario);
     }
 
     @Override
     public void agregarUsuario(UsuarioModel usuarioModel) {
 
-        usuarioRepository.save(usuarioConverter.agregarUsuario(usuarioModel));
+        usuario = usuarioConverter.agregarUsuario(usuarioModel);
+        setCarritoYGuardarUsuario(usuario);
     }
 
     @Override
@@ -60,5 +72,18 @@ public class RegistroServiceImpl implements RegistroService {
         usuarioRepository.deleteById(id);
     }
 
+    @Override
+    public void editarUsuario(UsuarioModel usuarioModel) {
 
+        usuario = usuarioRepository.findUsuarioByEmail(usuarioModel.getEmail());
+        usuarioConverter.setEditarUsuario(usuario, usuarioModel);
+        usuarioRepository.save(usuario);
+    }
+
+    private void setCarritoYGuardarUsuario(Usuario usuario){
+
+        carrito = carritoService.crearCarrito(usuario);
+        usuario.setCarrito(carrito);
+        usuarioRepository.save(usuario);
+    }
 }

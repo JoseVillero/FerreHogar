@@ -18,14 +18,6 @@
                 <img src="../static/images/logo.png" th:src="@{/images/logo.png}" alt="logo imagen">
             </figure>
         </header>
-		<!-- Navigation Bar -->
-		<nav  class="menu">
-            <ul>
-            	<li><a href="#" th:href="@{/}">Home</a></li>
-                <li><a href="#" th:href="@{/login}">Login</a></li>
-                <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
-            </ul>
-        </nav>
 		<!-- Alerts -->
 		<div th:if="${existe}" class="alert alert-danger" role="alert"> Error en el registro: el usuario ya existe. </div>
 		<div th:if="${noExiste}" class="alert alert-success" role="alert"> Usuario registrado con éxito, ya puedes iniciar sesión. </div>

@@ -1,8 +1,11 @@
 package com.adsosena.egloapps.models;
 
+import com.adsosena.egloapps.entities.Transaccion;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**Clase ProductoModel:
  * Esta clase representa un modelo de una entidad(tabla) de la base de datos.
@@ -10,7 +13,6 @@ import lombok.NoArgsConstructor;
  * en la entidad o ya está convertido de una entidad
  * @author Jose David */
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
 public class ProductoModel {
 
@@ -30,6 +32,13 @@ public class ProductoModel {
 
     private String imagen;
 
+    private int cantidadDisponible;
+
+    private List<Transaccion> transacciones;
+
+    public ProductoModel() {
+        this.transacciones = new ArrayList<>();
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -75,17 +84,13 @@ public class ProductoModel {
         }
     }
 
-    @Override
-    public String toString() {
-        return "ProductoModel{" +
-                "id=" + id +
-                ", codigo=" + codigo +
-                ", referencia='" + referencia + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", marca='" + marca + '\'' +
-                ", precio=" + precio +
-                ", descripcion='" + descripcion + '\'' +
-                ", imagen='" + imagen + '\'' +
-                '}';
+    public void setCantidadDisponible(int cantidad){
+        if(cantidad >= 0){
+            this.cantidadDisponible = cantidad;
+        }
+    }
+
+    public void setTransacciones(List<Transaccion> transacciones) {
+        this.transacciones = transacciones;
     }
 }

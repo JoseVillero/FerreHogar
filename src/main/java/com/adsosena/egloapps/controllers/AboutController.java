@@ -16,7 +16,7 @@ public class AboutController {
     @GetMapping("/about")
     public String mostrarQuienesSomos(Model model){
 
-        model.addAttribute("fullName",usuarioService.getFullName());
+        model.addAttribute("fullName",usuarioService.getUsuarioActual().getNombreCompleto());
         return ConstantesVistas.QUIENES_SOMOS_VISTA;
     }
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <!-- Headers -->
 <head>
     <meta charset="UTF-8">
@@ -10,6 +9,10 @@
     <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
     <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.2.8/es6-promise.auto.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 <!-- Logo header -->
@@ -32,21 +35,30 @@
             </nav>
             <!-- Shopping cart-->
             <nav class="totalAgregado">
-                <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                <a href="#" th:href="@{/carrito}">
+                <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                     viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89
+                     3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5
+                     0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102
+                     4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2
+                     2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                 </svg>
+                </a>
             </nav>
             <!-- Info User -->
             <nav class="usuario">
-                <img src="../static/images/user.png" th:src="@{/images/user.png}" >
-                <h2 th:text="${fullName}">Usuario</h2>
-                <h2 sec:authentication="principal.authorities">User</h2>
-                <form th:action="@{/logout}" method="post">
+                <div class="contenedor-img">
+                    <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
+                    <h2 th:text="${fullName}">Usuario</h2>
+                    <h2 sec:authentication="principal.authorities">User</h2>
+                </div>
+                <form class="contenedor-logout" th:action="@{/logout}" method="post">
                     <button class="btnLogout" ><span> Logout</span></button>
                 </form>
             </nav>
         </nav>
         <!-- Ticket -->
-        <section class="factura">
+        <section class="factura" id="ticketFactura">
             <div class="header-factura">
                 <div class="header">
                     <div class="img-logo">
@@ -54,7 +66,7 @@
                     </div>
                     <div class="Eglo">
                         <div>
-                            <h3>Eglo Colombia</h3>
+                            <h3>Ferre Hogar</h3>
                         </div>
                         <div>
                             <h4>Nit</h4>
@@ -66,7 +78,7 @@
                         </div>
                         <div>
                             <h4>Direccion</h4>
-                            <h5> Ak.9 #127-36 - Bogotá</h5>
+                            <h5> Cl 132 #93A-10 - Bogotá.</h5>
                         </div>
 
                     </div>
@@ -78,29 +90,29 @@
                     <div class="cliente">
                         <div class="info-cliente">
                             <h6>Fecha</h6>
-                            <h7>dd/mm/aa</h7>
-                        </div>
-                        <div class="info-cliente">
-                            <h6>Codigo</h6>
-                            <h7>10</h7>
+                            <h7 th:text="${fecha}">dd/mm/aa</h7>
                         </div>
                         <div class="info-cliente">
                             <h6>Nombre cliente</h6>
-                            <h7>Juan Martinez</h7>
+                            <h7 th:text="${usuario.nombreCompleto}">Juan Martinez</h7>
                         </div>
                         <div class="info-cliente">
-                            <h6>Tel</h6>
-                            <h7>3212541458</h7>
+                            <h6>Teléfono</h6>
+                            <h7 th:text="${usuario.telefono}">3212541458</h7>
+                        </div>
+                        <div class="info-cliente">
+                            <h6>Dirección</h6>
+                            <h7 th:text="${tipoEnvio}">Cl 6 # 5 - 46</h7>
                         </div>
                         <div class="info-cliente">
                             <h6>Correo</h6>
-                            <h7>juan@hotmail.com</h7>
+                            <h7 th:text="${usuario.email}">juan@hotmail.com</h7>
                         </div>
                     </div>
                     <div class="numero-factura">
                         <div>
                             <h6>Factura Electrónica de Venta</h6>
-                            <h4>0001</h4>
+                            <h4 th:text="${numeroFactura}">0001</h4>
                         </div>
                     </div>
                 </div>
@@ -116,13 +128,13 @@
                         <th class="th-factura">Valor total</th>
                     </tr>
                     </thead>
-                    <tbody  th:each="producto: ${productos}">
-                    <tr>
-                        <td class="td-factura">100</td>
-                        <td class="td-factura">Pasteri</td>
-                        <td class="td-factura">580000</td>
-                        <td class="td-factura">2</td>
-                        <td class="td-factura">1160000</td>
+                    <tbody>
+                    <tr th:each="productos: ${listaProductosComprados}">
+                        <td class="td-factura" th:text="${productos.producto.codigo}">100</td>
+                        <td class="td-factura" th:text="${productos.producto.nombre}">Pasteri</td>
+                        <td class="td-factura" th:text="${productos.producto.precio}">580000</td>
+                        <td class="td-factura" th:text="${productos.cantidad}">2</td>
+                        <td class="td-factura" th:text="${productos.cantidad * productos.producto.precio}">1160000</td>
                     </tr>
                     </tbody>
                 </table >
@@ -131,13 +143,11 @@
                     <th class="th-factura">Total a pagar</th>
                     </thead>
                     <tbody>
-                    <td class="td-factura">1160000</td>
+                    <td class="td-factura" th:text="${totalAPagar}">1160000</td>
                     </tbody>
                 </table>
             </div>
-            <div class="foother-factura">
-                <button>Pagar</button>
-            </div>
+            <button id="downloadBtn">Descargar como PDF</button>
         </section>
         <!-- Footer -->
         <footer class="pie">
@@ -155,4 +165,6 @@
             </div>
         </footer>
     </div>
+<script src="../static/js/script3.js" th:src="@{/js/script3.js}"></script>
 </body>
+</html>

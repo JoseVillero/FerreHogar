@@ -6,7 +6,10 @@ import com.adsosena.egloapps.models.UsuarioModel;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+
+
 
 /**
  * Clase UsuarioConverter:
@@ -14,7 +17,6 @@ import java.util.HashSet;
  * en un objeto de una entidad (una clase que representa una tabla)
  * @author Jose David */
 public class UsuarioConverter {
-
 
     private final PasswordEncoder passwordEncoder;
 
@@ -25,25 +27,23 @@ public class UsuarioConverter {
         this.usuario = new Usuario();
     }
 
-    /**Metodo usuarioModelToUsuario:
+    /**
+     * Metodo usuarioModelToUsuario:
      * permite convertir un objeto UsuarioModel (objeto java) a un objeto Usuario para persistencia en base de datos
+     *
      * @param usuarioModel de tipo UsuarioModel
-     * @return Usuario*/
-    public Usuario usuarioModelToUsuario(UsuarioModel usuarioModel){
+     * @return Usuario
+     */
+    public Usuario usuarioModelToUsuario(UsuarioModel usuarioModel) {
 
-
-        usuario.setNombreCompleto(usuarioModel.getNombreCompleto());
-        usuario.setEmail(usuarioModel.getEmail());
-        usuario.setPassword(passwordEncoder.encode(usuarioModel.getPassword()));
-        usuario.setTelefono(usuarioModel.getTelefono());
+        setAtributosDeUsuario(usuarioModel);
         usuario.setEnable(true);
         usuario.setRoles(new HashSet<>());
         usuario.getRoles().add(Rol.USER);
-
         return usuario;
     }
 
-    public UsuarioModel usuarioToUsuarioModel(Usuario usuario){
+    public UsuarioModel usuarioToUsuarioModel(Usuario usuario) {
         UsuarioModel usuarioModel = new UsuarioModel();
 
         usuarioModel.setNombreCompleto(usuario.getNombreCompleto());
@@ -52,26 +52,41 @@ public class UsuarioConverter {
         usuarioModel.setTelefono(usuario.getTelefono());
         usuarioModel.setEnable(usuario.isEnable());
         usuarioModel.setRoles(usuario.getRoles());
-
+        usuarioModel.setTransacciones(usuario.getTransacciones());
+        usuarioModel.setCarrito(usuario.getCarrito());
         return usuarioModel;
     }
 
-    public Usuario agregarUsuario(UsuarioModel usuarioModel){
+    public Usuario agregarUsuario(UsuarioModel usuarioModel) {
 
+        setAtributosDeUsuario(usuarioModel);
+        usuario.setEnable(usuarioModel.isEnable());
+        usuario.setRoles(new HashSet<>());
+        for (Rol rol : usuarioModel.getRoles()) {
+            usuario.getRoles().add(rol);
+        }
+        return usuario;
+    }
+
+    public void setEditarUsuario(Usuario usuario, UsuarioModel usuarioModel){
+
+        usuario.setNombreCompleto(usuarioModel.getNombreCompleto());
+        usuario.setPassword(passwordEncoder.encode(usuarioModel.getPassword()));
+        usuario.setTelefono(usuarioModel.getTelefono());
+        usuario.setEnable(usuarioModel.isEnable());
+        for (Rol rol: usuarioModel.getRoles()) {
+            usuario.getRoles().clear();
+            usuario.getRoles().add(rol);
+        }
+    }
+
+    private void setAtributosDeUsuario(UsuarioModel usuarioModel){
 
         usuario.setNombreCompleto(usuarioModel.getNombreCompleto());
         usuario.setEmail(usuarioModel.getEmail());
         usuario.setPassword(passwordEncoder.encode(usuarioModel.getPassword()));
         usuario.setTelefono(usuarioModel.getTelefono());
-        usuario.setEnable(usuarioModel.isEnable());
-        usuario.setRoles(new HashSet<>());
-        for(Rol rol: usuarioModel.getRoles()){
-            usuario.getRoles().add(rol);
-        }
-
-        return usuario;
+        usuario.setTransacciones(new ArrayList<>());
     }
-
-
-
 }
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Pedidos</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <html lang="es">
+    <!-- Headers -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Factura</title>
+        <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+        <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
+    </head>
+    <body>
+    <!-- Logo header -->
+        <div>
+            <header class="header">
+                <figure>
+                    <img src="../static/images/logo.png" th:src="@{/images/logo.png}" >
+                </figure>
+            </header>
+            <!-- Navigation Bar -->
+            <nav class="principal" >
+                <!-- Button nav -->
+                <nav class="menuConfig">
+                    <ul>
+                        <li><a href="#" th:href="@{/}">Home</a></li>
+                        <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
+                        <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
+                        <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
+                        <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
+                        <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">ventas</a></li>
+                    </ul>
+                </nav>
+                <!-- Shopping cart-->
+                <nav class="totalAgregado">
+                    <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                </nav>
+                <!-- Info User -->
+                <nav class="usuario">
+                    <div class="contenedor-img">
+                        <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
+                        <h2 th:text="${fullName}">Usuario</h2>
+                        <h2 sec:authentication="principal.authorities">User</h2>
+                    </div>
+                    <form class="contenedor-logout" th:action="@{/logout}" method="post">
+                        <button><span>Logout</span></button>
+                    </form>
+                </nav>
+            </nav>
+            <!-- List Resgistros -->
+            <section class="seccion-Registro">
+                <div class="registroPedidos">
+                    <div class="titulo-Registro"> <h2>Lista de pedidos generados</h2></div>
+                    <div>
+                        <div class="contenedor-Registro" th:each="pedido, iterStat : ${pedidos}">
+                            <div class="RegistroN°">
+                                <div>
+                                    <h5>Pedido N°</h5>
+                                    <h4>0001</h4>
+                                </div>
+                            </div>
+                            <div class="RegistroDatosyFecha">
+                                <div class="Registro-Cliente">
+                                    <h5>Datos del cliente para el despacho del pedido</h5>
+                                    <div class="Registro-dstosCliente">
+                                        <h6>Codigo</h6>
+                                        <h7>10</h7>
+                                    </div>
+                                    <div class="Registro-dstosCliente">
+                                        <h6>Nombre cliente</h6>
+                                        <h7>Juan Martinez</h7>
+                                    </div>
+                                    <div class="Registro-dstosCliente">
+                                        <h6>Tel</h6>
+                                        <h7>3212541458</h7>
+                                    </div>
+                                    <div class="Registro-dstosCliente">
+                                        <h6>Correo</h6>
+                                        <h7>juan@hotmail.com</h7>
+                                    </div>
+                                    <div class="Registro-dstosClienteDireccion">
+                                        <div class="DatosClienteDireccion">
+                                            <h6>Dirección</h6>
+                                            <div>
+                                                <h7>Cl 6 # 5 - 46</h7>
+                                                <h7>Kenedy</h7>
+                                                <h7>Bogotá</h7>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Fecha-Tipo">
+                                    <div class="FechaRegistro">
+                                        <h2>Fecha Generado</h2>
+                                        <h3>28/08/2023</h3>
+                                    </div>
+                                    <div class="TipoDespacho">
+                                        <h2>Tipo de despacho</h2>
+                                        <h3>Envio</h3>
+                                        <h3>Recoger en tienda</h3>
+                                    </div>
+                                    <div class="FormaPago">
+                                        <h2>Forma de pago</h2>
+                                        <h3>Trjeta</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="Regitro-Productos">
+                                    <h5>Lista de productos adquiridos</h5>
+                                    <table class="Regitro-Productostabla-uno">
+                                        <thead class="Regitro-Productosthead-registro">
+                                        <tr>
+                                            <th class="th-Regitro-Productos">imagen</th>
+                                            <th class="th-Regitro-Productos">Código</th>
+                                            <th class="th-Regitro-Productos">Nombre</th>
+                                            <th class="th-Regitro-Productos">Precio</th>
+                                            <th class="th-Regitro-Productos">Cantidad</th>
+                                            <th class="th-Regitro-Productos">Valor total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody  th:each="producto: ${productos}">
+                                        <tr>
+                                            <td class="td-Regitro-Productos-img" ><img src="../static/images/Candado%20de%20acero.jpg" th:src="@{/images/Candado%20de%20acero.jpg}" ></td>
+                                            <td class="td-Regitro-Productos">100</td>
+                                            <td class="td-Regitro-Productos">Pasteri</td>
+                                            <td class="td-Regitro-Productos">580000</td>
+                                            <td class="td-Regitro-Productos">2</td>
+                                            <td class="td-Regitro-Productos">1160000</td>
+                                        </tr>
+                                        </tbody>
+                                    </table >
+                                    <table class="Regitro-Productostabla-doss">
+                                        <thead class="Regitro-Productosthead-registro">
+                                        <th class="th-Regitro-Productos-total">Total pagado</th>
+                                        </thead>
+                                        <tbody>
+                                        <td class="td-Regitro-Productos">1160000</td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="foother-registroDespacho">
+                                <div class="btn-Despachar">
+                                    <button><span>Confirmar Despacho</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Footer -->
+            <footer class="pie">
+                <ul>
+                    <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/eglocolombia/" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                </ul>
+                <div class="copyrith">
+                    <p class="copyrith">&copy Copyrith Proyecto SENA - 2023 </p>
+                    <h4>Jose David Villero</h4>
+                    <h4>Sergio Andrés Manrique Triana</h4>
+                </div>
+            </footer>
+        </div>
+    </body>
