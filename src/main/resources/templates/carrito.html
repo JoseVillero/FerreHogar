@@ -30,8 +30,6 @@
                 <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
                 <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                 <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
-                <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
-                <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">ventas</a></li>
             </ul>
         </nav>
         <!-- Shopping cart-->
@@ -115,6 +113,9 @@
                     </div>
                 </div>
             </div>
+            <div>
+
+            </div>
         </div>
         <div class="valorPago-ProductoCarrito">
             <div class="valorTotal-ProductoCarrito">
@@ -126,7 +127,7 @@
             <nav class="btnPagar-ProductoCarrito">
                 <ul>
                     <li>
-                        <a href="#" th:href="@{/transaccion}" th:id="'botonPago' + ${iterStat.index}" data-bs-toggle="modal" th:data-bs-target="'#modalPagar' + ${iterStat.index} "  xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" viewBox="0 0 16 16">PAGAR</a>
+                        <a href="#" th:href="@{/transaccion}">PAGAR</a>
                     </li>
                 </ul>
             </nav>
