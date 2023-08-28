@@ -30,6 +30,8 @@
                 <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
                 <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
                 <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
+                <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Pedidos</a></li>
+                <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">ventas</a></li>
             </ul>
         </nav>
         <!-- Shopping cart-->
@@ -62,7 +64,7 @@
             <div class="titulo-productosCarrito"> <h2>Lista de productos agregados</h2></div>
             <div class="contenedor-productosCarrito" th:each="pedido, iterStat : ${pedidos}">
                 <div class="Img-productoCarrito">
-                    <Img th:src="@{${pedido.producto.imagen}}" alt="Lamparas imagen">
+                    <Img th:src="@{${pedido.producto.imagen}}" alt="Productos imagen">
                 </div>
                 <div class="Descripcion-ProductoCarrito">
                     <div>
@@ -113,9 +115,6 @@
                     </div>
                 </div>
             </div>
-            <div>
-
-            </div>
         </div>
         <div class="valorPago-ProductoCarrito">
             <div class="valorTotal-ProductoCarrito">
@@ -127,7 +126,7 @@
             <nav class="btnPagar-ProductoCarrito">
                 <ul>
                     <li>
-                        <a href="#" th:href="@{/transaccion}">PAGAR</a>
+                        <a href="#" th:href="@{/transaccion}" th:id="'botonPago' + ${iterStat.index}" data-bs-toggle="modal" th:data-bs-target="'#modalPagar' + ${iterStat.index} "  xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" viewBox="0 0 16 16">PAGAR</a>
                     </li>
                 </ul>
             </nav>
@@ -161,32 +160,31 @@
             </div>
         </div>
         <!-- Modal for Edit -->
-            <div class="modal fade" th:id="'modalEdit' + ${iterStat.index}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropsLabel1">Editar Pedido</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-bodyForm">
-                            Ingresa la cantidad deseada.
-                            <th:block th:with="idPedido=${pedido.id}">
-                                <form action="#" th:action="@{/carrito/actualizar-pedido}" method="post">
-                                    <label class="modal-bodyLabel">
-                                        <input class="input-cantidad" type="number" min="1"
-                                               th:value="${cantidadEditada}" name="cantidad" id="cantidad">
-                                    </label>
-                                    <label>
-                                        <input type="hidden" th:value="${idPedido}" name="idPedido" id="idPedido">
-                                    </label>
-                                    <div class="modal-footerEdit">
-                                        <button class="btnGuardar" type="submit">Confirmar</button>
-                                        <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
-                                    </div>
+        <div class="modal fade" th:id="'modalEdit' + ${iterStat.index}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="BackdropLabel1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropsLabel1">Editar Pedido</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-bodyForm">
+                        Ingresa la cantidad deseada.
+                        <th:block th:with="idPedido=${pedido.id}">
+                            <form action="#" th:action="@{/carrito/actualizar-pedido}" method="post">
+                                <label class="modal-bodyLabel">
+                                    <input class="input-cantidad" type="number" min="1"
+                                           th:value="${cantidadEditada}" name="cantidad" id="cantidad">
+                                </label>
+                                <label>
+                                    <input type="hidden" th:value="${idPedido}" name="idPedido" id="idPedido">
+                                </label>
+                                <div class="modal-footerEdit">
+                                    <button class="btnGuardar" type="submit">Confirmar</button>
+                                    <button type="button" class="btnCerrar" data-bs-dismiss="modal">Cancelar</button>
+                                </div>
 
-                                </form>
-                            </th:block>
-                        </div>
+                            </form>
+                        </th:block>
                     </div>
                 </div>
             </div>

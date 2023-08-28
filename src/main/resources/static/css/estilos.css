@@ -209,6 +209,122 @@ div{
     color: #ffffff;
 }
 
+/* estilos index-body  */
+.seccion{
+    width: 75%;
+    float: left;
+    margin: 30px auto;
+}
+.seccion h2{
+    font-size: 25px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    color: #fafafa;
+    background: #9d9b9b;
+}
+article{
+    display: flex;
+    justify-content: center;
+}
+.contenedor{
+    display: flex;
+    width: 90%;
+    background: #ffffffdc;
+}
+.tarjeta{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 250px;
+    height: 520px;
+    min-height: 520px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    cursor: default;
+    transition: all 400ms ease;
+}
+.tarjeta:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+}
+.tarjeta img{
+    display: block;
+    width: 100%;
+    margin: 0px;
+}
+.contenido-tarjeta{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 5px;
+    text-align: center;
+}
+.titulo-tarjeta h3{
+    font-size: 18px;
+    margin-top: 8px;
+
+}
+.titulo-tarjeta p{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #5e615f;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.link a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px ;
+    color: #022930;
+    border: 1px solid #022930;
+    border-radius: 4px;
+    transition: all 400ms ease;
+    cursor: pointer;
+}
+.link a:hover{
+    color: #009AA2;
+    border: 1px solid #009AA2;
+}
+.columna{
+    margin: 30px 0 0 10px ;
+    width: 20% ;
+    float: left;
+}
+.columna blockquote{
+    font-size:x-large;
+    width: 100%;
+    min-width: 220px;
+    margin: 4px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #009AA2;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    color:rgba(247, 248, 248, 0.938);
+    cursor: default;
+    transition: all 400ms ease;
+}
+.columna blockquote:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateX(2%);
+    background: #2d3436;
+    color:rgba(247, 248, 248, 0.938);
+}
+.columna-text{
+    padding: 8px 4px;
+    font-size: 16px;
+}
+
+.videoIndex:hover{
+    border: solid 2px #0099a1;
+}
+
 
 /* estilos catalogo-body  */
 .add-input{
@@ -423,14 +539,12 @@ div{
     justify-content: space-between;
 
 }
-.codigo-nombre sup{
+.codigo-nombre sup, .codigo-nombre h3, .referencia-marca h4, .referencia-marca small{
     margin: 0;
     padding: 0;
 }
 .codigo-nombre h3{
-    margin: 0;
-    padding: 0;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 700;
 }
 .referencia-marca {
@@ -439,16 +553,12 @@ div{
     margin: 0 0 0 10px;
 }
 .referencia-marca h4{
-    margin: 0;
-    padding: 0;
     font-size: 14px;
     font-style: italic;
     font-weight: 100;
 
 }
 .referencia-marca small{
-    margin: 0;
-    padding: 0 ;
     font-size: 14px;
     font-style: italic;
     font-weight: 100;
@@ -487,12 +597,12 @@ div{
 .cantidad h3{
     color: black;
     font-weight: bold;
-    padding: 5px 5px 8px 5px  ;
+    padding: 8px 5px 5px 5px;
     margin: 10px 10px 10px 8px;
-    border: solid 1px rgb(99, 95, 95);
     border-radius: 10px;
     background: #eef1ef;
     font-size: 12px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.95);
 }
 .footcard{
     position: absolute;
@@ -579,7 +689,6 @@ div{
     padding: 2px;
     object-fit: cover;
     cursor: pointer;
-
 }
 .cesta :hover  {
     color: #0ce904;
@@ -712,121 +821,6 @@ div{
     display: flex;
 }
 
-/* estilos index-body  */
-.seccion{
-    width: 75%;
-    float: left;
-    margin: 10px auto;
-}
-.seccion h2{
-    font-size: 25px;
-    width: 90%;
-    margin: 0 auto;
-    padding: 10px;
-    color: #fafafa;
-    background: #9d9b9b;
-}
-article{
-    display: flex;
-    justify-content: center;
-}
-.contenedor{
-    display: flex;
-    width: 90%;
-    background: #ffffffdc;
-}
-.tarjeta{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-width: 250px;
-    height: 520px;
-    min-height: 520px;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 6px;
-    overflow: hidden;
-    background: rgb(255, 255, 255);
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
-    cursor: default;
-    transition: all 400ms ease;
-}
-.tarjeta:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
-    transform: translateY(-3%);
-}
-.tarjeta img{
-    display: block;
-    width: 100%;
-    margin: 0px;
-}
-.contenido-tarjeta{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding: 5px;
-    text-align: center;
-}
-.titulo-tarjeta h3{
-    font-size: 18px;
-    margin-top: 8px;
-
-}
-.titulo-tarjeta p{
-    margin-top: 10px;
-    font-size: 12px;
-    color: #5e615f;
-    line-height: 1.5;
-    text-align: justify;
-}
-
-.link a{
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px ;
-    color: #022930;
-    border: 1px solid #022930;
-    border-radius: 4px;
-    transition: all 400ms ease;
-    cursor: pointer;
-}
-.link a:hover{
-    color: #009AA2;
-    border: 1px solid #009AA2;
-}
-.columna{
-    margin: 0 0 0 10px ;
-    width: 20% ;
-    float: left;
-}
-.columna blockquote{
-    font-size:x-large;
-    width: 100%;
-    min-width: 220px;
-    margin: 4px;
-    border-radius: 6px;
-    overflow: hidden;
-    background: #009AA2;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
-    color:rgba(247, 248, 248, 0.938);
-    cursor: default;
-    transition: all 400ms ease;
-}
-.columna blockquote:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
-    transform: translateX(2%);
-    background: #2d3436;
-    color:rgba(247, 248, 248, 0.938);
-}
-.columna-text{
-    padding: 8px 4px;
-    font-size: 16px;
-}
-
-.videoIndex:hover{
-    border: solid 2px #0099a1;
-}
 
 
 /* estilos Usuarios-body */
@@ -989,17 +983,16 @@ article footer{
 
 .factura{
     width: 45%;
+    min-width: 700px;
     padding: 20px;
-    margin-top: 8%;
-    margin-left: 30%;
-    margin-bottom: 20%;
+    margin: 30px auto;
     border-radius: 20px;
     background: #ffffff;
 }
-.header-factura{
+.Body-factura{
     width: 100%;
 }
-.header{
+.header-Factura{
     display:inline-flex;
     width: 100%;
     height: 30%;
@@ -1058,29 +1051,35 @@ article footer{
     display: flex;
 }
 .info-cliente h6, .info-cliente h7{
-    margin: 5px;
+    margin: 3px;
     width: 200px;
     background: #009aa248;
     text-align: left;
+    justify-content: center;
 }
 .info-cliente h6{
-    font-size: 18px;
+    font-size: 13px;
     padding: 5px;
 }
 .info-cliente h7{
-    font-size: 16px;
+    font-size: 12px;
     color: #838388;
     padding: 5px;
 }
 .numero-factura{
-    width: 25%;
+    display: flex;
+    width: 30%;
     padding: 20px;
-    text-align: center;
+}
+.numero-factura div{
+    display: flex;
+    flex-direction: column;
+    margin: auto 10px;
+
 }
 .numero-factura h6{
     font-size: 22px;
     font-weight: bold;
-    margin: 10px;
 }
 .numero-factura h4{
     padding: 5%;
@@ -1137,42 +1136,52 @@ article footer{
 /* Estilos transacción */
 
 .bancos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 10px 40px 10px;
+
+}
+.divBancoTitulo{
     width: 40%;
     min-width: 700px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    display: inline-flex;
+    margin-bottom: 5px;
+}
+.divBancoTitulo h2{
+    margin: auto;
+    font-size: 20px;
+    color: #ffffff;
+    padding: 10px;
+    background: #7cb4b5;
+}
+.div-bancos{
+    width: 40%;
+    min-width: 700px;
+    display: flex;
     justify-content: center;
-    align-content: center;
-    border-radius: 20px;
-    background: #ffffff;
-    margin-top: 8%;
-    margin-bottom: 10%;
 }
 .legend-transaccion{
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 15px;
-    font-weight:bold;
+    display: flex;
+    justify-content: center;
+    width: 98%;
+    margin: 2px 2px 8px 3px;
+    padding: 5px;
+    font-size: 18px;
+    background: #7cb5b6;
+    color: #ffffff;
 }
 
-.bancos fieldset{
+.div-bancos fieldset{
     display: flex;
     flex-direction: column;
     width: 40%;
     height: 300px;
     min-width: 22%;
-    padding: 10px 0px 10px 10px;
-    margin: auto 10px;
-    border-radius: 10px;
-    background: rgba(192, 186, 186, 0.47);
+    padding: 0px 0px 10px 0px;
+    margin-right: 10px;
+    background: rgb(253, 253, 254);
 }
-.bancos fieldset:hover{
-    background: rgba(192, 186, 186, 0.77);
-    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.44);
-}
-.bancos fieldset legend{
-    font-size: 15px;
-}
+
 .label-bancos{
     justify-content: center;
     display: inline-flex;
@@ -1182,7 +1191,7 @@ article footer{
     cursor: pointer;
 }
 .label-bancos:hover .img-bancos{
-    background: #009aa248;
+    background: #b4dfe2;
     border: solid 1px #f0e9e993;
     transition: .5s;
     box-shadow: 0 3px 5px 0px rgb(0,0,0, 0.616);
@@ -1219,38 +1228,33 @@ article footer{
     width: 140px;
     height: 60px;
     min-width: 100px;
-    background: #009aa248;
-    border: solid 1px #d8d4d4d0;
+    background: #b5e0e3;
+    border: solid 1px #ffffff;
     color: #ffffff;
 
 }
 .div-span-bancos span{
     display: flex;
     padding: 20px 5px;
-    color: #ffffff;
+    color: rgb(128, 128, 128);
     font-weight: bold;
     font-size: 13px;
-
 }
-.label-bancos:hover .div-span-bancos span{
-    color: rgba(0, 0, 0, 0.4);
-}
-
 .formulario-tarjeta{
     width: 40%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 10px 0px 10px 15px ;
-    background: rgba(124, 181, 182, 0.69);
-    border-radius: 10px;
 }
-.formulario-tarjeta:hover{
-    background: rgba(87, 164, 166, 0.68);
-    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.44);
+.formulario-tarjeta-input, .formulario-tarjeta-inputUser{
+    margin: 0px 0px 10px 0px;
+    background: rgb(253, 253, 254);
+}
+.formulario-tarjeta-inputUser{
+    height: 240px;
 }
 .formulario-tarjeta-input{
-    margin: 10px 5px;
+    height: 200px;
 }
 .input-trajeta div{
     background: none;
@@ -1258,10 +1262,10 @@ article footer{
 .card-nombres ,.card-direccion,.card-numero,.card-mm,.card-aa,.card-cw{
     width: 220px;
     height: 30px;
-    padding: 5px 5px 0px 5px;
-    border: solid 1px #c0babae5;
+    padding-left: 10px;
     border-radius: 5px;
-    background: #ffffff;
+    background: rgba(182, 225, 228, 0.28);
+    border: solid 1px rgb(124, 180, 181);
     font-size: 14px;
     margin: 7px;
     justify-items: center;
@@ -1276,11 +1280,10 @@ article footer{
     align-items: center;
     justify-content: center;
     background: #ffffff ;
-    border: none;
     color: #009AA2;
     width: 60%;
     height: 30px;
-    border: none;
+    border: solid 1px #7cb4b5;
     border-radius: 5px;
     font-size: 14px;
     font-weight:bold;
@@ -1292,7 +1295,7 @@ article footer{
     content: "";
     width: 100%;
     height: 100%;
-    background: rgba(1, 33, 35, 0.89);
+    background: #7cb4b5;
     position: absolute;
     z-index: 1;
     top: -30px;
@@ -1315,7 +1318,7 @@ article footer{
 /*Estilo carrito*/
 .seccion-carrito{
     display: inline-flex;
-    margin-top: 8%;
+    margin-top: 30px;
     margin-bottom: 10%;
 }
 .Productos-carrito{
@@ -1520,6 +1523,473 @@ article footer{
     width: 40%;
 }
 
+/*Estilos ControlPedidos*/
+
+.seccion-Registro{
+    margin-top: 30px;
+    margin-bottom: 10%;
+}
+.registroPedidos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 650px;
+    height: 100%;
+    margin: 10px auto;
+
+}
+.titulo-Registro{
+    width: 100%;
+    background: rgb(124, 182, 183);
+    padding: 10px 0 5px 0;
+    margin: 0px 10px;
+    display: flex;
+    justify-content: center;
+}
+.titulo-Registro h2{
+    font-size: 18px;
+    color: #ffffff;
+}
+.contenedor-Registro{
+    width: 650px;
+    margin: auto;
+}
+.RegistroN°{
+    position: relative;
+    width: 130px;
+    height: 40px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    margin: 5px 0px 0px 520px;
+    border-top-right-radius: 10px;
+    background: rgb(253, 253, 254);
+    border-top-left-radius: 10px;
+}
+.RegistroN°::before{
+    content: "";
+    top: -55px;
+    right: -10px;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-image: conic-gradient(#0098a0 40deg, transparent 90deg);
+    animation: rotar 2s linear infinite;
+    z-index: 1;
+}
+@keyframes rotar {
+
+    from{
+        transform: rotate(360deg);
+    }
+    to{
+        transform: rotate(0deg)
+    }
+}
+.RegistroN° div{
+    padding: 5px;
+    margin: 3px;
+    border-radius: 10px;
+    z-index: 2;
+    background: #ffffff;
+    box-shadow: inset 0px 0px 10px rgba(119, 172, 170, 0.6);
+}
+.RegistroN° h5, .RegistroN° h4{
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    color: rgba(218, 19, 19, 0.55);
+    font-weight: bold;
+}
+.RegistroN° h5{
+    font-size: 13px;
+}
+.RegistroN° h4{
+    font-size: 12px;
+}
+.RegistroDatosyFecha{
+    display: inline-flex;
+    width: 100%;
+
+    background: rgb(255, 255, 255);
+    padding: 5px 8px 0px 8px;
+}
+.Registro-Cliente{
+    width: 60%;
+}
+.Registro-Cliente h5, .Regitro-Productos h5{
+    background: rgb(124, 181, 182);
+    margin: 2px;
+    padding: 5px ;
+    color: #ffffff;
+    font-size: 16px;
+}
+.Registro-dstosCliente, .Registro-dstosClienteDireccion{
+    display: flex;
+    margin: 5px;
+}
+.DatosClienteDireccion{
+    display: inline-flex;
+}
+.Registro-dstosCliente h6, .Registro-dstosCliente h7, .DatosClienteDireccion h6, .DatosClienteDireccion div h7{
+    display: flex;
+    align-items: center;
+    width: 184px;
+    margin: 0px;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background: rgba(165, 165, 167, 0.18);
+}
+.Registro-dstosCliente h6, .DatosClienteDireccion h6{
+    font-size: 15px;
+    margin-right: 3px;
+}
+.Registro-dstosCliente h7, .DatosClienteDireccion div h7{
+    font-size: 13px;
+}
+.Fecha-Tipo{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.FechaRegistro{
+    width: 80%;
+    border-radius: 5px;
+    padding: 5px 1px 1px 1px;
+    margin-bottom: 5px;
+    background: rgba(125, 126, 128, 0.82);
+}
+.FechaRegistro h2, .TipoDespacho h2, .FormaPago h2{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    color: rgb(255, 255, 255);
+}
+.FechaRegistro h3, .TipoDespacho h3, .FormaPago h3{
+    font-size: 15px;
+    margin-bottom: 1px;
+    background: rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 0.64);
+    padding: 3px 0px;
+    border-radius: 5px;
+}
+.TipoDespacho{
+    width: 80%;
+    border-radius: 5px;
+    padding: 5px 1px 1px 1px;
+    margin-bottom: 2px;
+    background: rgba(125, 126, 128, 0.82);
+}
+.FormaPago{
+    width: 80%;
+    border-radius: 5px;
+    padding: 5px 1px 1px 1px;
+    margin-top: 5px;
+    background: rgba(125, 126, 128, 0.82);
+}
+.Regitro-Productos{
+    background: #ffffff;
+    padding: 5px 8px 0px 8px;
+}
+.Regitro-Productostabla-uno{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.Regitro-Productosthead-registro {
+    background: rgb(126, 126, 128);
+    color:white;
+    font-weight: bold;
+}
+.th-Regitro-Productos, .th-Regitro-Productos-total{
+    border: 1px solid #ffffff;
+    padding: 3px 10px;
+    font-size: 12px;
+}
+.td-Regitro-Productos,.td-Regitro-Productos{
+    background: #ffffff;
+    border: 1px solid #C1c3d1;
+    font-size: 12px
+}
+.td-Regitro-Productos-img{
+    border: 1px solid #C1c3d1;
+}
+.td-Regitro-Productos-img img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #7cb4b5;
+}
+.Regitro-Productostabla-doss{
+    margin-left: 505px;
+
+}
+.th-Regitro-Productos-total{
+    width: 130px;
+
+}
+.foother-registroDespacho{
+    background: #fdfdfe;
+    margin-top: 0px;
+}
+.btn-Despachar{
+    width: 650px;
+    padding: 10px;
+    position: absolute;
+    background: #fdfdfe;
+}
+.btn-Despachar button{
+    margin: 0px auto;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff ;
+    color: #009AA2;
+    height: 30px;
+    border: solid 1px #7cb4b5;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight:bold;
+    transition: .3s ease all;
+    position: relative;
+    overflow: hidden;
+}
+.btn-Despachar button::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #7cb4b5;
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 0;
+    transition: .3s ease-in-out;
+
+}
+.btn-Despachar button:hover::after{
+    top: 0;
+}
+.btn-Despachar span{
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+.btn-Despachar button:hover span {
+    color: #ffffff;
+}
+
+/* Estilos Reporte de Ventas*/
+
+.main-reporteVentas{
+    margin-top: 30px;
+    margin-bottom: 35%;
+    display: flex;
+    flex-direction: column;
+}
+.Contenedor-ReporteVentas{
+    width: 650px;
+    min-width: 350px;
+    margin: 0px auto;
+}
+.titulo-ReporteVentas{
+    width: auto;
+    background: rgb(124, 182, 183);
+    padding: 10px 0 5px 0;
+    margin: 5px 10px 0px 10px;
+    display: flex;
+    justify-content: center;
+}
+.titulo-ReporteVentas h2{
+    font-size: 18px;
+    color: #ffffff;
+}
+.Input-FechasRegistro, .ContededorsearchReporte{
+    margin: 5px 10px 0px 10px;
+    padding: 20px 10px;
+    background: #ffffff;
+}
+.Input-FechasRegistro label{
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+    margin: 10px;
+    font-weight: bold;
+}
+.Input-FechasRegistro label input{
+    margin-left: 8px;
+    padding: 3px 5px;
+    outline: none;
+    border: solid 1px #0098a0;
+}
+.ContededorsearchReporte{
+    margin-top: 0px;
+    height: 90px;
+}
+.searchReporte{
+    display: inline-flex;
+    position: relative;
+    top: 0px;
+    left: -20px;
+    height: 40px;
+    border-radius: 15px;
+}
+.Form-searchReporte{
+    width: 180px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.Label-searchReporte{
+    top: 0px;
+    left: -30px;
+}
+.Input-searchReporte{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border: solid 2px #009AA2;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background: #ffffff;
+    font-size: 15px;
+    width: 180px;
+    height: 40px;
+    outline: none;
+    padding: 5px 15px 5px 15px;
+    transition: all 0.7s ease;
+    opacity: 1;
+}
+.logo-searchReporte{
+    position: absolute;
+    top: -25px;
+    right: -75px;
+    background: #009AA2;
+    width: 85px;
+    height: 85px;
+    line-height:70px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .5s;
+
+}
+.logo-searchReporte svg {
+    margin: 15px;
+    width: 60%;
+    color:#ffffff;
+    line-height: 85px;
+    transition: all .7s ease;
+}
+.searchReporte:hover .Input-searchReporte{
+    width: 240px;
+    padding: 5px 15px 5px 15px;
+}
+.searchReporte:hover .logo-searchReporte svg{
+    transform: rotate(-360deg);
+}
+.Reporte-Generado{
+    width: 800px;
+    padding: 10px;
+    margin: 20px auto;
+    background: #ffffff;
+}
+.Body-Reporte-Generado{
+    width: 100%;
+}
+.header-Reporte-Generado{
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 30%;
+    padding: 10px;
+}
+.img-logoReporte-Generado{
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+.img-logoReporte-Generado img{
+    width: 100%;
+}
+.header-Reporte-Generado{
+    border-bottom: solid 1px #7cb5b6;
+}
+.Nombre-Reporte{
+    width: 60%;
+    min-width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Nombre-Reporte h3{
+    margin-top: 30px;
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Arial Rounded MT Bold";
+}
+.FerreHogardatos{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.FerreHogardatos div{
+    margin: 0px auto;
+}
+.FerreHogardatos h3{
+    font-size: 15px;
+    font-weight: bold;
+}
+.FerreHogardatos h4{
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0px;
+}
+.FerreHogardatos h5{
+    font-size: 12px;
+}
+.ReporteVentas-tabla{
+    margin-top: 30px;
+}
+.ReporteVentas-tablaTitulo h6{
+    color: #0098a0;
+    font-weight: unset;
+}
+.th-Reporte-Productos, .th-Reporte-Productos-total{
+    border: 1px solid #ffffff;
+    padding: 3px;
+    font-size: 12px;
+}
+.td-Reporte-Productos, .td-Reporte-Productos-fecha{
+    background: #ffffff;
+    border: 1px solid #C1c3d1;
+    font-size: 12px
+}
+.td-Reporte-Productos-img{
+    border: 1px solid #C1c3d1;
+}
+.td-Reporte-Productos-img img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #7cb4b5;
+}
+.td-Reporte-Productos-fecha{
+    background: rgba(124, 181, 182, 0.31);
+}
+.Regitro-Productostabla-dos{
+    margin-left: 615px;
+
+}
+.th-Reporte-Productos-total{
+    width: 150px;
+
+}
+
+
+
+
 /* Estilos  Footer */
 .pie{
     width: 100%;
@@ -1639,7 +2109,7 @@ article footer{
 
 /* creamos condiciones mediande la @media para que nuestras páginas seas responsivas*/
 
-@media screen and (max-width:1000px ) {
+@media screen and (max-width:1200px ) {
     /* responsive - head*/
     .principal {
         display: flex;
@@ -1705,9 +2175,10 @@ article footer{
 }
 
 /* responsive- factura */
-@media screen and (max-width:1000px ) {
+@media screen and (max-width:800px ) {
     .factura {
         width: 90%;
+        min-width: 300px;
         margin: 10px auto;
     }
 
@@ -1803,10 +2274,8 @@ article footer{
         padding: 5px;
     }
 
-    .numero-factura {
-        width: 25%;
-        padding: 20px;
-        text-align: center;
+    .numero-factura div{
+        margin: auto 0px;
     }
 
     .numero-factura h6 {
@@ -1881,8 +2350,11 @@ article footer{
 /* resposive-transaccion */
 
 @media screen and (max-width:700px) {
-    .bancos {
-        margin: 25px;
+    .divBancoTitulo{
+        width: 90%;
+        min-width: 350px;
+    }
+    .div-bancos{
         display: block;
         width: 90%;
         min-width: 350px;
@@ -1919,7 +2391,6 @@ article footer{
         display: flex;
         justify-content: center;
     }
-
     .tabla-usuario {
         width: 90%;
         margin: 40px 5px;
@@ -1941,6 +2412,7 @@ article footer{
         text-overflow: ellipsis;
         font-size: 8px;
     }
+
     /* responsive carrito*/
     .Productos-carrito{
         display: inline-flex;
@@ -1960,3 +2432,75 @@ article footer{
         margin: 10px auto;
     }
 }
+@media screen and (max-width:800px) {
+    /* responsive Control de Pedidos*/
+
+    .registroPedidos {
+        width: 400px;
+    }
+    .RegistroDatosyFecha{
+        display: block;
+    }
+    .seccion-Registro{
+        height: 100vh;
+    }
+    .titulo-Registro{
+        width: 380px;
+    }
+    .contenedor-Registro{
+        width: 400px;
+    }
+    .Registro-Cliente{
+        width: 100%;
+    }
+    .Fecha-Tipo{
+        margin: 0px auto;
+    }
+    .Regitro-Productostabla-doss{
+        margin-left: 300px;
+    }
+    .btn-Despachar {
+        width: 400px;
+    }
+    .contenedor-Registro {
+        width: 400px;
+    }
+    .RegistroN° {
+
+        margin: 5px 0px 0px 270px;
+    }
+
+    /* responsive Reporte de Ventas*/
+    .Contenedor-ReporteVentas {
+        width: 450px;
+    }
+    .Reporte-Generado {
+        width: 470px;
+    }
+    .Nombre-Reporte{
+        width: 40%;
+    }
+    .Nombre-Reporte h3{
+        font-size: 18px;
+    }
+    .img-logoReporte-Generado{
+        width: 30%;
+    }
+    .FerreHogardatos{
+        width: 30%;
+    }
+    .FerreHogardatos h3{
+        font-size: 11px;
+        font-weight: bold;
+    }
+    .FerreHogardatos h4{
+        font-size: 9px;
+        font-weight: bold;
+        margin: 0px;
+    }
+    .FerreHogardatos h5{
+        font-size: 10px;
+    }
+}
+
+
