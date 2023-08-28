@@ -19,6 +19,8 @@
             <img src="../static/images/logo.png" th:src="@{/images/logo.png}" alt="logo imagen">
         </figure>
     </header>
+    <!-- Alerts -->
+    <div th:if="${err}" class="alert alert-danger" role="alert"> Algunos productos superan la cantidad disponible. </div>
     <!-- Navigation Bar -->
     <nav class="principal" >
         <!-- Button nav -->

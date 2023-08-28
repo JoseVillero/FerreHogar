@@ -14,4 +14,8 @@ public class ConstantesVistas {
     public static final String BUSQUEDA_VISTA = "busqueda";
     public static final String CARRITO_VISTA = "carrito";
 
+    public static final String TRANSACCION_VISTA = "transaccion";
+
+    public static final String FACTURA_VISTA = "factura";
+
 }

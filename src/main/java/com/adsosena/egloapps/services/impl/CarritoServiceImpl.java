@@ -63,6 +63,19 @@ public class CarritoServiceImpl implements CarritoService {
         pedidoRepository.deleteById(id);
     }
 
+    public List<Pedido> validarPedidos(){
+
+        List<Pedido> pedidos = listarPedidos();
+        List<Pedido> pedidosNoAptos = new ArrayList<>();
+
+        for (Pedido pedido: pedidos){
+            if (pedido.getCantidad() > pedido.getProducto().getCantidadDisponible()){
+                pedidosNoAptos.add(pedido);
+            }
+        }
+        return pedidosNoAptos;
+    }
+
     @Transactional
     public void actualizarPedido(Long id, int cantidad){
         pedidoRepository.updateCantidad(id, cantidad);

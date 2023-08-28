@@ -1,20 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="es">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<!-- Headers -->
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transacción</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
-    <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
-    <!DOCTYPE html>
-    <html xmlns:th="http://www.thymeleaf.org">
-    <html lang="es">
-    <!-- Headers -->
-    <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,51 +9,76 @@
         <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
         <script src="https://kit.fontawesome.com/f1ac1f649e.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../static/css/estilos.css" th:href="@{/css/estilos.css}">
-    </head>
-    <body>
-    <!-- Logo header -->
-        <div>
-            <header class="header">
-                <figure>
-                    <img src="../static/images/logo.png" th:src="@{/images/logo.png}" >
-                </figure>
-            </header>
-            <!-- Navigation Bar -->
-            <nav class="principal" >
-                <!-- Button nav -->
-                <nav class="menuConfig">
-                    <ul>
-                        <li><a href="#" th:href="@{/}">Home</a></li>
-                        <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
-                        <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
-                        <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
-                    </ul>
-                </nav>
-                <!-- Shopping cart-->
-                <nav class="totalAgregado">
-                    <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                    </svg>
-                </nav>
-                <!-- Info User -->
-                <nav class="usuario">
-                    <div class="contenedor-img">
-                        <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
-                        <h2 th:text="${fullName}">Usuario</h2>
-                        <h2 sec:authentication="principal.authorities">User</h2>
-                    </div>
-                    <form class="contenedor-logout" th:action="@{/logout}" method="post">
-                        <button><span>Logout</span></button>
-                    </form>
-                </nav>
+</head>
+<body>
+<!-- Logo header -->
+<div>
+    <header class="header">
+        <figure>
+            <img src="../static/images/logo.png" th:src="@{/images/logo.png}" >
+        </figure>
+        </header>
+        <!-- Navigation Bar -->
+        <nav class="principal" >
+            <!-- Button nav -->
+            <nav class="menuConfig">
+                <ul>
+                    <li><a href="#" th:href="@{/}">Home</a></li>
+                    <li><a href="#" th:href="@{/about}">¿Quines somos?</a></li>
+                    <li><a href="#" th:href="@{/catalogo}">Catálogo</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/usuarios}">Gestionar Usuarios</a></li>
+                </ul>
             </nav>
-            <!--  -->
+            <!-- Shopping cart-->
+            <nav class="totalAgregado">
+                <a href="#" th:href="@{/carrito}">
+                    <svg class="agregado" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                         viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1
+                         .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0
+                         1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479
+                         9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7
+                         1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                </a>
+
+            </nav>
+            <!-- Info User -->
+            <nav class="usuario">
+                <div class="contenedor-img">
+                    <img src="../static/images/user.png" th:src="@{/images/user.png}" alt="logo user">
+                    <h2 th:text="${fullName}">Usuario</h2>
+                    <h2 sec:authentication="principal.authorities">User</h2>
+                </div>
+                <form class="contenedor-logout" th:action="@{/logout}" method="post">
+                    <button><span>Logout</span></button>
+                </form>
+            </nav>
+        </nav>
+        <!--  -->
+        <form id="formulario-envio" class="formulario-tarjeta-input" action="#" th:object="${tarjetaCredito}" th:action="@{/pagar}" method="post">
             <section class="bancos">
                 <fieldset>
+                    <legend class="legend-transaccion">Dirección de envío</legend>
+                    <label for="radio-tienda" class="label-bancos">
+                        <div class="div-input-bancos">
+                            <input type="radio" name="opcion" value="tienda" id="radio-tienda" class="input-bancos" checked>
+                        </div>
+                        <div class="div-span-bancos">
+                            <span>Recoger en tienda.</span>
+                        </div>
+                    </label>
+                    <label for="radio-domicilio" class="label-bancos">
+                        <div class="div-input-bancos">
+                            <input type="radio" name="opcion" value="domicilio" id="radio-domicilio" class="input-bancos">
+                        </div>
+                        <input type="text" pattern="^[A-Za-z0-9\s#\-]{10,}$" name="domicilio" id="domicilio" placeholder="Ingresa la dirección">
+                    </label>
+                </fieldset>
+                <fieldset>
                     <legend class="legend-transaccion">Seleccione su banco</legend>
-
                     <label for="radio-visa" class="label-bancos">
                         <div class="div-input-bancos">
-                            <input type="radio" name="banco" value="visa" id="radio-visa" class="input-bancos">
+                            <input type="radio" name="franquicia" value="VISA" id="radio-visa" class="input-bancos">
                         </div>
                         <div class="img-bancos">
                             <img src="../static/images/visa.png" th:src="@{/images/visa.png}" alt="Logo banco">
@@ -74,96 +86,92 @@
                         <div class="div-span-bancos">
                             <span>Visa</span>
                         </div>
-
                     </label>
-
                     <label for="radio-mastercard" class="label-bancos">
                         <div class="div-input-bancos">
-                            <input type="radio" name="banco" value="mastercard" id="radio-mastercard" class="input-bancos">
+                            <input type="radio" name="franquicia" value="MASTERCARD" id="radio-mastercard" class="input-bancos" >
                         </div>
                         <div class="img-bancos">
-                            <img src="../static/images/Mastercard.png" th:src="@{/images/mastercard.png}" alt="Logo banco">
+                            <img src="../static/images/Mastercard.png" th:src="@{/images/Mastercard.png}" alt="Logo banco">
                         </div>
                         <div class="div-span-bancos">
                             <span>MasterCard</span>
                         </div>
-                        
                     </label>
-
                     <label for="radio-dinnersClub" class="label-bancos">
                         <div class="div-input-bancos">
-                            <input type="radio" name="banco" value="dinnersClub" id="radio-dinnersClub" class="input-bancos">
-                        </div >                        
+                            <input type="radio" name="franquicia" value="DINNERS_CLUB" id="radio-dinnersClub" class="input-bancos">
+                        </div >
                         <div class="img-bancos">
                             <img src="../static/images/Diners-club.png" th:src="@{/images/Diners-club.png}" alt="Logo banco">
                         </div>
                         <div class="div-span-bancos">
                             <span>Dinners Club</span>
                         </div>
-                        
                     </label>
-
                     <label for="radio-americanExpress" class="label-bancos">
                         <div class="div-input-bancos">
-                            <input type="radio" name="banco" value="americanExpress" id="radio-americanExpress" class="input-bancos">
-                        </div>                        
+                            <input type="radio" name="franquicia" value="AMERICAN_EXPRESS" id="radio-americanExpress" class="input-bancos">
+                        </div>
                         <div class="img-bancos">
                             <img src="../static/images/American-Express.png" th:src="@{/images/American-Express.png}" alt="Logo banco">
                         </div>
                         <div class="div-span-bancos">
                             <span>American Express</span>
                         </div>
-                        
                     </label>
-                    
                 </fieldset>
                 <div class="formulario-tarjeta">
-                    <form class="formulario-tarjeta-input">
-                        <legend class="legend-transaccion">Información adicional</legend>
+                    <legend class="legend-transaccion">Información adicional</legend>
+                    <div>
+                        <input class="card-nombres" type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+{5,40}"
+                               placeholder="Nombres y Apellidos" title="Ingresa un nombre valido"
+                               th:field="*{nombreCompleto}" required>
+                    </div>
+                    <div>
+                        <input class="card-direccion" type="text" pattern="^[A-Za-z0-9\s#\-]{10,}$"
+                               placeholder="Dirección" title="Ingresa una dirección valida" th:field="*{direccion}" required>
+                    </div>
+                    <legend class="legend-transaccion">Información tarjeta</legend>
+                    <div class="input-trajeta">
+                    <div>
+                        <input class="card-numero" type="text" pattern="[0-9]{13,19}" placeholder="Numero de tarjeta"
+                               title="Ingresa una numero de tarjeta valido" th:field="*{numero}" required>
+                    </div>
                         <div>
-                            <input class="card-nombres" type="text" placeholder="Nombres y Apellidos" name="name">
-                        </div>
-                        <div>
-                            <input class="card-direccion" type="text" placeholder="Dirección" name="name">
-                        </div>
-
-
-                    </form>
-                    <form class="formulario-tarjeta-input">
-                        <legend class="legend-transaccion">Información tarjeta</legend>
-                        <div class="input-trajeta">
                             <div>
-                                <input class="card-numero" type="number" placeholder="Numero de tarjeta" name="card">
-                            </div>
-                            <div>
-                                <div>
-                                    <input class="card-mm" type="number" placeholder="MM" name="card">
-                                    <input class="card-aa" type="number" placeholder="AA" name="card">
-                                    <input class="card-cw" type="number" placeholder="CVV" name="card">
-                                </div>
+                                <input class="card-mm" type="text" placeholder="MM" name="mes"
+                                       pattern="[0-9]{2}" title="Ingresa el mes de vencimiento" required>
+                                <input class="card-mm" type="text" placeholder="AA" name="year"
+                                       pattern="[0-9]{4}" title="Ingresa el año de vencimiento">
+                                <input class="card-mm" type="text" placeholder="CVV" pattern="[0-9]{3,4}"
+                                           title="Ingresa el codigo CVV valido" th:field="*{CVV}" required>
+                                <input type="hidden" value="COLOMBIA" name="pais">
                             </div>
                         </div>
-                        <div class="btn-confirmar-pago">
-                            <button><span>Confirmar pago</span></button>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="btn-confirmar-pago">
+                        <button><span>Confirmar pago</span></button>
+                    </div>
                 </div>
-
             </section>
-            <!-- Footer -->
-            <footer class="pie">
-                <ul>
-                    <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
-                    <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="https://www.instagram.com/eglocolombia/" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
-                    <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
-                </ul>
-                <div class="copyrith">
-                    <p class="copyrith">&copy Copyrith Proyecto SENA - 2023 </p>
-                    <h4>Jose David Villero</h4>
-                    <h4>Sergio Andrés Manrique Triana</h4>
-                </div>
-            </footer>
-        </div>
-    </body>
+        </form>
+        <!-- Footer -->
+        <footer class="pie">
+            <ul>
+                <li><a href="https://www.facebook.com/EgloColombia" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/eglocolombia/" class="isntagram"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCYq5APfUm7AadEIzqkaobwQ" class="youtube"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=573165358521" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a></li>
+            </ul>
+            <div class="copyrith">
+                <p class="copyrith">&copy Copyrith Proyecto SENA - 2023 </p>
+                <h4>Jose David Villero</h4>
+                <h4>Sergio Andrés Manrique Triana</h4>
+            </div>
+        </footer>
+    </div>
+<script src="../static/js/script2.js" th:src="@{/js/script2.js}"></script>
+</body>
+</html>

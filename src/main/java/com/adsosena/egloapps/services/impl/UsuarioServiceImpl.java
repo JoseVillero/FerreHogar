@@ -80,5 +80,9 @@ public class UsuarioServiceImpl implements UserDetailsService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return usuarioRepository.findUsuarioByEmail(authentication.getName());
     }
+
+    public void actualizaUsuario(Usuario usuario){
+        usuarioRepository.save(usuario);
+    }
 }
 

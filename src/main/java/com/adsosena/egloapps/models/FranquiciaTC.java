@@ -4,7 +4,7 @@ public enum FranquiciaTC {
 
     DINNERS_CLUB,
     VISA,
-    MASTER_CARD,
+    MASTERCARD,
     AMERICAN_EXPRESS;
 
 }

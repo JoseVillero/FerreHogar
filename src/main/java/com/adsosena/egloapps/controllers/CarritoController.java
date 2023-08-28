@@ -41,13 +41,14 @@ public class CarritoController {
     }
 
     @GetMapping("/carrito")
-    public String mostrarCarrito(Model model){
+    public String mostrarCarrito(Model model, @RequestParam(value = "err", required = false) String error){
         List<Pedido> pedidoList = carritoService.listarPedidos();
 
         model.addAttribute("usuario", usuarioService.getUsuarioActual().getNombreCompleto());
         model.addAttribute("pedidos", pedidoList);
         model.addAttribute("totalApagar", totalAPagar(pedidoList));
         model.addAttribute("cantidadEditada", 0);
+        model.addAttribute("err", error);
         return ConstantesVistas.CARRITO_VISTA;
     }
 

@@ -97,5 +97,14 @@ public class ProductoServiceImpl implements ProductoService {
         return productoRepository.save(productoConverter.productoModelToProducto(productoModel));
     }
 
+    public void restarCantidadProducto(int productoId, int cantidad){
+
+        productoRepository.restarCantidad(productoId, cantidad);
+    }
+
+    public void actualizarProducto(Producto producto){
+        productoRepository.save(producto);
+    }
+
 }
 
