@@ -200,6 +200,16 @@
     "expiracion": "02/2030"
   },
   {
+    "franquicia": "MASTERCARD",
+    "numero": "360151214243796",
+    "nombre": "Alejandro Garcia",
+    "direccion": "Cl 6 #5-46",
+    "pais": "COLOMBIA",
+    "monto": "27245578",
+    "CVV": "307",
+    "expiracion": "02/2024"
+  },
+  {
     "franquicia": "AMERICAN_EXPRESS",
     "numero": "377815396915353",
     "nombre": "Jimena Pereira",

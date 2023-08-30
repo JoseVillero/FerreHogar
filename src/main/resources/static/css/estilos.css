@@ -633,11 +633,11 @@ article{
 }
 .input{
     position: relative;
-    right: 25px;
+    width: 50px;
+    margin: 0px auto;
 }
 .input-cantidad{
-    margin-right: 6px;
-    margin-top: 4px;
+    margin: 0px auto;
     text-align: center;
     width: 50px;
     border: solid 1px rgb(99, 95, 95);
@@ -647,7 +647,7 @@ article{
 .tooltip-cantidad{
     visibility: hidden;
     position: absolute;
-    left: -8px;
+    left: 0px;
     bottom: 30px;
     width: 80px;
     border: none;
@@ -657,7 +657,7 @@ article{
 .input:hover .tooltip-cantidad{
     visibility: visible;
     opacity: 1;
-    bottom: 50px;
+    left: 25px;
     transition: .5s;
     box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.34);
 }
@@ -669,7 +669,7 @@ article{
     transform: rotate(90deg);
     border-bottom: 5px solid transparent;
     border-top: 5px solid transparent;
-    border-left: 10px solid rgba(131, 133, 133, 0.81);
+    border-left: 10px solid rgba(131, 133, 133, 0.7);
 }
 .tooltip-cantidad small{
     color: rgba(255, 255, 255, 0.82);
@@ -728,7 +728,7 @@ article{
     margin: 4px;
 }
 
-/* estilos páginas de catalogo-usuario body: modal(agregar)  */
+/* estilos páginas de catalogo-usuario body: modal(agregar producto - usuario)  */
 .options{
     position: absolute;
     bottom: 0;
@@ -751,12 +751,12 @@ article{
 .btnGuardar {
     margin: 20px 0 0 60px;
 }
-/* modal agregar*/
+/* modal agregar al carrito*/
 
 .modal-header{
     margin: 10px;
 }
-.modal-header h1 {
+.modal-header h1, .modal-header-aregarAlcarrito h1 {
     display: flex;
     margin: 0px 0px 0px 140px;
 }
@@ -770,9 +770,14 @@ article{
     width: 90%;
     height: 100%;
 }
-.modal-bodyCarrito, .modal-bodyCarritoEdit{
+.modal-bodyCarrito{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.modal-bodyCarritoEdit{
     display: block;
-
 }
 .modal-body form label, .modal-bodyForm label{
     display: flex;
@@ -820,7 +825,6 @@ article{
 .modal-bodyLabel{
     display: flex;
 }
-
 
 
 /* estilos Usuarios-body */
@@ -1135,12 +1139,16 @@ article footer{
 
 /* Estilos transacción */
 
-.bancos{
+.formulario-tarjeta-form{
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 30px 10px 40px 10px;
-
+}
+.bancos{
+    height: 480px;
 }
 .divBancoTitulo{
     width: 40%;
@@ -1221,8 +1229,8 @@ article footer{
     background: #f0e9e993;
 }
 .img-bancos img{
-    width: 60%;
-
+    width: auto;
+    object-fit: cover;
 }
 .div-span-bancos{
     width: 140px;
@@ -1246,18 +1254,50 @@ article footer{
     justify-content: center;
     flex-direction: column;
 }
-.formulario-tarjeta-input, .formulario-tarjeta-inputUser{
-    margin: 0px 0px 10px 0px;
-    background: rgb(253, 253, 254);
+
+.formulario-tarjetaInput, .formulario-tarjeta-div2{
+    margin: 0px 0px 3px 0px;
+    background: #ffffff;
 }
-.formulario-tarjeta-inputUser{
-    height: 240px;
+.formulario-tarjeta-div2{
+    height: 145px;
+}
+.formulario-tarjeta-div2 fieldset{
+    width: 100%;
+    background: none;
+}
+.label-bancos-tarjeta-div2{
+    display: inline-flex;
+    padding: 5px 20px;
+}
+.formulario-tarjetaInput{
+    height: 280px;
+    padding-bottom: 10px;
+}
+.input-trajeta{
+
+}
+.div-span-Dirección{
+    width: 220px;
+    height: 30px;
+    background: rgba(182, 225, 228, 0.89);
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 5px 10px;
+}
+.div-span-Dirección span{
+    display: flex;
+    font-size: 14px;
+}
+.div-input-Dirección{
+    display: flex;
 }
 .formulario-tarjeta-input{
     height: 200px;
 }
 .input-trajeta div{
     background: none;
+
 }
 .card-nombres ,.card-direccion,.card-numero,.card-mm,.card-aa,.card-cw{
     width: 220px;
@@ -2072,40 +2112,6 @@ article footer{
     perspective: 1000px;
 }
 
-.card {
-    width: 300px;
-    height: 300px;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-}
-
-.card-front,
-.card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-}
-
-.card-front {
-    background-color: #f8f9fa;
-    transform: rotateY(0deg);
-    z-index: 2;
-}
-
-.card-back {
-    background-color: #e9ecef;
-    transform: rotateY(180deg);
-}
-
-.flipped {
-    transform: rotateY(180deg);
-}
-
-.card-title,
-.card-text {
-    margin-bottom: 15px;
-}
 
 /* creamos condiciones mediande la @media para que nuestras páginas seas responsivas*/
 
@@ -2366,6 +2372,11 @@ article footer{
     .formulario-tarjeta{
         width: 80%;
         margin: 15px auto;
+    }
+    .formulario-tarjeta-div2 fieldset{
+        margin-top: 2px;
+        display: block;
+        width: 100%;
     }
 
     /* Estilos  404*/
