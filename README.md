@@ -26,6 +26,8 @@ El web site FerreHogar es una aplicacion de web donde los clientes pueden regist
 - El rol administrador permite la gestion de usuarios y de productos (eliminar, editar y crear).
 - Los perfiles con roles administrador permiten llevar un control completo de los usuarios disponibles en la base de datos y los productos como su cantidad, descripcion, referencia o imagen.
 - Los usuarios pueden añadir productos al carrito y realizar la compra del producto de manera online
+- Los usuarios pueden obtener y descargar la factura al momento de la compra. 
+
 
 ### Tecnologias utilizadas:
 
@@ -38,25 +40,61 @@ El web site FerreHogar es una aplicacion de web donde los clientes pueden regist
 
 ### Capturas de pantalla: 
 
+#### ROL USUARIO: 
+
+
 **Inicio de sesion:**
 
-![Inicio de sesion](https://github.com/JoseVillero/EgloApps/blob/dev/screenShot/Web%20capture_6-7-2023_21848_localhost.jpeg)
+![Inicio de sesion](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20103644.png)
 
 **Pagina de home:**
 
-![Pagina de home](https://github.com/JoseVillero/EgloApps/blob/dev/screenShot/Web%20capture_6-7-2023_21957_localhost.jpeg)
+![Pagina de home](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20103750.png)
+
+**Pagina quienes somos:**
+
+![Pagina Quienes somos](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20104147.png)
 
 **Pagina de catalogo:**
 
-![Pagina de catalogo](https://github.com/JoseVillero/EgloApps/blob/dev/screenShot/Screenshot%20from%202023-07-06%2002-22-08.png)
+![Pagina de catalogo](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20110547.png)
+
+**Gestion agregar al carrito:**
+
+![Gestion agregar al carrito](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20110625.png)
+
+**Pagina carrito:**
+
+![Pagina carrito](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20110652.png)
+
+**Pagina compra y transaccion:**
+
+![Pagina compra y transaccion](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20110717.png)
+
+**Pagina factura:**
+
+![Pagina factura](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20110852.png)
+
+
+#### ROL ADMINISTRADOR: 
+
 
 **Gestion agregar producto:**
 
-![Gestion agregar producto](https://github.com/JoseVillero/EgloApps/blob/dev/screenShot/Web%20capture_6-7-2023_22242_localhost.jpeg)
+![Gestion agregar producto](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20103948.png)
 
-**Gestion usuario:**
+**Gestion editar usuario:**
 
-![Gestion usuario](https://github.com/JoseVillero/EgloApps/blob/dev/screenShot/Web%20capture_6-7-2023_22314_localhost.jpeg)
+![Gestion usuario](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20104054.png)
+
+**Gestion agregar usuario:**
+
+![Gestion agregar usuario](https://github.com/JoseVillero/FerreHogar/blob/dev/screenShot/Screenshot%202023-09-03%20104110.png)
+
+
+
+
+
 
 
 
