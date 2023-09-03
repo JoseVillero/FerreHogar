@@ -28,6 +28,7 @@ El web site FerreHogar es una aplicacion de web donde los clientes pueden regist
 - Los usuarios pueden añadir productos al carrito y realizar la compra del producto de manera online
 - Los usuarios pueden obtener y descargar la factura al momento de la compra. 
 
+
 ### Tecnologias utilizadas:
 
 - JAVA 17
