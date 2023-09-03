@@ -11,7 +11,7 @@ Grupo 6.
 - Jose David Villero Hernandez.
 - Sergio Andrés Manrique Triana.
       
-## _Web site de compras para articulos de ferreteria
+## _Web site de compras para articulos de ferreteria_
 
 FerreHogar es una ferreteria emergente de origen familiar. Su objetivo es posecionarse como un referente a nivel local de articulos y productos de ferreteria. 
 
